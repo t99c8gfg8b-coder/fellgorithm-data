@@ -1,0 +1,108 @@
+# Fellgorithm — weekly bus timetable refresh.
+# Builds from BODS, runs the pre-publish checks, and publishes to GitHub Pages ONLY if every check passes.
+# On failure: last week's file stays live, the run fails (GitHub emails you) and an issue is opened with the report.
+name: Weekly bus timetables
+
+on:
+  schedule:
+    - cron: '30 4 * * 1'        # every Monday 04:30 UTC (05:30 UK summer time)
+  workflow_dispatch:             # the "Run workflow" button
+    inputs:
+      force:
+        description: 'Publish even if checks fail (only after reading the report!)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
+
+concurrency:
+  group: buses
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build and check
+        id: build
+        env:
+          BODS_API_KEY: ${{ secrets.BODS_API_KEY }}
+        run: |
+          set +e
+          node bus-build/build.mjs --prev site/buses.json --out out
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bus-report
+          path: |
+            out/report.md
+            out/result.json
+            out/buses-meta.json
+
+      - name: Copy into the site (passed, or forced)
+        if: steps.build.outputs.code == '0' || (inputs.force && steps.build.outputs.code == '2')
+        run: |
+          cp out/buses.json out/fellgorithm-buses.js out/buses-meta.json out/report.md site/
+          git config user.name  "fellgorithm-bot"
+          git config user.email "fellgorithm-bot@users.noreply.github.com"
+          git add site
+          git commit -m "Bus timetables $(date -u +%F) — $(node -p "require('./out/buses-meta.json').version")" || echo "no change"
+          git push
+
+      - name: Upload site
+        if: steps.build.outputs.code == '0' || (inputs.force && steps.build.outputs.code == '2')
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Publish (atomic swap)
+        id: deploy
+        if: steps.build.outputs.code == '0' || (inputs.force && steps.build.outputs.code == '2')
+        uses: actions/deploy-pages@v4
+
+      - name: Close old failure issues (this run passed)
+        if: steps.build.outputs.code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --state open --search "Bus timetable build FAILED in:title" --json number -q '.[].number'); do
+            gh issue close "$n" --comment "Fixed: the $(date -u +%F) build passed every check and is published."
+          done
+
+      - name: Known gap issue (open while a service is thin, close when it is back)
+        if: steps.build.outputs.code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          open=$(gh issue list --state open --search "Known timetable gap in:title" --json number -q '.[0].number')
+          if [ -s out/gaps.md ]; then
+            if [ -z "$open" ]; then gh issue create --title "Known timetable gap $(date -u +%F) — published with official journeys only" --body-file out/gaps.md;
+            else gh issue comment "$open" --body-file out/gaps.md; fi
+          elif [ -n "$open" ]; then
+            gh issue close "$open" --comment "All services back to normal in the $(date -u +%F) build."
+          fi
+
+      - name: Alert — checks failed, last week's file kept
+        if: steps.build.outputs.code != '0' && !(inputs.force && steps.build.outputs.code == '2')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "Bus timetable build FAILED $(date -u +%F) — last week's file kept live" --body-file out/report.md
+          exit 1
