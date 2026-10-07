@@ -1,0 +1,26 @@
+# Build output and downloads (the job makes these fresh each run)
+out/
+*.zip
+*.part
+node_modules/
+
+# Mac / editor clutter
+.DS_Store
+.vscode/
+.idea/
+
+# Secrets — the BODS key lives ONLY in GitHub Secrets
+.env
+.env.*
+*.key
+
+# Safety net: things that must NEVER be in this public repo
+.tmp-*
+*.gpx
+gpx-network.json
+fellgorithm-lines.js
+fellgorithm-gpx.js
+fellgorithm-toppool*.js
+fellgorithm-overnight*.js
+uploads/
+archive/
