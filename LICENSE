@@ -1,0 +1,29 @@
+Fellgorithm data repository — licence
+
+1. CODE (everything in bus-build/ and .github/)
+
+Copyright (c) 2026 Richard Johnston, trading as Fellgorithm. All rights reserved.
+
+This code is published only so the weekly timetable job can run and publish its
+files. It is NOT open source. You may read it, but you may not copy, modify,
+distribute or use it, in whole or in part, without written permission.
+
+
+2. TIMETABLE AND STOP DATA (site/ and bus-build/places-manifest.json)
+
+Contains public sector information licensed under the Open Government Licence v3.0:
+https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+
+  - Bus timetables: Bus Open Data Service (BODS), Department for Transport.
+  - Bus stop codes and locations: NaPTAN, Department for Transport.
+
+These files are compiled and reorganised from those sources. Their use is not
+endorsed by the Department for Transport or any bus operator. Always check
+times with the operator before you travel.
+
+
+3. NO WARRANTY
+
+The data is provided "as is", without warranty of any kind. Timetables change,
+buses are cancelled and the data may be wrong or out of date. Fellgorithm is a
+planner, not a navigation or safety device.

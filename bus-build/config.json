@@ -1,0 +1,63 @@
+{
+ "note": "Which buses the weekly job pulls. services = route numbers; nocs = operator codes (Stagecoach Cumbria = SCCU). A service with no manifest places is reported as NEW and left out until its places are added.",
+ "gtfsUrl": "https://data.bus-data.dft.gov.uk/timetable/download/gtfs-file/north_west/",
+ "services": [
+  "555",
+  "505",
+  "508",
+  "509",
+  "516",
+  "554",
+  "599",
+  "6",
+  "77",
+  "77A",
+  "77C",
+  "78",
+  "755",
+  "X4",
+  "X5"
+ ],
+ "order": [
+  "505",
+  "508",
+  "509",
+  "516",
+  "554",
+  "555",
+  "599",
+  "6",
+  "77",
+  "77A",
+  "78",
+  "X4",
+  "X5"
+ ],
+ "nocs": [
+  "SCCU"
+ ],
+ "merge": {
+  "755": "555"
+ },
+ "staleDays": 14,
+ "floorNote": "Fail the run if a service has fewer journeys than this (half the 22 Sep 2026 reference build). Lower a number only after checking the operator timetable.",
+ "floor": {
+  "6": 43,
+  "77": 10,
+  "78": 57,
+  "505": 34,
+  "508": 12,
+  "509": 10,
+  "516": 45,
+  "554": 40,
+  "555": 131,
+  "599": 102,
+  "77A": 10,
+  "X4": 69,
+  "X5": 132
+ },
+ "gapNote": "A service below its floor but at or above its gap minimum (default 30% of floor = 15% of the reference size) publishes as a KNOWN GAP (flagged in the app + an issue). Below the gap minimum = the run fails. gapMin overrides the default per service; gapNotes adds a reason shown in the report/issue.",
+ "gapNotes": {
+  "555": "Stagecoach's main 555 registration PC0002407/300 is unpublished on BODS (since early Oct 2026); operator emailed 7 Oct."
+ }
+}
