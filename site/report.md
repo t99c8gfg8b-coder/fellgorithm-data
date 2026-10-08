@@ -1,7 +1,7 @@
 # Bus timetable build 2026-10-08 — PASSED ✓ (ready to publish)
 
-BODS feed 20261008_025612 (20261008 → 20270830) · 14 services · 1396 journeys (last good: 2026-10-07, 1396 journeys)
-Timetable runs to 20270708 · 200 route stops checked · checksum cd5d471f0657
+BODS feed 20261008_025612 (20261008 → 20270830) · 14 services · 1396 journeys (last good: 2026-10-08, 1396 journeys)
+Timetable runs to 20270708 · 200 route stops checked · checksum fee58c74faa0
 
 ## Failures
 - none
@@ -11,20 +11,9 @@ Timetable runs to 20270708 · 200 route stops checked · checksum cd5d471f0657
 - Not running in this feed (fine out of season): 77C
 
 ## Changes since the last published build
-- 6: 91 → 91 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- 78: 114 → 114 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- 505: 70 → 70 journeys (2 new/changed, 2 gone), runs to 20270708 (was 20270707)
-- 508: 74 → 74 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- 509: 43 → 43 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- 516: 90 → 90 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- 554: 100 → 100 journeys (6 new/changed, 6 gone), runs to 20270708 (was 20270707)
-- 555: 18 → 18 journeys (1 new/changed, 1 gone), runs to 20270708 (was 20270707)
-- 599: 204 → 204 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- 755: 30 → 30 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
-- X4: 177 → 177 journeys (39 new/changed, 39 gone), runs to 20270708 (was 20270707)
-- X5: 344 → 344 journeys (81 new/changed, 81 gone), runs to 20270708 (was 20270707)
+- No timetable changes
 
-## Buses home waiting for confirmation
+## Buses home waiting for confirmation (same BODS feed as the last published build — nothing new is confirmed today)
 - New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±10 min count as the same bus).
 - 6: 29 journeys held on some dates (0 wholly new or changed)
 - 78: 38 journeys held on some dates (0 wholly new or changed)

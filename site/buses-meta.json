@@ -2,8 +2,8 @@
  "schema": 1,
  "version": "2026-10-08+bods-20261008_025612",
  "generated": "2026-10-08",
- "bytes": 691098,
- "sha256": "cd5d471f065775ce011dad38a636b0c075ab726730edbee6a68180b7432d2c9c",
+ "bytes": 691097,
+ "sha256": "fee58c74faa0d6ab3a0489e9f3ab48f7f2b33c4c63a9d83e30764e9d053b77ab",
  "services": 14,
  "journeys": 1396,
  "feed": {
