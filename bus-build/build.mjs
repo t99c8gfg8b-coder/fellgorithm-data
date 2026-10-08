@@ -20,11 +20,11 @@ import { fileURLToPath } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const C = createRequire(import.meta.url)('./fg-bus-core.js');
 const PR = createRequire(import.meta.url)('./problems.js');
-const LEDGER = arg('problems', 'site/problems.json'), HOLDS = arg('holds', 'holds.json');
 const readJ = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
 /* kinds this job owns in the problem ledger (the hourly signals job owns the others) */
 const SCOPE = ['build-fail', 'gap', 'conflict', 'stale-feed', 'service-gone', 'new-service', 'base-thin'];
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
+const LEDGER = arg('problems', 'site/problems.json'), HOLDS = arg('holds', 'holds.json');
 const cfg = JSON.parse(fs.readFileSync(path.join(HERE, 'config.json'), 'utf8'));
 const M = JSON.parse(fs.readFileSync(path.join(HERE, 'places-manifest.json'), 'utf8'));
 const tests = JSON.parse(fs.readFileSync(path.join(HERE, 'base-tests.json'), 'utf8'));
