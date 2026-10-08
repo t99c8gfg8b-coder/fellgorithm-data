@@ -100,8 +100,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           [ -s out/summary.md ] || exit 0
-          n=$(gh issue list --state open --search "Daily bus data summary in:title" --json number -q '.[0].number')
-          if [ -z "$n" ]; then gh issue create --title "Daily bus data summary" --body "One comment a day with every open problem, what is new and what was resolved (and how). Click Subscribe on this issue to get it by email."; n=$(gh issue list --state open --search "Daily bus data summary in:title" --json number -q '.[0].number'); fi
+          n=$(gh issue list --state open --limit 100 --json number,title -q '[.[] | select(.title=="Daily bus data summary")][0].number // empty')   # exact title, no search index
+          if [ -z "$n" ]; then url=$(gh issue create --title "Daily bus data summary" --body "One comment a day with every open problem, what is new and what was resolved (and how). Click Subscribe on this issue to get it by email."); n=${url##*/}; fi
           gh issue comment "$n" --body-file out/summary.md
           for g in $(gh issue list --state open --search "Known timetable gap in:title" --json number -q '.[].number'); do gh issue close "$g" --comment "Now tracked in the problem list (Bus Data Monitor) and the Daily bus data summary issue."; done
 
