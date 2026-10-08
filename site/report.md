@@ -1,31 +1,46 @@
-# Bus timetable build 2026-10-07 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-08 — PASSED ✓ (ready to publish)
 
-BODS feed 20261007_030412 (20261007 → 20270830) · 14 services · 1396 journeys (last good: 2026-09-22, 1393 journeys)
-Timetable runs to 20270707 · 200 route stops checked · checksum f0c2e3e84ec3
+BODS feed 20261008_025612 (20261008 → 20270830) · 14 services · 1396 journeys (last good: 2026-10-07, 1396 journeys)
+Timetable runs to 20270708 · 200 route stops checked · checksum cd5d471f0657
 
 ## Failures
 - none
 
 ## Warnings
 - KNOWN GAP: service 555 has 48 journeys (usual floor 131) — published with only the official journeys in the feed; the app tells users some 555 times are missing (Stagecoach's main 555 registration PC0002407/300 is unpublished on BODS (since early Oct 2026); operator emailed 7 Oct.)
-- Service 555 dropped from 262 to 18 journeys — check against the operator timetable
 - Not running in this feed (fine out of season): 77C
 
-## Changes since last week
-- 6: 87 → 91 journeys (48 new/changed, 44 gone), runs to 20270707 (was 20270622)
-- 77: 21 → 21 journeys (19 new/changed, 19 gone)
-- 78: 114 → 114 journeys (0 new/changed, 0 gone), runs to 20270707 (was 20270622)
-- 505: 68 → 70 journeys (13 new/changed, 11 gone), runs to 20270707 (was 20270622)
-- 508: 24 → 74 journeys (71 new/changed, 21 gone), runs to 20270707 (was 20270622)
-- 509: 21 → 43 journeys (43 new/changed, 21 gone), runs to 20270707 (was 20270622)
-- 516: 90 → 90 journeys (8 new/changed, 8 gone), runs to 20270707 (was 20270622)
-- 554: 80 → 100 journeys (26 new/changed, 6 gone), runs to 20270707 (was 20270622)
-- 555: 262 → 18 journeys (18 new/changed, 262 gone), runs to 20270707 (was 20270622)
-- 599: 204 → 204 journeys (204 new/changed, 204 gone), runs to 20270707 (was 20270622)
-- NEW service 755: 30 journeys
-- 77A: 20 → 20 journeys (20 new/changed, 20 gone)
-- X4: 138 → 177 journeys (75 new/changed, 36 gone), runs to 20270707 (was 20270622)
-- X5: 264 → 344 journeys (96 new/changed, 16 gone), runs to 20270707 (was 20270622)
+## Changes since the last published build
+- 6: 91 → 91 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- 78: 114 → 114 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- 505: 70 → 70 journeys (2 new/changed, 2 gone), runs to 20270708 (was 20270707)
+- 508: 74 → 74 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- 509: 43 → 43 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- 516: 90 → 90 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- 554: 100 → 100 journeys (6 new/changed, 6 gone), runs to 20270708 (was 20270707)
+- 555: 18 → 18 journeys (1 new/changed, 1 gone), runs to 20270708 (was 20270707)
+- 599: 204 → 204 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- 755: 30 → 30 journeys (0 new/changed, 0 gone), runs to 20270708 (was 20270707)
+- X4: 177 → 177 journeys (39 new/changed, 39 gone), runs to 20270708 (was 20270707)
+- X5: 344 → 344 journeys (81 new/changed, 81 gone), runs to 20270708 (was 20270707)
+
+## Buses home waiting for confirmation
+- New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±10 min count as the same bus).
+- 6: 29 journeys held on some dates (0 wholly new or changed)
+- 78: 38 journeys held on some dates (0 wholly new or changed)
+- 505: 24 journeys held on some dates (0 wholly new or changed)
+- 508: 16 journeys held on some dates (0 wholly new or changed)
+- 509: 13 journeys held on some dates (0 wholly new or changed)
+- 516: 26 journeys held on some dates (0 wholly new or changed)
+- 554: 22 journeys held on some dates (0 wholly new or changed)
+- 555: 8 journeys held on some dates (0 wholly new or changed)
+- 599: 68 journeys held on some dates (0 wholly new or changed)
+- 755: 10 journeys held on some dates (0 wholly new or changed)
+- X4: 46 journeys held on some dates (0 wholly new or changed)
+- X5: 72 journeys held on some dates (0 wholly new or changed)
+
+## Days a service gained or lost ALL its buses (next 60 days, vs the last published build)
+- none
 
 ## Per service
 - 505:70 508:74 509:43 516:90 554:100 555:18 755:30 599:204 6:91 77:21 77A:20 78:114 X4:177 X5:344
@@ -62,7 +77,6 @@ Timetable runs to 20270707 · 200 route stops checked · checksum f0c2e3e84ec3
 - 6 · PBLT Preston Bus · 352 trips · skipped (other operator)
 - 6 · BLAC Blackpool Transport · 224 trips · skipped (other operator)
 - 6 · LNUD The Blackburn Bus Company · 124 trips · skipped (other operator)
-- 6 · SCMY Stagecoach Merseyside and South Lancashire · 111 trips · skipped (other operator)
 - 6 · SCCU Stagecoach Cumbria and North Lancashire · 46 trips · TAKEN
 - 6 · SCCU Stagecoach Cumbria and North Lancashire · 45 trips · TAKEN
 - 6 · WBTR Warrington's Own Buses · 39 trips · skipped (other operator)

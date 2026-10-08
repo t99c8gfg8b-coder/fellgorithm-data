@@ -1,14 +1,14 @@
 {
  "schema": 1,
- "version": "2026-10-07+bods-20261007_030412",
- "generated": "2026-10-07",
- "bytes": 679481,
- "sha256": "f0c2e3e84ec35cd25f2a40b468697e73b33ae01ab1b32627b19e425aea601f78",
+ "version": "2026-10-08+bods-20261008_025612",
+ "generated": "2026-10-08",
+ "bytes": 691098,
+ "sha256": "cd5d471f065775ce011dad38a636b0c075ab726730edbee6a68180b7432d2c9c",
  "services": 14,
  "journeys": 1396,
  "feed": {
-  "version": "20261007_030412",
-  "start": "20261007",
+  "version": "20261008_025612",
+  "start": "20261008",
   "end": "20270830"
  }
 }
