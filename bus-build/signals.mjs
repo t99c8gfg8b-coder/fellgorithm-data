@@ -99,7 +99,7 @@ roads.filter(r => r.closure).forEach(r => cur.push({ id: r.id, kind: 'road', sev
 const SM = S.streetManager || {};
 const works = await source('street-manager', 'Street Manager roadworks', async () => {
   if (!SM.url) throw notSetUp('Not set up yet \u2014 needs the Cloudflare catcher (street-manager-worker) and signals.streetManager.url in config.json');
-  const j = JSON.parse(await get(SM.url.replace(/\/?$/, '') + '/works.json'));
+  const j = JSON.parse(await get(SM.url.replace(/\/works\.json$/, '').replace(/\/?$/, '') + '/works.json'));
   return (j.works || []).map(w => Object.assign({ id: 'sm:' + w.ref }, w)); }, 'works');
 const WATCH = (SM.watch || []).map(x => new RegExp(x, 'i'));
 /* CLOSURE → AUTO-DROP (owner, 7 Oct): a closure on a watched road automatically switches off, for the closure dates, every car park

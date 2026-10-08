@@ -1,0 +1,22 @@
+{
+ "note": "The app's safety rules in force. GENERATED from the app (APP_RULES in Fellgorithm.dc.html) — never edit by hand. Republished with every app release; the nightly audit quotes it and flags a HIGH problem if the released app's rules differ.",
+ "appVersion": "prototype",
+ "termsVersion": 2,
+ "offFellsBeforeSunsetMin": 30,
+ "homeBy": "22:00",
+ "busCoverMin": 60,
+ "busCoverLongMin": 120,
+ "longDayH": 7,
+ "busMinWaitMin": 5,
+ "lastBusNeverUsed": true,
+ "timingMarginPct": 7.5,
+ "slowTurnBackCap": 1.5,
+ "staleDays": 14,
+ "seasonalSoonDays": 30,
+ "planDaysAhead": 7,
+ "scrambles": "Only Swirral Edge, and only with Avoid Swirral Edge switched off; every other graded scramble never",
+ "routesWithBusHomeToggle": true,
+ "gpxDownloads": false,
+ "pathLinesOnMaps": false,
+ "generated": "2026-10-08"
+}

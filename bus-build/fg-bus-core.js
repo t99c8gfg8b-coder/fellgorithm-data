@@ -69,7 +69,7 @@
         const st = (stByTrip[t.trip_id] || []).slice().sort((a, b) => +a.stop_sequence - +b.stop_sequence);
         const calls = [];
         st.forEach(s => { const ps = place[s.stop_id]; if (!ps) { if (s.stop_id) rep.unmatchedStops[name + '|' + s.stop_id] = (stopPos[s.stop_id] || {}).stop_name || ''; return; }
-          const tm = mins(s.departure_time || s.arrival_time); ps.forEach(p => { if (!calls.some(c => c.p === p)) calls.push({ p, t: tm }); }); });
+          const tm = mins(s.departure_time || s.arrival_time); ps.forEach(p => { if (!calls.some(c => c.p === p && Math.abs(tm - c.t) < 20)) calls.push({ p, t: tm }); });   /* a place is kept again when the bus comes back to it 20+ min later, so circular services (77/77A Keswick→…→Keswick) keep their return call (owner, 8 Oct) */ });
         const num = rName[t.route_id], mg = num !== name ? (rep.merged[num] = rep.merged[num] || { into: name, trips: 0, kept: 0, ends: {} }) : null;
         if (mg) { mg.trips++; const e = ((stopPos[st[0] && st[0].stop_id] || {}).stop_name || '?') + ' → ' + ((stopPos[st.length && st[st.length - 1].stop_id] || {}).stop_name || '?'); mg.ends[e] = (mg.ends[e] || 0) + 1; }
         (rep.drop[name] = rep.drop[name] || { places: 0, dates: 0, kept: 0, trips: 0 }).trips++;

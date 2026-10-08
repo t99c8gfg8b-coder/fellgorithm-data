@@ -1,1 +1,3556 @@
-{"note":"Fellgorithm bus places — FROZEN list of the stops the app knows, per service, with the NaPTAN stop ids (ATCO codes) that feed each one. Built 7 Oct 2026 by matching every journey in the 22 Sep file to its BODS trip. Place ORDER matters (journeys refer to places by index) — only ever APPEND new places at the end of a service. A new service needs its places added here before it can be published. Nearest-fell fields removed from the public copy (owner, 7 Oct); the private copy with them lives outside this repository.","services":{"6":{"places":[{"name":"Kendal 0.9 km north-west","e":351616,"n":492954,"walkStart":false,"gate":"Kendal","ids":["090079360108","090079360111"]},{"name":"Kendal 0.9 km north-west","e":351076,"n":493292,"walkStart":false,"gate":"Kendal","ids":["090079360818","090079360825"]},{"name":"Kendal 1.7 km north-west","e":350590,"n":493828,"walkStart":false,"gate":"Kendal","ids":["090079360808","090079360810"]},{"name":"Ulverston","e":329632,"n":478788,"walkStart":false,"gate":"Ulverston","ids":["090079680705","090079680707","090079680708"]},{"name":"Ulverston 1.1 km south-west","e":328706,"n":478111,"walkStart":false,"gate":"Ulverston","ids":["090079682980","090079682985"]},{"name":"Ulverston 1.9 km south-west","e":327919,"n":477944,"walkStart":false,"gate":"Ulverston","ids":["090079680674","090079684242"]},{"name":"Ulverston 2.9 km south-west","e":327212,"n":477187,"walkStart":false,"gate":"Ulverston","ids":["090079560666","090079561189"]},{"name":"Barrow-in-Furness","e":320721,"n":470733,"walkStart":false,"gate":"Barrow-in-Furness","ids":["090010020538","090010020544"]},{"name":"Barrow-in-Furness","e":320474,"n":470273,"walkStart":false,"gate":"Barrow-in-Furness","ids":["090010020535","090010020536"]},{"name":"Barrow-in-Furness 1.2 km south-west","e":320051,"n":469783,"walkStart":false,"gate":"Barrow-in-Furness","ids":["090010020529","090010020530"]},{"name":"Barrow-in-Furness 1.2 km south-west","e":319676,"n":469451,"walkStart":false,"gate":"Barrow-in-Furness","ids":["090010020511","090010020517"]},{"name":"Ulverston 2.6 km south-west","e":328135,"n":476662,"walkStart":false,"gate":"Ulverston","ids":["090079683171","090079683172"]},{"name":"Ulverston 2.6 km south-west","e":328624,"n":476799,"walkStart":false,"gate":"Ulverston","ids":["090079681479","090079682257"]},{"name":"Ulverston 1.8 km south","e":328954,"n":477149,"walkStart":false,"gate":"Ulverston","ids":["090079681843","090079684274"]},{"name":"Ulverston 1.1 km south-west","e":329034,"n":477677,"walkStart":false,"gate":"Ulverston","ids":["090079680700","090079684273"]},{"name":"Windermere Station","e":341417,"n":498642,"walkStart":false,"gate":"Windermere","stop":"Bus Rail Interchange","ids":["090079732809"]},{"name":"Kendal Bus Station","e":351616,"n":492955,"walkStart":false,"gate":"Kendal","stop":"Bus Station (Ken) + Blackhall Road","ids":["090079360108","090079360111"]}]},"77":{"places":[{"name":"Keswick","e":326324,"n":523538,"walkStart":true,"gate":"Keswick","ids":["090002372827"]},{"name":"Keswick","e":326048,"n":523965,"walkStart":true,"gate":"Keswick","ids":["090002370645","090002370646"]},{"name":"Portinscale","e":325052,"n":523985,"walkStart":false,"gate":"Keswick","ids":["090002990629","090002990630"]},{"name":"Croft Terrace","e":323266,"n":523655,"walkStart":true,"gate":"Braithwaite","ids":["090002990604"]},{"name":"Visitors Centre","e":320718,"n":524486,"walkStart":true,"gate":null,"ids":["090002990086"]},{"name":"Cockermouth","e":312353,"n":530390,"walkStart":false,"gate":"Cockermouth","ids":["090002220408","090002220409"]},{"name":"Cockermouth","e":311873,"n":530491,"walkStart":false,"gate":"Cockermouth","ids":["090002220401","090002221153"]},{"name":"Winder Hall","e":315380,"n":525672,"walkStart":true,"gate":null,"ids":["090002414775"]},{"name":"Lanthwaite Green Farm","e":315915,"n":520801,"walkStart":true,"gate":null,"ids":["090002193411"]},{"name":"Crummock Water car park","e":316237,"n":519352,"walkStart":true,"gate":null,"ids":["090002193753"]},{"name":"Buttermere","e":317459,"n":516928,"walkStart":true,"gate":"Buttermere","ids":["090002190083"]},{"name":"Buttermere 1.6 km south-east","e":318750,"n":515946,"walkStart":true,"gate":"Buttermere","ids":["090002193741"]},{"name":"Mountain Rescue Point","e":319445,"n":515002,"walkStart":true,"gate":null,"ids":["090002193742"]},{"name":"Honister Hause","e":322590,"n":513596,"walkStart":true,"gate":"Seatoller","ids":["090002113743"]},{"name":"Seatoller","e":324543,"n":513756,"walkStart":true,"gate":"Seatoller","ids":["090002111393"]},{"name":"Rosthwaite 0.7 km south","e":325739,"n":514222,"walkStart":true,"gate":"Rosthwaite","ids":["090002111375"]},{"name":"Rosthwaite","e":325821,"n":514921,"walkStart":true,"gate":"Rosthwaite","ids":["090002112926"]},{"name":"Bowder Stone","e":325271,"n":516816,"walkStart":true,"gate":null,"ids":["090002113363"]},{"name":"Bridge","e":325437,"n":517429,"walkStart":true,"gate":null,"ids":["090002111458"]},{"name":"Cocklety How","e":325053,"n":518478,"walkStart":true,"gate":null,"ids":["090002112247"]},{"name":"Brandelhow Park","e":324874,"n":520152,"walkStart":true,"gate":null,"ids":["090002113744"]},{"name":"Cattle Grid","e":324740,"n":521243,"walkStart":true,"gate":null,"ids":["090002993745"]},{"name":"Green Road","e":324571,"n":521877,"walkStart":true,"gate":null,"ids":["090002990090"]},{"name":"Keswick 1.3 km south-west","e":325220,"n":522853,"walkStart":false,"gate":"Keswick","ids":["090002990093"]},{"name":"Portinscale","e":325162,"n":523560,"walkStart":false,"gate":"Keswick","ids":["090002990092"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372827"]}]},"78":{"places":[{"name":"Seatoller","e":324543,"n":513756,"walkStart":true,"gate":"Seatoller","ids":["090002111393","090002113361"]},{"name":"Rosthwaite 0.7 km south","e":325739,"n":514222,"walkStart":true,"gate":"Rosthwaite","ids":["090002111375","090002113752"]},{"name":"Rosthwaite","e":325821,"n":514921,"walkStart":true,"gate":"Rosthwaite","ids":["090002112925","090002112926"]},{"name":"Bowder Stone","e":325271,"n":516816,"walkStart":true,"gate":null,"ids":["090002111439","090002113363"]},{"name":"Bridge","e":325437,"n":517429,"walkStart":true,"gate":null,"ids":["090002111458","090002111941"]},{"name":"Hotel","e":326097,"n":518236,"walkStart":true,"gate":null,"ids":["090002111868","090002113360"]},{"name":"Lodore Hotel","e":326406,"n":518907,"walkStart":true,"gate":null,"ids":["090002112091","090002112802"]},{"name":"Derwentwater Youth Hostel","e":326847,"n":520258,"walkStart":true,"gate":null,"ids":["090002111322","090002111893"]},{"name":"Calfclose Bay","e":327074,"n":521381,"walkStart":true,"gate":null,"ids":["090002111415","090002500665"]},{"name":"Keswick","e":326581,"n":523223,"walkStart":true,"gate":"Keswick","ids":["090002370659","090002373364"]},{"name":"Keswick","e":326324,"n":523538,"walkStart":true,"gate":"Keswick","ids":["090002372827"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372827"]}]},"505":{"places":[{"name":"Ambleside","e":337589,"n":504266,"walkStart":false,"gate":"Ambleside","ids":["090079412188","090079412211","090079412561"]},{"name":"Ambleside","e":337346,"n":503935,"walkStart":false,"gate":"Ambleside","ids":["090079411874","090079412072","090079412735"]},{"name":"Ambleside 1.1 km south-west","e":336753,"n":503570,"walkStart":false,"gate":"Ambleside","ids":["090079412256","090079413285"]},{"name":"Skelwith Fold road end","e":336219,"n":502461,"walkStart":true,"gate":null,"ids":["090079640742","090079641217"]},{"name":"Wray Castle road end","e":336397,"n":501575,"walkStart":true,"gate":null,"ids":["090079284230","090079644896"]},{"name":"The Outgate Inn","e":335526,"n":499805,"walkStart":true,"gate":null,"ids":["090079280740","090079283275"]},{"name":"Holling Brow","e":332539,"n":498480,"walkStart":true,"gate":null,"ids":["090079151207","090079153277"]},{"name":"Coniston 1.7 km north-east","e":331860,"n":498394,"walkStart":true,"gate":"Coniston","ids":["090079154359","090079154360"]},{"name":"Coniston 0.7 km east","e":331038,"n":497540,"walkStart":false,"gate":"Coniston","ids":["090079152874","090079153278"]},{"name":"Coniston","e":330341,"n":497585,"walkStart":false,"gate":"Coniston","ids":["090079151202","090079153674"]},{"name":"Coniston","e":330369,"n":498016,"walkStart":false,"gate":"Coniston","ids":["090079154222"]},{"name":"Waterhead","e":337712,"n":503180,"walkStart":false,"gate":"Ambleside","ids":["090079411913","090079412749"]},{"name":"Kendal 1.7 km north-west","e":350648,"n":493783,"walkStart":false,"gate":"Kendal","ids":["090079360810","090079360815"]},{"name":"Kendal 0.9 km north-west","e":351310,"n":493223,"walkStart":false,"gate":"Kendal","ids":["090079360825","090079360839"]},{"name":"Kendal 0.9 km north-west","e":351646,"n":492934,"walkStart":false,"gate":"Kendal","ids":["090079360111","090079361274"]},{"name":"Windermere","e":340346,"n":500284,"walkStart":false,"gate":"Windermere","ids":["090079732143"]},{"name":"Windermere Station","e":341417,"n":498642,"walkStart":false,"gate":"Windermere","stop":"Bus Rail Interchange","ids":["090079732809"]},{"name":"Kendal Bus Station","e":351616,"n":492955,"walkStart":false,"gate":"Kendal","stop":"Bus Station (Ken) + Blackhall Road","ids":["090079360111","090079361274"]},{"name":"Ambleside Bus Interchange","e":337589,"n":504266,"walkStart":false,"gate":"Ambleside","stop":"NaPTAN 090079412211 090079412212","ids":["090079412211","090079412212"]}]},"508":{"places":[{"name":"Windermere 1.8 km north-east","e":341068,"n":501906,"walkStart":true,"gate":"Windermere","ids":["090079732977","090079733293"]},{"name":"Troutbeck","e":341251,"n":502725,"walkStart":true,"gate":"Windermere","ids":["090079412972","090079412973"]},{"name":"Windermere 3.7 km north","e":341401,"n":503791,"walkStart":true,"gate":"Windermere","ids":["090079411381","090079412978"]},{"name":"Pass Inn","e":340114,"n":508079,"walkStart":true,"gate":null,"ids":["090079411647","090079411648"]},{"name":"Windy Corner","e":340178,"n":511237,"walkStart":true,"gate":null,"ids":["090074551555","090074554650"]},{"name":"Brotherswater Inn","e":340340,"n":511844,"walkStart":true,"gate":null,"ids":["090074552196","090074553291"]},{"name":"Brock Crags road end","e":340517,"n":513194,"walkStart":true,"gate":null,"ids":["090074551613","090074554649"]},{"name":"Bridgend","e":339953,"n":514362,"walkStart":true,"gate":"Patterdale","ids":["090074551434","090074553289"]},{"name":"Patterdale","e":339841,"n":515642,"walkStart":true,"gate":"Patterdale","ids":["090074552907","090074553296"]},{"name":"Patterdale","e":339485,"n":515982,"walkStart":true,"gate":"Patterdale","ids":["090074552905","090074552906"]},{"name":"Patterdale 1.0 km north-west","e":339024,"n":516137,"walkStart":true,"gate":"Glenridding","ids":["090074552903","090074552904"]},{"name":"Glenridding","e":338624,"n":516976,"walkStart":true,"gate":"Glenridding","ids":["090074554648"]},{"name":"Stybarrow Crag","e":338713,"n":517913,"walkStart":true,"gate":"Glenridding","ids":["090074552932","090074552948"]},{"name":"Stybarrow Crag","e":338750,"n":518407,"walkStart":true,"gate":"Glenridding","ids":["090074552931"]},{"name":"Glencoyne","e":338686,"n":518869,"walkStart":true,"gate":"Glenridding","ids":["090074441601","090074443232"]},{"name":"Aira Force","e":339981,"n":519912,"walkStart":true,"gate":null,"ids":["090074441301","090074441302"]},{"name":"Dobbin Wood Lodge","e":341913,"n":520519,"walkStart":true,"gate":null,"ids":["090074444940","090074444941"]},{"name":"Gowbarrow Cottages","e":343735,"n":521361,"walkStart":true,"gate":null,"ids":["090074442897","090074444647"]},{"name":"Longthwaite road end","e":344531,"n":522699,"walkStart":true,"gate":null,"ids":["090074441663"]},{"name":"Penrith 1.9 km south","e":352282,"n":528573,"walkStart":false,"gate":"Penrith","ids":["090074724684","090074724685"]},{"name":"Penrith 1.2 km south-east","e":352069,"n":529260,"walkStart":false,"gate":"Penrith","ids":["090074560885","090074560894"]},{"name":"Penrith 1.2 km south-east","e":351886,"n":529642,"walkStart":false,"gate":"Penrith","ids":["090074561108"]},{"name":"Penrith","e":351623,"n":530320,"walkStart":false,"gate":"Penrith","ids":["090074560856","090074564025"]},{"name":"Penrith","e":351194,"n":529935,"walkStart":false,"gate":"Penrith","ids":["090074562848"]},{"name":"Kendal 1.7 km north-west","e":350648,"n":493783,"walkStart":false,"gate":"Kendal","ids":["090079360810","090079360815"]},{"name":"Kendal 0.9 km north-west","e":351310,"n":493223,"walkStart":false,"gate":"Kendal","ids":["090079360825","090079360839"]},{"name":"Kendal 0.9 km north-west","e":351695,"n":493081,"walkStart":false,"gate":"Kendal","ids":["090079360111","090079363432"]},{"name":"Windermere Station","e":341417,"n":498642,"walkStart":false,"gate":"Windermere","stop":"Bus Rail Interchange","ids":["090079732809"]}]},"509":{"places":[{"name":"Keswick","e":326333,"n":523542,"walkStart":true,"gate":"Keswick","ids":["090002372828"]},{"name":"Keswick","e":326900,"n":523515,"walkStart":true,"gate":"Keswick","ids":["090002374210","090002374211"]},{"name":"Keswick 1.2 km east","e":327526,"n":523851,"walkStart":true,"gate":"Keswick","ids":["090002370670","090002370671"]},{"name":"Keswick 1.2 km east","e":328054,"n":523802,"walkStart":true,"gate":"Keswick","ids":["090002371639","090002371640"]},{"name":"Threlkeld 0.7 km south-west","e":331680,"n":525077,"walkStart":false,"gate":"Threlkeld","ids":["090074662961","090074662962","090074664333"]},{"name":"Threlkeld","e":332264,"n":525410,"walkStart":true,"gate":"Threlkeld","ids":["090074662959","090074664334"]},{"name":"Road End","e":336910,"n":527326,"walkStart":true,"gate":null,"ids":["090074471678","090074471679"]},{"name":"Troutbeck Hotel","e":338933,"n":527111,"walkStart":true,"gate":null,"ids":["090074312974","090074314864"]},{"name":"Rookin House","e":338544,"n":525202,"walkStart":true,"gate":null,"ids":["090074435359","090074435360"]},{"name":"Brook House Farm","e":339578,"n":523497,"walkStart":true,"gate":null,"ids":["090074441379","090074443234"]},{"name":"The Royal Hotel","e":339297,"n":521608,"walkStart":true,"gate":null,"ids":["090074441378","090074443231"]},{"name":"Aira Force","e":339933,"n":519928,"walkStart":true,"gate":null,"ids":["090074444865","090074444866"]},{"name":"Glencoyne","e":338699,"n":518873,"walkStart":true,"gate":"Glenridding","ids":["090074441601","090074443232"]},{"name":"Stybarrow Crag","e":338749,"n":518301,"walkStart":true,"gate":"Glenridding","ids":["090074552932","090074552948"]},{"name":"Glenridding","e":338624,"n":516976,"walkStart":true,"gate":"Glenridding","ids":["090074554648"]},{"name":"Patterdale 1.0 km north-west","e":339019,"n":516153,"walkStart":true,"gate":"Glenridding","ids":["090074552903","090074552904"]},{"name":"Patterdale","e":339516,"n":515964,"walkStart":true,"gate":"Patterdale","ids":["090074552905","090074552906"]},{"name":"Patterdale","e":339853,"n":515639,"walkStart":true,"gate":"Patterdale","ids":["090074552907","090074553296"]},{"name":"Bridgend","e":339957,"n":514376,"walkStart":true,"gate":"Patterdale","ids":["090074551434","090074553289"]},{"name":"Cow Bridge","e":340323,"n":513362,"walkStart":true,"gate":null,"ids":["090074551572","090074553290"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372828"]}]},"516":{"places":[{"name":"Old Dungeon Ghyll","e":328587,"n":505985,"walkStart":true,"gate":"Old Dungeon Ghyll","ids":["090079413665","090079415103"]},{"name":"New Dungeon Ghyll","e":329568,"n":506431,"walkStart":true,"gate":"Old Dungeon Ghyll","ids":["090079415104","090079415123"]},{"name":"Rawfell","e":330580,"n":506662,"walkStart":true,"gate":null,"ids":["090079414931","090079414932"]},{"name":"Lingmoor View","e":331605,"n":505571,"walkStart":true,"gate":null,"ids":["090079415287","090079415288"]},{"name":"Chapel Stile","e":332113,"n":505369,"walkStart":true,"gate":"Elterwater","ids":["090079411206","090079413286"]},{"name":"Elterwater","e":332813,"n":504817,"walkStart":true,"gate":"Elterwater","ids":["090079411208","090079413287"]},{"name":"Elterwater 0.7 km east","e":333489,"n":504666,"walkStart":true,"gate":"Elterwater","ids":["090079414929","090079414930"]},{"name":"Skelwith Bridge","e":334486,"n":503518,"walkStart":true,"gate":"Elterwater","ids":["090079411215","090079413288"]},{"name":"Ambleside 1.1 km south-west","e":336751,"n":503585,"walkStart":false,"gate":"Ambleside","ids":["090079412256","090079413285"]},{"name":"Ambleside","e":337340,"n":504013,"walkStart":false,"gate":"Ambleside","ids":["090079411874","090079412188","090079412211"]},{"name":"Ambleside","e":337708,"n":503803,"walkStart":false,"gate":"Ambleside","ids":["090079412735"]},{"name":"Waterhead","e":337712,"n":503180,"walkStart":false,"gate":"Ambleside","ids":["090079411913","090079412749"]},{"name":"Kendal 1.7 km north-west","e":350648,"n":493783,"walkStart":false,"gate":"Kendal","ids":["090079360810","090079360815"]},{"name":"Kendal 0.9 km north-west","e":351310,"n":493223,"walkStart":false,"gate":"Kendal","ids":["090079360825","090079360839"]},{"name":"Kendal 0.9 km north-west","e":351646,"n":492934,"walkStart":false,"gate":"Kendal","ids":["090079360111","090079361274"]},{"name":"Windermere","e":340346,"n":500284,"walkStart":false,"gate":"Windermere","ids":["090079732143"]},{"name":"Windermere Station","e":341417,"n":498642,"walkStart":false,"gate":"Windermere","stop":"Bus Rail Interchange","ids":["090079732809"]},{"name":"Kendal Bus Station","e":351616,"n":492955,"walkStart":false,"gate":"Kendal","stop":"Bus Station (Ken) + Blackhall Road","ids":["090079360111","090079361274"]},{"name":"Ambleside Bus Interchange","e":337589,"n":504266,"walkStart":false,"gate":"Ambleside","stop":"NaPTAN 090079412211 090079412212","ids":["090079412211","090079412212"]}]},"554":{"places":[{"name":"Wigton","e":325605,"n":548504,"walkStart":false,"gate":"Wigton","ids":["090002563029","090002563030"]},{"name":"Wigton","e":326065,"n":548832,"walkStart":false,"gate":"Wigton","ids":["090002561731","090002561760"]},{"name":"Carlisle","e":338836,"n":554439,"walkStart":false,"gate":"Carlisle","ids":["090033101877","090033102230"]},{"name":"Carlisle","e":339020,"n":554874,"walkStart":false,"gate":"Carlisle","ids":["090033102000","090033102636","090033102657"]},{"name":"Carlisle 1.1 km north-east","e":339343,"n":555408,"walkStart":false,"gate":"Carlisle","ids":["090033104080","090033104081"]},{"name":"Carlisle 2.1 km north-east","e":340056,"n":556160,"walkStart":false,"gate":"Carlisle","ids":["090033101563","090033101978"]},{"name":"Wigton","e":325581,"n":547924,"walkStart":false,"gate":"Wigton","ids":["090002561582","090002564179"]},{"name":"North Lakes Caravan Park","e":320775,"n":535382,"walkStart":true,"gate":null,"ids":["090002060546","090002060547"]},{"name":"Binsey road end","e":320885,"n":534875,"walkStart":true,"gate":null,"ids":["090002060548","090002060549"]},{"name":"High Side","e":323474,"n":530640,"walkStart":true,"gate":null,"ids":["090002050611","090002053444"]},{"name":"Ravenstone Hotel","e":323524,"n":529836,"walkStart":true,"gate":null,"ids":["090002050614","090002050615"]},{"name":"Long Side Plantation","e":323350,"n":529057,"walkStart":true,"gate":null,"ids":["090002050607","090002053443"]},{"name":"Osprey View Point","e":323492,"n":528165,"walkStart":true,"gate":null,"ids":["090002521249","090002523442"]},{"name":"Rose Cottage","e":323495,"n":527504,"walkStart":true,"gate":null,"ids":["090002520613","090002523441"]},{"name":"Lyzzick Hall Hotel","e":324727,"n":526216,"walkStart":true,"gate":null,"ids":["090002520626","090002520627"]},{"name":"Millbeck road end","e":325328,"n":525852,"walkStart":true,"gate":null,"ids":["090002521253","090002524336"]},{"name":"Keswick 1.6 km north","e":325942,"n":525115,"walkStart":true,"gate":"Keswick","ids":["090002520644","090002520648"]},{"name":"Crosthwaite","e":326405,"n":524281,"walkStart":true,"gate":"Keswick","ids":["090002370652","090002370654"]},{"name":"Keswick","e":326352,"n":523540,"walkStart":true,"gate":"Keswick","ids":["090002372830"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372830"]}]},"555":{"places":[{"name":"Keswick","e":326333,"n":523542,"walkStart":true,"gate":"Keswick","ids":["090002372828"]},{"name":"Keswick","e":326900,"n":523515,"walkStart":true,"gate":"Keswick","ids":["090002370667","090002374210"]},{"name":"Keswick 1.2 km east","e":327526,"n":523851,"walkStart":true,"gate":"Keswick","ids":["090002370670","090002370671"]},{"name":"Keswick 1.2 km east","e":327966,"n":523701,"walkStart":true,"gate":"Keswick","ids":["090002370677","090002370681","090002370682"]},{"name":"Keswick 1.5 km east","e":327861,"n":523307,"walkStart":true,"gate":"Keswick","ids":["090002370677","090002370678"]},{"name":"Keswick 1.5 km east","e":328117,"n":522961,"walkStart":true,"gate":"Keswick","ids":["090002500686","090002503475"]},{"name":"Castle Lane","e":328765,"n":522746,"walkStart":true,"gate":null,"ids":["090002500697","090002503477"]},{"name":"Dale Bottom","e":329343,"n":521842,"walkStart":true,"gate":null,"ids":["090002501141","090002503478"]},{"name":"Shoulthwaite Farm","e":329973,"n":520685,"walkStart":true,"gate":null,"ids":["090002500712","090002500713"]},{"name":"Dam road end","e":331603,"n":519431,"walkStart":true,"gate":null,"ids":["090002500719","090002500720"]},{"name":"Legburthwaite","e":331791,"n":518815,"walkStart":true,"gate":null,"ids":["090002500723","090002500725"]},{"name":"Kings Head Hotel","e":331698,"n":517808,"walkStart":true,"gate":null,"ids":["090002500722","090002501142"]},{"name":"car park","e":331604,"n":516864,"walkStart":true,"gate":null,"ids":["090002500721","090002501204"]},{"name":"Wythburn Church","e":332450,"n":513467,"walkStart":true,"gate":null,"ids":["090002501143","090002503479"]},{"name":"Armboth Turn","e":332511,"n":512895,"walkStart":true,"gate":null,"ids":["090002500726","090002500727"]},{"name":"Dunmail Raise","e":332972,"n":511123,"walkStart":true,"gate":null,"ids":["090002410728","090002411210"]},{"name":"Town Head layby","e":333510,"n":509578,"walkStart":true,"gate":null,"ids":["090079410729","090079410730"]},{"name":"Grasmere 1.5 km north","e":333676,"n":508791,"walkStart":true,"gate":"Grasmere","ids":["090079410731","090079410732"]},{"name":"Grasmere 0.9 km north","e":333951,"n":508229,"walkStart":true,"gate":"Grasmere","ids":["090079411145","090079413480"]},{"name":"Grasmere 0.9 km north","e":333806,"n":507781,"walkStart":true,"gate":"Grasmere","ids":["090079414226","090079414227"]},{"name":"Grasmere","e":333858,"n":507323,"walkStart":true,"gate":"Grasmere","ids":["090079414231","090079414232"]},{"name":"Grasmere","e":334178,"n":506917,"walkStart":true,"gate":"Grasmere","ids":["090079411140","090079413652"]},{"name":"White Moss","e":334831,"n":506537,"walkStart":true,"gate":"Grasmere","ids":["090079414228","090079414229"]},{"name":"Rydal","e":336479,"n":506159,"walkStart":true,"gate":"Ambleside","ids":["090079411357","090079411786"]},{"name":"Ambleside 1.0 km north-west","e":337171,"n":505187,"walkStart":true,"gate":"Ambleside","ids":["090079411336","090079411828"]},{"name":"Ambleside","e":337420,"n":504809,"walkStart":false,"gate":"Ambleside","ids":["090079412322","090079415076"]},{"name":"Ambleside","e":337698,"n":504498,"walkStart":false,"gate":"Ambleside","ids":["090079412212","090079413792"]},{"name":"Ambleside","e":337708,"n":503803,"walkStart":false,"gate":"Ambleside","ids":["090079411874","090079412735"]},{"name":"Waterhead","e":337712,"n":503180,"walkStart":false,"gate":"Ambleside","ids":["090079411913","090079412749"]},{"name":"Kendal 1.7 km north-west","e":350648,"n":493783,"walkStart":false,"gate":"Kendal","ids":["090079360808","090079360810"]},{"name":"Kendal 0.9 km north-west","e":351310,"n":493223,"walkStart":false,"gate":"Kendal","ids":["090079360825","090079360839"]},{"name":"Kendal 0.9 km north-west","e":351651,"n":492923,"walkStart":false,"gate":"Kendal","ids":["090079360108","090079360111","090079360114"]},{"name":"Windermere","e":340346,"n":500284,"walkStart":false,"gate":"Windermere","ids":["090079732143"]},{"name":"Kendal","e":351721,"n":492423,"walkStart":false,"gate":"Kendal","ids":["090079360868","090079363495"]},{"name":"Kendal","e":351643,"n":491850,"walkStart":false,"gate":"Kendal","ids":["090079362011","090079362350"]},{"name":"Kendal 1.0 km south","e":351519,"n":491443,"walkStart":false,"gate":"Kendal","ids":["090079361995","090079362031","090079362594"]},{"name":"Kendal 1.6 km south-west","e":351042,"n":490950,"walkStart":false,"gate":"Kendal","ids":["090079361356","090079362510"]},{"name":"Windermere Station","e":341417,"n":498642,"walkStart":false,"gate":"Windermere","stop":"Bus Rail Interchange","ids":["090079732809"]},{"name":"Kendal Bus Station","e":351616,"n":492955,"walkStart":false,"gate":"Kendal","stop":"Bus Station (Ken) + Blackhall Road","ids":["090079360108","090079360111"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372828"]},{"name":"Ambleside Bus Interchange","e":337589,"n":504266,"walkStart":false,"gate":"Ambleside","stop":"NaPTAN 090079412211 090079412212","ids":["090079412211","090079412212"]}]},"599":{"places":[{"name":"Grasmere","e":333674,"n":507598,"walkStart":true,"gate":"Grasmere","ids":["090079411144"]},{"name":"Grasmere","e":334178,"n":506917,"walkStart":true,"gate":"Grasmere","ids":["090079411140","090079413652"]},{"name":"White Moss","e":334831,"n":506537,"walkStart":true,"gate":"Grasmere","ids":["090079414228","090079414229"]},{"name":"Rydal","e":336479,"n":506159,"walkStart":true,"gate":"Ambleside","ids":["090079411357","090079411786"]},{"name":"Ambleside 1.0 km north-west","e":337171,"n":505187,"walkStart":true,"gate":"Ambleside","ids":["090079411336","090079411828"]},{"name":"Ambleside","e":337420,"n":504809,"walkStart":false,"gate":"Ambleside","ids":["090079412322","090079415076"]},{"name":"Ambleside","e":337698,"n":504498,"walkStart":false,"gate":"Ambleside","ids":["090079412212","090079413792"]},{"name":"Ambleside","e":337708,"n":503803,"walkStart":false,"gate":"Ambleside","ids":["090079412735"]},{"name":"Waterhead","e":337712,"n":503180,"walkStart":false,"gate":"Ambleside","ids":["090079412749","090079412887"]},{"name":"Windermere","e":340346,"n":500284,"walkStart":false,"gate":"Windermere","ids":["090079732143"]},{"name":"Ambleside 1.1 km south-west","e":337317,"n":503717,"walkStart":false,"gate":"Ambleside","ids":["090079415234"]},{"name":"Grasmere 0.9 km north","e":333951,"n":508229,"walkStart":true,"gate":"Grasmere","ids":["090079411145"]},{"name":"Kendal 0.9 km north-west","e":351616,"n":492954,"walkStart":false,"gate":"Kendal","ids":["090079360111","090079363432"]},{"name":"Kendal 0.9 km north-west","e":351076,"n":493292,"walkStart":false,"gate":"Kendal","ids":["090079360825","090079360839"]},{"name":"Kendal 1.7 km north-west","e":350590,"n":493828,"walkStart":false,"gate":"Kendal","ids":["090079360808","090079360810"]},{"name":"Windermere Station","e":341417,"n":498642,"walkStart":false,"gate":"Windermere","stop":"Bus Rail Interchange","ids":["090079732809"]},{"name":"Kendal Bus Station","e":351616,"n":492955,"walkStart":false,"gate":"Kendal","stop":"Bus Station (Ken) + Blackhall Road","ids":["090079360111"]},{"name":"Ambleside Bus Interchange","e":337589,"n":504266,"walkStart":false,"gate":"Ambleside","stop":"NaPTAN 090079412211 090079412212","ids":["090079412211","090079412212"]}]},"77A":{"places":[{"name":"Keswick","e":326324,"n":523538,"walkStart":true,"gate":"Keswick","ids":["090002372827"]},{"name":"Keswick","e":326048,"n":523965,"walkStart":true,"gate":"Keswick","ids":["090002370645"]},{"name":"Portinscale","e":325052,"n":523985,"walkStart":false,"gate":"Keswick","ids":["090002990629"]},{"name":"Portinscale","e":325170,"n":523573,"walkStart":false,"gate":"Keswick","ids":["090002993748"]},{"name":"Keswick 1.3 km south-west","e":325226,"n":522873,"walkStart":false,"gate":"Keswick","ids":["090002993749"]},{"name":"Swinside Green Road","e":324594,"n":521870,"walkStart":true,"gate":null,"ids":["090002993750"]},{"name":"Cattle Grid","e":324751,"n":521230,"walkStart":true,"gate":null,"ids":["090002990091"]},{"name":"Brandelhow Park","e":324886,"n":520148,"walkStart":true,"gate":null,"ids":["090002111548"]},{"name":"Cocklety How","e":325064,"n":518463,"walkStart":true,"gate":null,"ids":["090002113751"]},{"name":"Village Caf","e":325265,"n":517496,"walkStart":true,"gate":null,"ids":["090002115490"]},{"name":"Bowder Stone","e":325281,"n":516806,"walkStart":true,"gate":null,"ids":["090002111439"]},{"name":"Rosthwaite","e":325809,"n":514949,"walkStart":true,"gate":"Rosthwaite","ids":["090002112925"]},{"name":"Rosthwaite 0.7 km south","e":325853,"n":514537,"walkStart":true,"gate":"Rosthwaite","ids":["090002113752"]},{"name":"Seatoller","e":324527,"n":513748,"walkStart":true,"gate":"Seatoller","ids":["090002113361"]},{"name":"Honister Hause","e":322595,"n":513586,"walkStart":true,"gate":"Seatoller","ids":["090002110087"]},{"name":"Mountain Rescue Point","e":319434,"n":514988,"walkStart":true,"gate":null,"ids":["090002190085"]},{"name":"Buttermere 1.6 km south-east","e":318734,"n":515948,"walkStart":true,"gate":"Buttermere","ids":["090002190490"]},{"name":"Buttermere","e":317787,"n":516872,"walkStart":true,"gate":"Buttermere","ids":["090002193747"]},{"name":"Crummock Water car park","e":316219,"n":519354,"walkStart":true,"gate":null,"ids":["090002193754"]},{"name":"Lanthwaite Farm","e":315888,"n":520800,"walkStart":true,"gate":null,"ids":["090002190081"]},{"name":"Winder Hall","e":315381,"n":525646,"walkStart":true,"gate":null,"ids":["090002414774"]},{"name":"Visitors Centre","e":320718,"n":524486,"walkStart":true,"gate":null,"ids":["090002990086"]},{"name":"Croft Terrace","e":323277,"n":523664,"walkStart":true,"gate":"Braithwaite","ids":["090002990088"]},{"name":"Cockermouth","e":312353,"n":530390,"walkStart":false,"gate":"Cockermouth","ids":["090002220408"]},{"name":"Cockermouth","e":311873,"n":530491,"walkStart":false,"gate":"Cockermouth","ids":["090002220401"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372827"]}]},"X4":{"places":[{"name":"Keswick","e":326352,"n":523540,"walkStart":true,"gate":"Keswick","ids":["090002372830"]},{"name":"Keswick","e":326900,"n":523515,"walkStart":true,"gate":"Keswick","ids":["090002370667","090002374210"]},{"name":"Keswick 1.2 km east","e":327526,"n":523851,"walkStart":true,"gate":"Keswick","ids":["090002370671","090002370673"]},{"name":"Keswick 1.2 km east","e":328054,"n":523802,"walkStart":true,"gate":"Keswick","ids":["090002371640","090002371641"]},{"name":"Threlkeld 0.7 km south-west","e":331680,"n":525077,"walkStart":false,"gate":"Threlkeld","ids":["090074662962","090074664333"]},{"name":"Threlkeld","e":332264,"n":525410,"walkStart":true,"gate":"Threlkeld","ids":["090074662959","090074663896"]},{"name":"Road End","e":336910,"n":527326,"walkStart":true,"gate":null,"ids":["090074471678","090074471679"]},{"name":"Troutbeck Inn","e":338912,"n":527234,"walkStart":true,"gate":null,"ids":["090074312974","090074312975"]},{"name":"Penrith 1.0 km south-west","e":351068,"n":529453,"walkStart":false,"gate":"Penrith","ids":["090074561452","090074564335"]},{"name":"Penrith","e":351194,"n":529935,"walkStart":false,"gate":"Penrith","ids":["090074562848"]},{"name":"Penrith","e":351422,"n":530433,"walkStart":false,"gate":"Penrith","ids":["090074560858","090074564025"]},{"name":"Crosthwaite","e":326386,"n":524291,"walkStart":true,"gate":"Keswick","ids":["090002370652","090002370654"]},{"name":"Keswick 1.6 km north","e":326110,"n":524787,"walkStart":true,"gate":"Keswick","ids":["090002520644","090002520648"]},{"name":"Dodd road end","e":325303,"n":525851,"walkStart":true,"gate":null,"ids":["090002521253","090002524336"]},{"name":"Lyzzick Hall Hotel","e":324705,"n":526215,"walkStart":true,"gate":null,"ids":["090002520626","090002520627"]},{"name":"Dodd Wood","e":323482,"n":527496,"walkStart":true,"gate":null,"ids":["090002520613","090002523441"]},{"name":"Osprey View Point Car Park","e":323476,"n":528166,"walkStart":true,"gate":null,"ids":["090002521249","090002523442"]},{"name":"Long Side Plantation","e":323338,"n":529058,"walkStart":true,"gate":null,"ids":["090002050607","090002053443"]},{"name":"Ravenstone Hotel","e":323511,"n":529840,"walkStart":true,"gate":null,"ids":["090002050614","090002050615"]},{"name":"High Side Farm","e":323455,"n":530641,"walkStart":true,"gate":null,"ids":["090002050611","090002053444"]},{"name":"Lakes Distillery","e":319603,"n":531955,"walkStart":true,"gate":null,"ids":["090002274813","090002274814"]},{"name":"turn","e":319204,"n":531093,"walkStart":true,"gate":null,"ids":["090002273019","090002273020"]},{"name":"Close Barn","e":318274,"n":530735,"walkStart":true,"gate":null,"ids":["090002275368","090002275369"]},{"name":"How Close","e":317771,"n":530609,"walkStart":true,"gate":null,"ids":["090002274331","090002274332"]},{"name":"The Wheatsheaf","e":317312,"n":530498,"walkStart":true,"gate":null,"ids":["090002271158","090002274328"]},{"name":"Stanley Terrace","e":316702,"n":530384,"walkStart":true,"gate":null,"ids":["090002270428","090002274326"]},{"name":"Cockermouth 1.0 km north-east","e":313111,"n":531080,"walkStart":false,"gate":"Cockermouth","ids":["090002220418","090002221154"]},{"name":"Cockermouth","e":312499,"n":530892,"walkStart":false,"gate":"Cockermouth","ids":["090002220411","090002220412"]},{"name":"Cockermouth","e":311990,"n":530688,"walkStart":false,"gate":"Cockermouth","ids":["090002220404","090002223074"]},{"name":"Cockermouth 1.7 km west","e":310690,"n":530821,"walkStart":false,"gate":"Cockermouth","ids":["090002225055","090002225056"]},{"name":"Workington","e":302020,"n":529159,"walkStart":false,"gate":"Workington","ids":["090002590043","090002590318"]},{"name":"Workington","e":301611,"n":528968,"walkStart":false,"gate":"Workington","ids":["090002590298","090002590303"]},{"name":"Workington 1.3 km south-west","e":300827,"n":528598,"walkStart":false,"gate":"Workington","ids":["090002590282","090002590294"]},{"name":"Workington 1.9 km west","e":300169,"n":528711,"walkStart":false,"gate":"Workington","ids":["090002590249"]},{"name":"Cockermouth 1.7 km west","e":311262,"n":530806,"walkStart":false,"gate":"Cockermouth","ids":["090002225374"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372830"]},{"name":"Cockermouth Main Street","e":311990,"n":530688,"walkStart":false,"gate":"Cockermouth","stop":"NaPTAN 090002220404 090002220403","ids":["090002220403","090002220404"]}]},"X5":{"places":[{"name":"Keswick","e":326352,"n":523540,"walkStart":true,"gate":"Keswick","ids":["090002372830"]},{"name":"Keswick","e":326900,"n":523515,"walkStart":true,"gate":"Keswick","ids":["090002370667","090002374210"]},{"name":"Keswick 1.2 km east","e":327526,"n":523851,"walkStart":true,"gate":"Keswick","ids":["090002370670","090002370671","090002370673"]},{"name":"Keswick 1.2 km east","e":328054,"n":523802,"walkStart":true,"gate":"Keswick","ids":["090002371639","090002371640"]},{"name":"Threlkeld 0.7 km south-west","e":331680,"n":525077,"walkStart":false,"gate":"Threlkeld","ids":["090074662962","090074664333"]},{"name":"Threlkeld","e":332264,"n":525410,"walkStart":true,"gate":"Threlkeld","ids":["090074662959","090074663896"]},{"name":"Road End","e":336910,"n":527326,"walkStart":true,"gate":null,"ids":["090074471678","090074471679"]},{"name":"Troutbeck Inn","e":338912,"n":527234,"walkStart":true,"gate":null,"ids":["090074312974","090074312975"]},{"name":"Penrith 1.0 km south-west","e":351068,"n":529453,"walkStart":false,"gate":"Penrith","ids":["090074561452","090074564335"]},{"name":"Penrith","e":351194,"n":529935,"walkStart":false,"gate":"Penrith","ids":["090074562848"]},{"name":"Penrith","e":351422,"n":530433,"walkStart":false,"gate":"Penrith","ids":["090074560858","090074564025"]},{"name":"Keswick","e":326048,"n":523965,"walkStart":true,"gate":"Keswick","ids":["090002370645","090002370646","090002370651"]},{"name":"Portinscale","e":325052,"n":523985,"walkStart":false,"gate":"Keswick","ids":["090002990629","090002990630"]},{"name":"Croft Terrace","e":323266,"n":523655,"walkStart":true,"gate":"Braithwaite","ids":["090002990088","090002990604"]},{"name":"Thornthwaite Road","e":323269,"n":524075,"walkStart":true,"gate":"Braithwaite","ids":["090002990605","090002990606"]},{"name":"Ladstock Hall","e":322607,"n":524975,"walkStart":true,"gate":null,"ids":["090002995098","090002995099"]},{"name":"Galleries","e":322390,"n":525492,"walkStart":true,"gate":null,"ids":["090002990590","090002991247"]},{"name":"The Swan Hotel","e":322035,"n":526408,"walkStart":true,"gate":null,"ids":["090002990583","090002993427"]},{"name":"Woodend car park","e":321791,"n":527634,"walkStart":true,"gate":null,"ids":["090002990579","090002994204"]},{"name":"junction for Bassenthwaite Lake Station","e":319817,"n":531134,"walkStart":true,"gate":null,"ids":["090002270509","090002270524"]},{"name":"turn","e":319204,"n":531093,"walkStart":true,"gate":null,"ids":["090002273019","090002273020"]},{"name":"Close Barn","e":318274,"n":530735,"walkStart":true,"gate":null,"ids":["090002275368","090002275369"]},{"name":"How Close","e":317771,"n":530609,"walkStart":true,"gate":null,"ids":["090002274331","090002274332"]},{"name":"The Wheatsheaf","e":317312,"n":530498,"walkStart":true,"gate":null,"ids":["090002271158","090002274328"]},{"name":"Stanley Terrace","e":316702,"n":530384,"walkStart":true,"gate":null,"ids":["090002270428","090002274326"]},{"name":"Cockermouth 1.0 km north-east","e":313111,"n":531080,"walkStart":false,"gate":"Cockermouth","ids":["090002220418","090002221154"]},{"name":"Cockermouth","e":312499,"n":530892,"walkStart":false,"gate":"Cockermouth","ids":["090002220411","090002220412"]},{"name":"Cockermouth","e":311990,"n":530688,"walkStart":false,"gate":"Cockermouth","ids":["090002220401","090002220404"]},{"name":"Cockermouth","e":311842,"n":530297,"walkStart":false,"gate":"Cockermouth","ids":["090002220399","090002220400"]},{"name":"Cockermouth 1.0 km south-west","e":311595,"n":529793,"walkStart":false,"gate":"Cockermouth","ids":["090002220395","090002223440"]},{"name":"Workington","e":302020,"n":529159,"walkStart":false,"gate":"Workington","ids":["090002590043","090002590318"]},{"name":"Workington","e":301611,"n":528968,"walkStart":false,"gate":"Workington","ids":["090002590298","090002590303"]},{"name":"Workington 1.3 km south-west","e":300827,"n":528598,"walkStart":false,"gate":"Workington","ids":["090002590282","090002590294"]},{"name":"Workington 1.9 km west","e":300169,"n":528711,"walkStart":false,"gate":"Workington","ids":["090002590249"]},{"name":"Woodend Cottages","e":321932,"n":527097,"walkStart":true,"gate":null,"ids":["090002990582"]},{"name":"Crosthwaite","e":326405,"n":524281,"walkStart":true,"gate":"Keswick","ids":["090002370654"]},{"name":"Keswick Bus Station","e":326352,"n":523541,"walkStart":false,"gate":"Keswick","stop":"NaPTAN 090002372830 090002372827 090002372828","ids":["090002372830"]},{"name":"Cockermouth Main Street","e":311990,"n":530688,"walkStart":false,"gate":"Cockermouth","stop":"NaPTAN 090002220404 090002220403","ids":["090002220403","090002220404"]}]}}}
+{
+ "note": "Fellgorithm bus places — FROZEN list of the stops the app knows, per service, with the NaPTAN stop ids (ATCO codes) that feed each one. Built 7 Oct 2026 by matching every journey in the 22 Sep file to its BODS trip. Place ORDER matters (journeys refer to places by index) — only ever APPEND new places at the end of a service. A new service needs its places added here before it can be published. Nearest-fell fields removed from the public copy (owner, 7 Oct); the private copy with them lives outside this repository.",
+ "services": {
+  "6": {
+   "places": [
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351616,
+     "n": 492954,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360108",
+      "090079360111"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351076,
+     "n": 493292,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360818",
+      "090079360825"
+     ]
+    },
+    {
+     "name": "Kendal 1.7 km north-west",
+     "e": 350590,
+     "n": 493828,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360808",
+      "090079360810"
+     ]
+    },
+    {
+     "name": "Ulverston",
+     "e": 329632,
+     "n": 478788,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079680705",
+      "090079680707",
+      "090079680708"
+     ]
+    },
+    {
+     "name": "Ulverston 1.1 km south-west",
+     "e": 328706,
+     "n": 478111,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079682980",
+      "090079682985"
+     ]
+    },
+    {
+     "name": "Ulverston 1.9 km south-west",
+     "e": 327919,
+     "n": 477944,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079680674",
+      "090079684242"
+     ]
+    },
+    {
+     "name": "Ulverston 2.9 km south-west",
+     "e": 327212,
+     "n": 477187,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079560666",
+      "090079561189"
+     ]
+    },
+    {
+     "name": "Barrow-in-Furness",
+     "e": 320721,
+     "n": 470733,
+     "walkStart": false,
+     "gate": "Barrow-in-Furness",
+     "ids": [
+      "090010020538",
+      "090010020544"
+     ]
+    },
+    {
+     "name": "Barrow-in-Furness",
+     "e": 320474,
+     "n": 470273,
+     "walkStart": false,
+     "gate": "Barrow-in-Furness",
+     "ids": [
+      "090010020535",
+      "090010020536"
+     ]
+    },
+    {
+     "name": "Barrow-in-Furness 1.2 km south-west",
+     "e": 320051,
+     "n": 469783,
+     "walkStart": false,
+     "gate": "Barrow-in-Furness",
+     "ids": [
+      "090010020529",
+      "090010020530"
+     ]
+    },
+    {
+     "name": "Barrow-in-Furness 1.2 km south-west",
+     "e": 319676,
+     "n": 469451,
+     "walkStart": false,
+     "gate": "Barrow-in-Furness",
+     "ids": [
+      "090010020511",
+      "090010020517"
+     ]
+    },
+    {
+     "name": "Ulverston 2.6 km south-west",
+     "e": 328135,
+     "n": 476662,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079683171",
+      "090079683172"
+     ]
+    },
+    {
+     "name": "Ulverston 2.6 km south-west",
+     "e": 328624,
+     "n": 476799,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079681479",
+      "090079682257"
+     ]
+    },
+    {
+     "name": "Ulverston 1.8 km south",
+     "e": 328954,
+     "n": 477149,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079681843",
+      "090079684274"
+     ]
+    },
+    {
+     "name": "Ulverston 1.1 km south-west",
+     "e": 329034,
+     "n": 477677,
+     "walkStart": false,
+     "gate": "Ulverston",
+     "ids": [
+      "090079680700",
+      "090079684273"
+     ]
+    },
+    {
+     "name": "Windermere Station",
+     "e": 341417,
+     "n": 498642,
+     "walkStart": false,
+     "gate": "Windermere",
+     "stop": "Bus Rail Interchange",
+     "ids": [
+      "090079732809"
+     ]
+    },
+    {
+     "name": "Kendal Bus Station",
+     "e": 351616,
+     "n": 492955,
+     "walkStart": false,
+     "gate": "Kendal",
+     "stop": "Bus Station (Ken) + Blackhall Road",
+     "ids": [
+      "090079360108",
+      "090079360111"
+     ]
+    }
+   ]
+  },
+  "77": {
+   "places": [
+    {
+     "name": "Keswick",
+     "e": 326324,
+     "n": 523538,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372827"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326048,
+     "n": 523965,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370645",
+      "090002370646"
+     ]
+    },
+    {
+     "name": "Portinscale",
+     "e": 325052,
+     "n": 523985,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002990629",
+      "090002990630"
+     ]
+    },
+    {
+     "name": "Croft Terrace",
+     "e": 323266,
+     "n": 523655,
+     "walkStart": true,
+     "gate": "Braithwaite",
+     "ids": [
+      "090002990604"
+     ]
+    },
+    {
+     "name": "Visitors Centre",
+     "e": 320718,
+     "n": 524486,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990086"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 312353,
+     "n": 530390,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220408",
+      "090002220409"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 311873,
+     "n": 530491,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220401",
+      "090002221153"
+     ]
+    },
+    {
+     "name": "Winder Hall",
+     "e": 315380,
+     "n": 525672,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002414775"
+     ]
+    },
+    {
+     "name": "Lanthwaite Green Farm",
+     "e": 315915,
+     "n": 520801,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002193411"
+     ]
+    },
+    {
+     "name": "Crummock Water car park",
+     "e": 316237,
+     "n": 519352,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002193753"
+     ]
+    },
+    {
+     "name": "Buttermere",
+     "e": 317459,
+     "n": 516928,
+     "walkStart": true,
+     "gate": "Buttermere",
+     "ids": [
+      "090002190083"
+     ]
+    },
+    {
+     "name": "Buttermere 1.6 km south-east",
+     "e": 318750,
+     "n": 515946,
+     "walkStart": true,
+     "gate": "Buttermere",
+     "ids": [
+      "090002193741"
+     ]
+    },
+    {
+     "name": "Mountain Rescue Point",
+     "e": 319445,
+     "n": 515002,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002193742"
+     ]
+    },
+    {
+     "name": "Honister Hause",
+     "e": 322590,
+     "n": 513596,
+     "walkStart": true,
+     "gate": "Seatoller",
+     "ids": [
+      "090002113743"
+     ]
+    },
+    {
+     "name": "Seatoller",
+     "e": 324543,
+     "n": 513756,
+     "walkStart": true,
+     "gate": "Seatoller",
+     "ids": [
+      "090002111393"
+     ]
+    },
+    {
+     "name": "Rosthwaite 0.7 km south",
+     "e": 325739,
+     "n": 514222,
+     "walkStart": true,
+     "gate": "Rosthwaite",
+     "ids": [
+      "090002111375"
+     ]
+    },
+    {
+     "name": "Rosthwaite",
+     "e": 325821,
+     "n": 514921,
+     "walkStart": true,
+     "gate": "Rosthwaite",
+     "ids": [
+      "090002112926"
+     ]
+    },
+    {
+     "name": "Bowder Stone",
+     "e": 325271,
+     "n": 516816,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002113363"
+     ]
+    },
+    {
+     "name": "Bridge",
+     "e": 325437,
+     "n": 517429,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111458"
+     ]
+    },
+    {
+     "name": "Cocklety How",
+     "e": 325053,
+     "n": 518478,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002112247"
+     ]
+    },
+    {
+     "name": "Brandelhow Park",
+     "e": 324874,
+     "n": 520152,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002113744"
+     ]
+    },
+    {
+     "name": "Cattle Grid",
+     "e": 324740,
+     "n": 521243,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002993745"
+     ]
+    },
+    {
+     "name": "Green Road",
+     "e": 324571,
+     "n": 521877,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990090"
+     ]
+    },
+    {
+     "name": "Keswick 1.3 km south-west",
+     "e": 325220,
+     "n": 522853,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002990093"
+     ]
+    },
+    {
+     "name": "Portinscale",
+     "e": 325162,
+     "n": 523560,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002990092"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372827"
+     ]
+    }
+   ]
+  },
+  "78": {
+   "places": [
+    {
+     "name": "Seatoller",
+     "e": 324543,
+     "n": 513756,
+     "walkStart": true,
+     "gate": "Seatoller",
+     "ids": [
+      "090002111393",
+      "090002113361"
+     ]
+    },
+    {
+     "name": "Rosthwaite 0.7 km south",
+     "e": 325739,
+     "n": 514222,
+     "walkStart": true,
+     "gate": "Rosthwaite",
+     "ids": [
+      "090002111375",
+      "090002113752"
+     ]
+    },
+    {
+     "name": "Rosthwaite",
+     "e": 325821,
+     "n": 514921,
+     "walkStart": true,
+     "gate": "Rosthwaite",
+     "ids": [
+      "090002112925",
+      "090002112926"
+     ]
+    },
+    {
+     "name": "Bowder Stone",
+     "e": 325271,
+     "n": 516816,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111439",
+      "090002113363"
+     ]
+    },
+    {
+     "name": "Bridge",
+     "e": 325437,
+     "n": 517429,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111458",
+      "090002111941"
+     ]
+    },
+    {
+     "name": "Hotel",
+     "e": 326097,
+     "n": 518236,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111868",
+      "090002113360"
+     ]
+    },
+    {
+     "name": "Lodore Hotel",
+     "e": 326406,
+     "n": 518907,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002112091",
+      "090002112802"
+     ]
+    },
+    {
+     "name": "Derwentwater Youth Hostel",
+     "e": 326847,
+     "n": 520258,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111322",
+      "090002111893"
+     ]
+    },
+    {
+     "name": "Calfclose Bay",
+     "e": 327074,
+     "n": 521381,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111415",
+      "090002500665"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326581,
+     "n": 523223,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370659",
+      "090002373364"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326324,
+     "n": 523538,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372827"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372827"
+     ]
+    }
+   ]
+  },
+  "505": {
+   "places": [
+    {
+     "name": "Ambleside",
+     "e": 337589,
+     "n": 504266,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412188",
+      "090079412211",
+      "090079412561"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337346,
+     "n": 503935,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411874",
+      "090079412072",
+      "090079412735"
+     ]
+    },
+    {
+     "name": "Ambleside 1.1 km south-west",
+     "e": 336753,
+     "n": 503570,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412256",
+      "090079413285"
+     ]
+    },
+    {
+     "name": "Skelwith Fold road end",
+     "e": 336219,
+     "n": 502461,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079640742",
+      "090079641217"
+     ]
+    },
+    {
+     "name": "Wray Castle road end",
+     "e": 336397,
+     "n": 501575,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079284230",
+      "090079644896"
+     ]
+    },
+    {
+     "name": "The Outgate Inn",
+     "e": 335526,
+     "n": 499805,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079280740",
+      "090079283275"
+     ]
+    },
+    {
+     "name": "Holling Brow",
+     "e": 332539,
+     "n": 498480,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079151207",
+      "090079153277"
+     ]
+    },
+    {
+     "name": "Coniston 1.7 km north-east",
+     "e": 331860,
+     "n": 498394,
+     "walkStart": true,
+     "gate": "Coniston",
+     "ids": [
+      "090079154359",
+      "090079154360"
+     ]
+    },
+    {
+     "name": "Coniston 0.7 km east",
+     "e": 331038,
+     "n": 497540,
+     "walkStart": false,
+     "gate": "Coniston",
+     "ids": [
+      "090079152874",
+      "090079153278"
+     ]
+    },
+    {
+     "name": "Coniston",
+     "e": 330341,
+     "n": 497585,
+     "walkStart": false,
+     "gate": "Coniston",
+     "ids": [
+      "090079151202",
+      "090079153674"
+     ]
+    },
+    {
+     "name": "Coniston",
+     "e": 330369,
+     "n": 498016,
+     "walkStart": false,
+     "gate": "Coniston",
+     "ids": [
+      "090079154222"
+     ]
+    },
+    {
+     "name": "Waterhead",
+     "e": 337712,
+     "n": 503180,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411913",
+      "090079412749"
+     ]
+    },
+    {
+     "name": "Kendal 1.7 km north-west",
+     "e": 350648,
+     "n": 493783,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360810",
+      "090079360815"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351310,
+     "n": 493223,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360825",
+      "090079360839"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351646,
+     "n": 492934,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360111",
+      "090079361274"
+     ]
+    },
+    {
+     "name": "Windermere",
+     "e": 340346,
+     "n": 500284,
+     "walkStart": false,
+     "gate": "Windermere",
+     "ids": [
+      "090079732143"
+     ]
+    },
+    {
+     "name": "Windermere Station",
+     "e": 341417,
+     "n": 498642,
+     "walkStart": false,
+     "gate": "Windermere",
+     "stop": "Bus Rail Interchange",
+     "ids": [
+      "090079732809"
+     ]
+    },
+    {
+     "name": "Kendal Bus Station",
+     "e": 351616,
+     "n": 492955,
+     "walkStart": false,
+     "gate": "Kendal",
+     "stop": "Bus Station (Ken) + Blackhall Road",
+     "ids": [
+      "090079360111",
+      "090079361274"
+     ]
+    },
+    {
+     "name": "Ambleside Bus Interchange",
+     "e": 337589,
+     "n": 504266,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "stop": "NaPTAN 090079412211 090079412212",
+     "ids": [
+      "090079412211",
+      "090079412212"
+     ]
+    }
+   ]
+  },
+  "508": {
+   "places": [
+    {
+     "name": "Windermere 1.8 km north-east",
+     "e": 341068,
+     "n": 501906,
+     "walkStart": true,
+     "gate": "Windermere",
+     "ids": [
+      "090079732977",
+      "090079733293"
+     ]
+    },
+    {
+     "name": "Troutbeck",
+     "e": 341251,
+     "n": 502725,
+     "walkStart": true,
+     "gate": "Windermere",
+     "ids": [
+      "090079412972",
+      "090079412973"
+     ]
+    },
+    {
+     "name": "Windermere 3.7 km north",
+     "e": 341401,
+     "n": 503791,
+     "walkStart": true,
+     "gate": "Windermere",
+     "ids": [
+      "090079411381",
+      "090079412978"
+     ]
+    },
+    {
+     "name": "Pass Inn",
+     "e": 340114,
+     "n": 508079,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079411647",
+      "090079411648"
+     ]
+    },
+    {
+     "name": "Windy Corner",
+     "e": 340178,
+     "n": 511237,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074551555",
+      "090074554650"
+     ]
+    },
+    {
+     "name": "Brotherswater Inn",
+     "e": 340340,
+     "n": 511844,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074552196",
+      "090074553291"
+     ]
+    },
+    {
+     "name": "Brock Crags road end",
+     "e": 340517,
+     "n": 513194,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074551613",
+      "090074554649"
+     ]
+    },
+    {
+     "name": "Bridgend",
+     "e": 339953,
+     "n": 514362,
+     "walkStart": true,
+     "gate": "Patterdale",
+     "ids": [
+      "090074551434",
+      "090074553289"
+     ]
+    },
+    {
+     "name": "Patterdale",
+     "e": 339841,
+     "n": 515642,
+     "walkStart": true,
+     "gate": "Patterdale",
+     "ids": [
+      "090074552907",
+      "090074553296"
+     ]
+    },
+    {
+     "name": "Patterdale",
+     "e": 339485,
+     "n": 515982,
+     "walkStart": true,
+     "gate": "Patterdale",
+     "ids": [
+      "090074552905",
+      "090074552906"
+     ]
+    },
+    {
+     "name": "Patterdale 1.0 km north-west",
+     "e": 339024,
+     "n": 516137,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074552903",
+      "090074552904"
+     ]
+    },
+    {
+     "name": "Glenridding",
+     "e": 338624,
+     "n": 516976,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074554648"
+     ]
+    },
+    {
+     "name": "Stybarrow Crag",
+     "e": 338713,
+     "n": 517913,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074552932",
+      "090074552948"
+     ]
+    },
+    {
+     "name": "Stybarrow Crag",
+     "e": 338750,
+     "n": 518407,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074552931"
+     ]
+    },
+    {
+     "name": "Glencoyne",
+     "e": 338686,
+     "n": 518869,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074441601",
+      "090074443232"
+     ]
+    },
+    {
+     "name": "Aira Force",
+     "e": 339981,
+     "n": 519912,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074441301",
+      "090074441302"
+     ]
+    },
+    {
+     "name": "Dobbin Wood Lodge",
+     "e": 341913,
+     "n": 520519,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074444940",
+      "090074444941"
+     ]
+    },
+    {
+     "name": "Gowbarrow Cottages",
+     "e": 343735,
+     "n": 521361,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074442897",
+      "090074444647"
+     ]
+    },
+    {
+     "name": "Longthwaite road end",
+     "e": 344531,
+     "n": 522699,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074441663"
+     ]
+    },
+    {
+     "name": "Penrith 1.9 km south",
+     "e": 352282,
+     "n": 528573,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074724684",
+      "090074724685"
+     ]
+    },
+    {
+     "name": "Penrith 1.2 km south-east",
+     "e": 352069,
+     "n": 529260,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074560885",
+      "090074560894"
+     ]
+    },
+    {
+     "name": "Penrith 1.2 km south-east",
+     "e": 351886,
+     "n": 529642,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074561108"
+     ]
+    },
+    {
+     "name": "Penrith",
+     "e": 351623,
+     "n": 530320,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074560856",
+      "090074564025"
+     ]
+    },
+    {
+     "name": "Penrith",
+     "e": 351194,
+     "n": 529935,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074562848"
+     ]
+    },
+    {
+     "name": "Kendal 1.7 km north-west",
+     "e": 350648,
+     "n": 493783,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360810",
+      "090079360815"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351310,
+     "n": 493223,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360825",
+      "090079360839"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351695,
+     "n": 493081,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360111",
+      "090079363432"
+     ]
+    },
+    {
+     "name": "Windermere Station",
+     "e": 341417,
+     "n": 498642,
+     "walkStart": false,
+     "gate": "Windermere",
+     "stop": "Bus Rail Interchange",
+     "ids": [
+      "090079732809"
+     ]
+    },
+    {
+     "name": "Pooley Bridge",
+     "e": 347093,
+     "n": 524445,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074082993",
+      "090074084517"
+     ]
+    }
+   ]
+  },
+  "509": {
+   "places": [
+    {
+     "name": "Keswick",
+     "e": 326333,
+     "n": 523542,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372828"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326900,
+     "n": 523515,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002374210",
+      "090002374211"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 327526,
+     "n": 523851,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370670",
+      "090002370671"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 328054,
+     "n": 523802,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002371639",
+      "090002371640"
+     ]
+    },
+    {
+     "name": "Threlkeld 0.7 km south-west",
+     "e": 331680,
+     "n": 525077,
+     "walkStart": false,
+     "gate": "Threlkeld",
+     "ids": [
+      "090074662961",
+      "090074662962",
+      "090074664333"
+     ]
+    },
+    {
+     "name": "Threlkeld",
+     "e": 332264,
+     "n": 525410,
+     "walkStart": true,
+     "gate": "Threlkeld",
+     "ids": [
+      "090074662959",
+      "090074664334"
+     ]
+    },
+    {
+     "name": "Road End",
+     "e": 336910,
+     "n": 527326,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074471678",
+      "090074471679"
+     ]
+    },
+    {
+     "name": "Troutbeck Hotel",
+     "e": 338933,
+     "n": 527111,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074312974",
+      "090074314864"
+     ]
+    },
+    {
+     "name": "Rookin House",
+     "e": 338544,
+     "n": 525202,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074435359",
+      "090074435360"
+     ]
+    },
+    {
+     "name": "Brook House Farm",
+     "e": 339578,
+     "n": 523497,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074441379",
+      "090074443234"
+     ]
+    },
+    {
+     "name": "The Royal Hotel",
+     "e": 339297,
+     "n": 521608,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074441378",
+      "090074443231"
+     ]
+    },
+    {
+     "name": "Aira Force",
+     "e": 339933,
+     "n": 519928,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074444865",
+      "090074444866"
+     ]
+    },
+    {
+     "name": "Glencoyne",
+     "e": 338699,
+     "n": 518873,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074441601",
+      "090074443232"
+     ]
+    },
+    {
+     "name": "Stybarrow Crag",
+     "e": 338749,
+     "n": 518301,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074552932",
+      "090074552948"
+     ]
+    },
+    {
+     "name": "Glenridding",
+     "e": 338624,
+     "n": 516976,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074554648"
+     ]
+    },
+    {
+     "name": "Patterdale 1.0 km north-west",
+     "e": 339019,
+     "n": 516153,
+     "walkStart": true,
+     "gate": "Glenridding",
+     "ids": [
+      "090074552903",
+      "090074552904"
+     ]
+    },
+    {
+     "name": "Patterdale",
+     "e": 339516,
+     "n": 515964,
+     "walkStart": true,
+     "gate": "Patterdale",
+     "ids": [
+      "090074552905",
+      "090074552906"
+     ]
+    },
+    {
+     "name": "Patterdale",
+     "e": 339853,
+     "n": 515639,
+     "walkStart": true,
+     "gate": "Patterdale",
+     "ids": [
+      "090074552907",
+      "090074553296"
+     ]
+    },
+    {
+     "name": "Bridgend",
+     "e": 339957,
+     "n": 514376,
+     "walkStart": true,
+     "gate": "Patterdale",
+     "ids": [
+      "090074551434",
+      "090074553289"
+     ]
+    },
+    {
+     "name": "Cow Bridge",
+     "e": 340323,
+     "n": 513362,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074551572",
+      "090074553290"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372828"
+     ]
+    }
+   ]
+  },
+  "516": {
+   "places": [
+    {
+     "name": "Old Dungeon Ghyll",
+     "e": 328587,
+     "n": 505985,
+     "walkStart": true,
+     "gate": "Old Dungeon Ghyll",
+     "ids": [
+      "090079413665",
+      "090079415103"
+     ]
+    },
+    {
+     "name": "New Dungeon Ghyll",
+     "e": 329568,
+     "n": 506431,
+     "walkStart": true,
+     "gate": "Old Dungeon Ghyll",
+     "ids": [
+      "090079415104",
+      "090079415123"
+     ]
+    },
+    {
+     "name": "Rawfell",
+     "e": 330580,
+     "n": 506662,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079414931",
+      "090079414932"
+     ]
+    },
+    {
+     "name": "Lingmoor View",
+     "e": 331605,
+     "n": 505571,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079415287",
+      "090079415288"
+     ]
+    },
+    {
+     "name": "Chapel Stile",
+     "e": 332113,
+     "n": 505369,
+     "walkStart": true,
+     "gate": "Elterwater",
+     "ids": [
+      "090079411206",
+      "090079413286"
+     ]
+    },
+    {
+     "name": "Elterwater",
+     "e": 332813,
+     "n": 504817,
+     "walkStart": true,
+     "gate": "Elterwater",
+     "ids": [
+      "090079411208",
+      "090079413287"
+     ]
+    },
+    {
+     "name": "Elterwater 0.7 km east",
+     "e": 333489,
+     "n": 504666,
+     "walkStart": true,
+     "gate": "Elterwater",
+     "ids": [
+      "090079414929",
+      "090079414930"
+     ]
+    },
+    {
+     "name": "Skelwith Bridge",
+     "e": 334486,
+     "n": 503518,
+     "walkStart": true,
+     "gate": "Elterwater",
+     "ids": [
+      "090079411215",
+      "090079413288"
+     ]
+    },
+    {
+     "name": "Ambleside 1.1 km south-west",
+     "e": 336751,
+     "n": 503585,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412256",
+      "090079413285"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337340,
+     "n": 504013,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411874",
+      "090079412188",
+      "090079412211"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337708,
+     "n": 503803,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412735"
+     ]
+    },
+    {
+     "name": "Waterhead",
+     "e": 337712,
+     "n": 503180,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411913",
+      "090079412749"
+     ]
+    },
+    {
+     "name": "Kendal 1.7 km north-west",
+     "e": 350648,
+     "n": 493783,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360810",
+      "090079360815"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351310,
+     "n": 493223,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360825",
+      "090079360839"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351646,
+     "n": 492934,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360111",
+      "090079361274"
+     ]
+    },
+    {
+     "name": "Windermere",
+     "e": 340346,
+     "n": 500284,
+     "walkStart": false,
+     "gate": "Windermere",
+     "ids": [
+      "090079732143"
+     ]
+    },
+    {
+     "name": "Windermere Station",
+     "e": 341417,
+     "n": 498642,
+     "walkStart": false,
+     "gate": "Windermere",
+     "stop": "Bus Rail Interchange",
+     "ids": [
+      "090079732809"
+     ]
+    },
+    {
+     "name": "Kendal Bus Station",
+     "e": 351616,
+     "n": 492955,
+     "walkStart": false,
+     "gate": "Kendal",
+     "stop": "Bus Station (Ken) + Blackhall Road",
+     "ids": [
+      "090079360111",
+      "090079361274"
+     ]
+    },
+    {
+     "name": "Ambleside Bus Interchange",
+     "e": 337589,
+     "n": 504266,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "stop": "NaPTAN 090079412211 090079412212",
+     "ids": [
+      "090079412211",
+      "090079412212"
+     ]
+    }
+   ]
+  },
+  "554": {
+   "places": [
+    {
+     "name": "Wigton",
+     "e": 325605,
+     "n": 548504,
+     "walkStart": false,
+     "gate": "Wigton",
+     "ids": [
+      "090002563029",
+      "090002563030"
+     ]
+    },
+    {
+     "name": "Wigton",
+     "e": 326065,
+     "n": 548832,
+     "walkStart": false,
+     "gate": "Wigton",
+     "ids": [
+      "090002561731",
+      "090002561760"
+     ]
+    },
+    {
+     "name": "Carlisle",
+     "e": 338836,
+     "n": 554439,
+     "walkStart": false,
+     "gate": "Carlisle",
+     "ids": [
+      "090033101877",
+      "090033102230"
+     ]
+    },
+    {
+     "name": "Carlisle",
+     "e": 339020,
+     "n": 554874,
+     "walkStart": false,
+     "gate": "Carlisle",
+     "ids": [
+      "090033102000",
+      "090033102636",
+      "090033102657"
+     ]
+    },
+    {
+     "name": "Carlisle 1.1 km north-east",
+     "e": 339343,
+     "n": 555408,
+     "walkStart": false,
+     "gate": "Carlisle",
+     "ids": [
+      "090033104080",
+      "090033104081"
+     ]
+    },
+    {
+     "name": "Carlisle 2.1 km north-east",
+     "e": 340056,
+     "n": 556160,
+     "walkStart": false,
+     "gate": "Carlisle",
+     "ids": [
+      "090033101563",
+      "090033101978"
+     ]
+    },
+    {
+     "name": "Wigton",
+     "e": 325581,
+     "n": 547924,
+     "walkStart": false,
+     "gate": "Wigton",
+     "ids": [
+      "090002561582",
+      "090002564179"
+     ]
+    },
+    {
+     "name": "North Lakes Caravan Park",
+     "e": 320775,
+     "n": 535382,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002060546",
+      "090002060547"
+     ]
+    },
+    {
+     "name": "Binsey road end",
+     "e": 320885,
+     "n": 534875,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002060548",
+      "090002060549"
+     ]
+    },
+    {
+     "name": "High Side",
+     "e": 323474,
+     "n": 530640,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002050611",
+      "090002053444"
+     ]
+    },
+    {
+     "name": "Ravenstone Hotel",
+     "e": 323524,
+     "n": 529836,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002050614",
+      "090002050615"
+     ]
+    },
+    {
+     "name": "Long Side Plantation",
+     "e": 323350,
+     "n": 529057,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002050607",
+      "090002053443"
+     ]
+    },
+    {
+     "name": "Osprey View Point",
+     "e": 323492,
+     "n": 528165,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002521249",
+      "090002523442"
+     ]
+    },
+    {
+     "name": "Rose Cottage",
+     "e": 323495,
+     "n": 527504,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002520613",
+      "090002523441"
+     ]
+    },
+    {
+     "name": "Lyzzick Hall Hotel",
+     "e": 324727,
+     "n": 526216,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002520626",
+      "090002520627"
+     ]
+    },
+    {
+     "name": "Millbeck road end",
+     "e": 325328,
+     "n": 525852,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002521253",
+      "090002524336"
+     ]
+    },
+    {
+     "name": "Keswick 1.6 km north",
+     "e": 325942,
+     "n": 525115,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002520644",
+      "090002520648"
+     ]
+    },
+    {
+     "name": "Crosthwaite",
+     "e": 326405,
+     "n": 524281,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370652",
+      "090002370654"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326352,
+     "n": 523540,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372830"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372830"
+     ]
+    }
+   ]
+  },
+  "555": {
+   "places": [
+    {
+     "name": "Keswick",
+     "e": 326333,
+     "n": 523542,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372828"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326900,
+     "n": 523515,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370667",
+      "090002374210"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 327526,
+     "n": 523851,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370670",
+      "090002370671"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 327966,
+     "n": 523701,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370677",
+      "090002370681",
+      "090002370682"
+     ]
+    },
+    {
+     "name": "Keswick 1.5 km east",
+     "e": 327861,
+     "n": 523307,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370677",
+      "090002370678"
+     ]
+    },
+    {
+     "name": "Keswick 1.5 km east",
+     "e": 328117,
+     "n": 522961,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002500686",
+      "090002503475"
+     ]
+    },
+    {
+     "name": "Castle Lane",
+     "e": 328765,
+     "n": 522746,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500697",
+      "090002503477"
+     ]
+    },
+    {
+     "name": "Dale Bottom",
+     "e": 329343,
+     "n": 521842,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002501141",
+      "090002503478"
+     ]
+    },
+    {
+     "name": "Shoulthwaite Farm",
+     "e": 329973,
+     "n": 520685,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500712",
+      "090002500713"
+     ]
+    },
+    {
+     "name": "Dam road end",
+     "e": 331603,
+     "n": 519431,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500719",
+      "090002500720"
+     ]
+    },
+    {
+     "name": "Legburthwaite",
+     "e": 331791,
+     "n": 518815,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500723",
+      "090002500725"
+     ]
+    },
+    {
+     "name": "Kings Head Hotel",
+     "e": 331698,
+     "n": 517808,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500722",
+      "090002501142"
+     ]
+    },
+    {
+     "name": "car park",
+     "e": 331604,
+     "n": 516864,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500721",
+      "090002501204"
+     ]
+    },
+    {
+     "name": "Wythburn Church",
+     "e": 332450,
+     "n": 513467,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002501143",
+      "090002503479"
+     ]
+    },
+    {
+     "name": "Armboth Turn",
+     "e": 332511,
+     "n": 512895,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002500726",
+      "090002500727"
+     ]
+    },
+    {
+     "name": "Dunmail Raise",
+     "e": 332972,
+     "n": 511123,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002410728",
+      "090002411210"
+     ]
+    },
+    {
+     "name": "Town Head layby",
+     "e": 333510,
+     "n": 509578,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090079410729",
+      "090079410730"
+     ]
+    },
+    {
+     "name": "Grasmere 1.5 km north",
+     "e": 333676,
+     "n": 508791,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079410731",
+      "090079410732"
+     ]
+    },
+    {
+     "name": "Grasmere 0.9 km north",
+     "e": 333951,
+     "n": 508229,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079411145",
+      "090079413480"
+     ]
+    },
+    {
+     "name": "Grasmere 0.9 km north",
+     "e": 333806,
+     "n": 507781,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079414226",
+      "090079414227"
+     ]
+    },
+    {
+     "name": "Grasmere",
+     "e": 333858,
+     "n": 507323,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079414231",
+      "090079414232"
+     ]
+    },
+    {
+     "name": "Grasmere",
+     "e": 334178,
+     "n": 506917,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079411140",
+      "090079413652"
+     ]
+    },
+    {
+     "name": "White Moss",
+     "e": 334831,
+     "n": 506537,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079414228",
+      "090079414229"
+     ]
+    },
+    {
+     "name": "Rydal",
+     "e": 336479,
+     "n": 506159,
+     "walkStart": true,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411357",
+      "090079411786"
+     ]
+    },
+    {
+     "name": "Ambleside 1.0 km north-west",
+     "e": 337171,
+     "n": 505187,
+     "walkStart": true,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411336",
+      "090079411828"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337420,
+     "n": 504809,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412322",
+      "090079415076"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337698,
+     "n": 504498,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412212",
+      "090079413792"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337708,
+     "n": 503803,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411874",
+      "090079412735"
+     ]
+    },
+    {
+     "name": "Waterhead",
+     "e": 337712,
+     "n": 503180,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411913",
+      "090079412749"
+     ]
+    },
+    {
+     "name": "Kendal 1.7 km north-west",
+     "e": 350648,
+     "n": 493783,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360808",
+      "090079360810"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351310,
+     "n": 493223,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360825",
+      "090079360839"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351651,
+     "n": 492923,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360108",
+      "090079360111",
+      "090079360114"
+     ]
+    },
+    {
+     "name": "Windermere",
+     "e": 340346,
+     "n": 500284,
+     "walkStart": false,
+     "gate": "Windermere",
+     "ids": [
+      "090079732143"
+     ]
+    },
+    {
+     "name": "Kendal",
+     "e": 351721,
+     "n": 492423,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360868",
+      "090079363495"
+     ]
+    },
+    {
+     "name": "Kendal",
+     "e": 351643,
+     "n": 491850,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079362011",
+      "090079362350"
+     ]
+    },
+    {
+     "name": "Kendal 1.0 km south",
+     "e": 351519,
+     "n": 491443,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079361995",
+      "090079362031",
+      "090079362594"
+     ]
+    },
+    {
+     "name": "Kendal 1.6 km south-west",
+     "e": 351042,
+     "n": 490950,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079361356",
+      "090079362510"
+     ]
+    },
+    {
+     "name": "Windermere Station",
+     "e": 341417,
+     "n": 498642,
+     "walkStart": false,
+     "gate": "Windermere",
+     "stop": "Bus Rail Interchange",
+     "ids": [
+      "090079732809"
+     ]
+    },
+    {
+     "name": "Kendal Bus Station",
+     "e": 351616,
+     "n": 492955,
+     "walkStart": false,
+     "gate": "Kendal",
+     "stop": "Bus Station (Ken) + Blackhall Road",
+     "ids": [
+      "090079360108",
+      "090079360111"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372828"
+     ]
+    },
+    {
+     "name": "Ambleside Bus Interchange",
+     "e": 337589,
+     "n": 504266,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "stop": "NaPTAN 090079412211 090079412212",
+     "ids": [
+      "090079412211",
+      "090079412212"
+     ]
+    }
+   ]
+  },
+  "599": {
+   "places": [
+    {
+     "name": "Grasmere",
+     "e": 333674,
+     "n": 507598,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079411144"
+     ]
+    },
+    {
+     "name": "Grasmere",
+     "e": 334178,
+     "n": 506917,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079411140",
+      "090079413652"
+     ]
+    },
+    {
+     "name": "White Moss",
+     "e": 334831,
+     "n": 506537,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079414228",
+      "090079414229"
+     ]
+    },
+    {
+     "name": "Rydal",
+     "e": 336479,
+     "n": 506159,
+     "walkStart": true,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411357",
+      "090079411786"
+     ]
+    },
+    {
+     "name": "Ambleside 1.0 km north-west",
+     "e": 337171,
+     "n": 505187,
+     "walkStart": true,
+     "gate": "Ambleside",
+     "ids": [
+      "090079411336",
+      "090079411828"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337420,
+     "n": 504809,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412322",
+      "090079415076"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337698,
+     "n": 504498,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412212",
+      "090079413792"
+     ]
+    },
+    {
+     "name": "Ambleside",
+     "e": 337708,
+     "n": 503803,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412735"
+     ]
+    },
+    {
+     "name": "Waterhead",
+     "e": 337712,
+     "n": 503180,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079412749",
+      "090079412887"
+     ]
+    },
+    {
+     "name": "Windermere",
+     "e": 340346,
+     "n": 500284,
+     "walkStart": false,
+     "gate": "Windermere",
+     "ids": [
+      "090079732143"
+     ]
+    },
+    {
+     "name": "Ambleside 1.1 km south-west",
+     "e": 337317,
+     "n": 503717,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "ids": [
+      "090079415234"
+     ]
+    },
+    {
+     "name": "Grasmere 0.9 km north",
+     "e": 333951,
+     "n": 508229,
+     "walkStart": true,
+     "gate": "Grasmere",
+     "ids": [
+      "090079411145"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351616,
+     "n": 492954,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360111",
+      "090079363432"
+     ]
+    },
+    {
+     "name": "Kendal 0.9 km north-west",
+     "e": 351076,
+     "n": 493292,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360825",
+      "090079360839"
+     ]
+    },
+    {
+     "name": "Kendal 1.7 km north-west",
+     "e": 350590,
+     "n": 493828,
+     "walkStart": false,
+     "gate": "Kendal",
+     "ids": [
+      "090079360808",
+      "090079360810"
+     ]
+    },
+    {
+     "name": "Windermere Station",
+     "e": 341417,
+     "n": 498642,
+     "walkStart": false,
+     "gate": "Windermere",
+     "stop": "Bus Rail Interchange",
+     "ids": [
+      "090079732809"
+     ]
+    },
+    {
+     "name": "Kendal Bus Station",
+     "e": 351616,
+     "n": 492955,
+     "walkStart": false,
+     "gate": "Kendal",
+     "stop": "Bus Station (Ken) + Blackhall Road",
+     "ids": [
+      "090079360111"
+     ]
+    },
+    {
+     "name": "Ambleside Bus Interchange",
+     "e": 337589,
+     "n": 504266,
+     "walkStart": false,
+     "gate": "Ambleside",
+     "stop": "NaPTAN 090079412211 090079412212",
+     "ids": [
+      "090079412211",
+      "090079412212"
+     ]
+    }
+   ]
+  },
+  "77A": {
+   "places": [
+    {
+     "name": "Keswick",
+     "e": 326324,
+     "n": 523538,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372827"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326048,
+     "n": 523965,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370645"
+     ]
+    },
+    {
+     "name": "Portinscale",
+     "e": 325052,
+     "n": 523985,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002990629"
+     ]
+    },
+    {
+     "name": "Portinscale",
+     "e": 325170,
+     "n": 523573,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002993748"
+     ]
+    },
+    {
+     "name": "Keswick 1.3 km south-west",
+     "e": 325226,
+     "n": 522873,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002993749"
+     ]
+    },
+    {
+     "name": "Swinside Green Road",
+     "e": 324594,
+     "n": 521870,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002993750"
+     ]
+    },
+    {
+     "name": "Cattle Grid",
+     "e": 324751,
+     "n": 521230,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990091"
+     ]
+    },
+    {
+     "name": "Brandelhow Park",
+     "e": 324886,
+     "n": 520148,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111548"
+     ]
+    },
+    {
+     "name": "Cocklety How",
+     "e": 325064,
+     "n": 518463,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002113751"
+     ]
+    },
+    {
+     "name": "Village Caf",
+     "e": 325265,
+     "n": 517496,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002115490"
+     ]
+    },
+    {
+     "name": "Bowder Stone",
+     "e": 325281,
+     "n": 516806,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002111439"
+     ]
+    },
+    {
+     "name": "Rosthwaite",
+     "e": 325809,
+     "n": 514949,
+     "walkStart": true,
+     "gate": "Rosthwaite",
+     "ids": [
+      "090002112925"
+     ]
+    },
+    {
+     "name": "Rosthwaite 0.7 km south",
+     "e": 325853,
+     "n": 514537,
+     "walkStart": true,
+     "gate": "Rosthwaite",
+     "ids": [
+      "090002113752"
+     ]
+    },
+    {
+     "name": "Seatoller",
+     "e": 324527,
+     "n": 513748,
+     "walkStart": true,
+     "gate": "Seatoller",
+     "ids": [
+      "090002113361"
+     ]
+    },
+    {
+     "name": "Honister Hause",
+     "e": 322595,
+     "n": 513586,
+     "walkStart": true,
+     "gate": "Seatoller",
+     "ids": [
+      "090002110087"
+     ]
+    },
+    {
+     "name": "Mountain Rescue Point",
+     "e": 319434,
+     "n": 514988,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002190085"
+     ]
+    },
+    {
+     "name": "Buttermere 1.6 km south-east",
+     "e": 318734,
+     "n": 515948,
+     "walkStart": true,
+     "gate": "Buttermere",
+     "ids": [
+      "090002190490"
+     ]
+    },
+    {
+     "name": "Buttermere",
+     "e": 317787,
+     "n": 516872,
+     "walkStart": true,
+     "gate": "Buttermere",
+     "ids": [
+      "090002193747"
+     ]
+    },
+    {
+     "name": "Crummock Water car park",
+     "e": 316219,
+     "n": 519354,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002193754"
+     ]
+    },
+    {
+     "name": "Lanthwaite Farm",
+     "e": 315888,
+     "n": 520800,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002190081"
+     ]
+    },
+    {
+     "name": "Winder Hall",
+     "e": 315381,
+     "n": 525646,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002414774"
+     ]
+    },
+    {
+     "name": "Visitors Centre",
+     "e": 320718,
+     "n": 524486,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990086"
+     ]
+    },
+    {
+     "name": "Croft Terrace",
+     "e": 323277,
+     "n": 523664,
+     "walkStart": true,
+     "gate": "Braithwaite",
+     "ids": [
+      "090002990088"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 312353,
+     "n": 530390,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220408"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 311873,
+     "n": 530491,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220401"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372827"
+     ]
+    }
+   ]
+  },
+  "X4": {
+   "places": [
+    {
+     "name": "Keswick",
+     "e": 326352,
+     "n": 523540,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372830"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326900,
+     "n": 523515,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370667",
+      "090002374210"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 327526,
+     "n": 523851,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370671",
+      "090002370673"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 328054,
+     "n": 523802,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002371640",
+      "090002371641"
+     ]
+    },
+    {
+     "name": "Threlkeld 0.7 km south-west",
+     "e": 331680,
+     "n": 525077,
+     "walkStart": false,
+     "gate": "Threlkeld",
+     "ids": [
+      "090074662962",
+      "090074664333"
+     ]
+    },
+    {
+     "name": "Threlkeld",
+     "e": 332264,
+     "n": 525410,
+     "walkStart": true,
+     "gate": "Threlkeld",
+     "ids": [
+      "090074662959",
+      "090074663896"
+     ]
+    },
+    {
+     "name": "Road End",
+     "e": 336910,
+     "n": 527326,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074471678",
+      "090074471679"
+     ]
+    },
+    {
+     "name": "Troutbeck Inn",
+     "e": 338912,
+     "n": 527234,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074312974",
+      "090074312975"
+     ]
+    },
+    {
+     "name": "Penrith 1.0 km south-west",
+     "e": 351068,
+     "n": 529453,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074561452",
+      "090074564335"
+     ]
+    },
+    {
+     "name": "Penrith",
+     "e": 351194,
+     "n": 529935,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074562848"
+     ]
+    },
+    {
+     "name": "Penrith",
+     "e": 351422,
+     "n": 530433,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074560858",
+      "090074564025"
+     ]
+    },
+    {
+     "name": "Crosthwaite",
+     "e": 326386,
+     "n": 524291,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370652",
+      "090002370654"
+     ]
+    },
+    {
+     "name": "Keswick 1.6 km north",
+     "e": 326110,
+     "n": 524787,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002520644",
+      "090002520648"
+     ]
+    },
+    {
+     "name": "Dodd road end",
+     "e": 325303,
+     "n": 525851,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002521253",
+      "090002524336"
+     ]
+    },
+    {
+     "name": "Lyzzick Hall Hotel",
+     "e": 324705,
+     "n": 526215,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002520626",
+      "090002520627"
+     ]
+    },
+    {
+     "name": "Dodd Wood",
+     "e": 323482,
+     "n": 527496,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002520613",
+      "090002523441"
+     ]
+    },
+    {
+     "name": "Osprey View Point Car Park",
+     "e": 323476,
+     "n": 528166,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002521249",
+      "090002523442"
+     ]
+    },
+    {
+     "name": "Long Side Plantation",
+     "e": 323338,
+     "n": 529058,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002050607",
+      "090002053443"
+     ]
+    },
+    {
+     "name": "Ravenstone Hotel",
+     "e": 323511,
+     "n": 529840,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002050614",
+      "090002050615"
+     ]
+    },
+    {
+     "name": "High Side Farm",
+     "e": 323455,
+     "n": 530641,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002050611",
+      "090002053444"
+     ]
+    },
+    {
+     "name": "Lakes Distillery",
+     "e": 319603,
+     "n": 531955,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002274813",
+      "090002274814"
+     ]
+    },
+    {
+     "name": "turn",
+     "e": 319204,
+     "n": 531093,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002273019",
+      "090002273020"
+     ]
+    },
+    {
+     "name": "Close Barn",
+     "e": 318274,
+     "n": 530735,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002275368",
+      "090002275369"
+     ]
+    },
+    {
+     "name": "How Close",
+     "e": 317771,
+     "n": 530609,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002274331",
+      "090002274332"
+     ]
+    },
+    {
+     "name": "The Wheatsheaf",
+     "e": 317312,
+     "n": 530498,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002271158",
+      "090002274328"
+     ]
+    },
+    {
+     "name": "Stanley Terrace",
+     "e": 316702,
+     "n": 530384,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002270428",
+      "090002274326"
+     ]
+    },
+    {
+     "name": "Cockermouth 1.0 km north-east",
+     "e": 313111,
+     "n": 531080,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220418",
+      "090002221154"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 312499,
+     "n": 530892,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220411",
+      "090002220412"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 311990,
+     "n": 530688,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220404",
+      "090002223074"
+     ]
+    },
+    {
+     "name": "Cockermouth 1.7 km west",
+     "e": 310690,
+     "n": 530821,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002225055",
+      "090002225056"
+     ]
+    },
+    {
+     "name": "Workington",
+     "e": 302020,
+     "n": 529159,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590043",
+      "090002590318"
+     ]
+    },
+    {
+     "name": "Workington",
+     "e": 301611,
+     "n": 528968,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590298",
+      "090002590303"
+     ]
+    },
+    {
+     "name": "Workington 1.3 km south-west",
+     "e": 300827,
+     "n": 528598,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590282",
+      "090002590294"
+     ]
+    },
+    {
+     "name": "Workington 1.9 km west",
+     "e": 300169,
+     "n": 528711,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590249"
+     ]
+    },
+    {
+     "name": "Cockermouth 1.7 km west",
+     "e": 311262,
+     "n": 530806,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002225374"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372830"
+     ]
+    },
+    {
+     "name": "Cockermouth Main Street",
+     "e": 311990,
+     "n": 530688,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "stop": "NaPTAN 090002220404 090002220403",
+     "ids": [
+      "090002220403",
+      "090002220404"
+     ]
+    }
+   ]
+  },
+  "X5": {
+   "places": [
+    {
+     "name": "Keswick",
+     "e": 326352,
+     "n": 523540,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002372830"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326900,
+     "n": 523515,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370667",
+      "090002374210"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 327526,
+     "n": 523851,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370670",
+      "090002370671",
+      "090002370673"
+     ]
+    },
+    {
+     "name": "Keswick 1.2 km east",
+     "e": 328054,
+     "n": 523802,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002371639",
+      "090002371640"
+     ]
+    },
+    {
+     "name": "Threlkeld 0.7 km south-west",
+     "e": 331680,
+     "n": 525077,
+     "walkStart": false,
+     "gate": "Threlkeld",
+     "ids": [
+      "090074662962",
+      "090074664333"
+     ]
+    },
+    {
+     "name": "Threlkeld",
+     "e": 332264,
+     "n": 525410,
+     "walkStart": true,
+     "gate": "Threlkeld",
+     "ids": [
+      "090074662959",
+      "090074663896"
+     ]
+    },
+    {
+     "name": "Road End",
+     "e": 336910,
+     "n": 527326,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074471678",
+      "090074471679"
+     ]
+    },
+    {
+     "name": "Troutbeck Inn",
+     "e": 338912,
+     "n": 527234,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090074312974",
+      "090074312975"
+     ]
+    },
+    {
+     "name": "Penrith 1.0 km south-west",
+     "e": 351068,
+     "n": 529453,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074561452",
+      "090074564335"
+     ]
+    },
+    {
+     "name": "Penrith",
+     "e": 351194,
+     "n": 529935,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074562848"
+     ]
+    },
+    {
+     "name": "Penrith",
+     "e": 351422,
+     "n": 530433,
+     "walkStart": false,
+     "gate": "Penrith",
+     "ids": [
+      "090074560858",
+      "090074564025"
+     ]
+    },
+    {
+     "name": "Keswick",
+     "e": 326048,
+     "n": 523965,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370645",
+      "090002370646",
+      "090002370651"
+     ]
+    },
+    {
+     "name": "Portinscale",
+     "e": 325052,
+     "n": 523985,
+     "walkStart": false,
+     "gate": "Keswick",
+     "ids": [
+      "090002990629",
+      "090002990630"
+     ]
+    },
+    {
+     "name": "Croft Terrace",
+     "e": 323266,
+     "n": 523655,
+     "walkStart": true,
+     "gate": "Braithwaite",
+     "ids": [
+      "090002990088",
+      "090002990604"
+     ]
+    },
+    {
+     "name": "Thornthwaite Road",
+     "e": 323269,
+     "n": 524075,
+     "walkStart": true,
+     "gate": "Braithwaite",
+     "ids": [
+      "090002990605",
+      "090002990606"
+     ]
+    },
+    {
+     "name": "Ladstock Hall",
+     "e": 322607,
+     "n": 524975,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002995098",
+      "090002995099"
+     ]
+    },
+    {
+     "name": "Galleries",
+     "e": 322390,
+     "n": 525492,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990590",
+      "090002991247"
+     ]
+    },
+    {
+     "name": "The Swan Hotel",
+     "e": 322035,
+     "n": 526408,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990583",
+      "090002993427"
+     ]
+    },
+    {
+     "name": "Woodend car park",
+     "e": 321791,
+     "n": 527634,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990579",
+      "090002994204"
+     ]
+    },
+    {
+     "name": "junction for Bassenthwaite Lake Station",
+     "e": 319817,
+     "n": 531134,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002270509",
+      "090002270524"
+     ]
+    },
+    {
+     "name": "turn",
+     "e": 319204,
+     "n": 531093,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002273019",
+      "090002273020"
+     ]
+    },
+    {
+     "name": "Close Barn",
+     "e": 318274,
+     "n": 530735,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002275368",
+      "090002275369"
+     ]
+    },
+    {
+     "name": "How Close",
+     "e": 317771,
+     "n": 530609,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002274331",
+      "090002274332"
+     ]
+    },
+    {
+     "name": "The Wheatsheaf",
+     "e": 317312,
+     "n": 530498,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002271158",
+      "090002274328"
+     ]
+    },
+    {
+     "name": "Stanley Terrace",
+     "e": 316702,
+     "n": 530384,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002270428",
+      "090002274326"
+     ]
+    },
+    {
+     "name": "Cockermouth 1.0 km north-east",
+     "e": 313111,
+     "n": 531080,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220418",
+      "090002221154"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 312499,
+     "n": 530892,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220411",
+      "090002220412"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 311990,
+     "n": 530688,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220401",
+      "090002220404"
+     ]
+    },
+    {
+     "name": "Cockermouth",
+     "e": 311842,
+     "n": 530297,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220399",
+      "090002220400"
+     ]
+    },
+    {
+     "name": "Cockermouth 1.0 km south-west",
+     "e": 311595,
+     "n": 529793,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "ids": [
+      "090002220395",
+      "090002223440"
+     ]
+    },
+    {
+     "name": "Workington",
+     "e": 302020,
+     "n": 529159,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590043",
+      "090002590318"
+     ]
+    },
+    {
+     "name": "Workington",
+     "e": 301611,
+     "n": 528968,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590298",
+      "090002590303"
+     ]
+    },
+    {
+     "name": "Workington 1.3 km south-west",
+     "e": 300827,
+     "n": 528598,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590282",
+      "090002590294"
+     ]
+    },
+    {
+     "name": "Workington 1.9 km west",
+     "e": 300169,
+     "n": 528711,
+     "walkStart": false,
+     "gate": "Workington",
+     "ids": [
+      "090002590249"
+     ]
+    },
+    {
+     "name": "Woodend Cottages",
+     "e": 321932,
+     "n": 527097,
+     "walkStart": true,
+     "gate": null,
+     "ids": [
+      "090002990582"
+     ]
+    },
+    {
+     "name": "Crosthwaite",
+     "e": 326405,
+     "n": 524281,
+     "walkStart": true,
+     "gate": "Keswick",
+     "ids": [
+      "090002370654"
+     ]
+    },
+    {
+     "name": "Keswick Bus Station",
+     "e": 326352,
+     "n": 523541,
+     "walkStart": false,
+     "gate": "Keswick",
+     "stop": "NaPTAN 090002372830 090002372827 090002372828",
+     "ids": [
+      "090002372830"
+     ]
+    },
+    {
+     "name": "Cockermouth Main Street",
+     "e": 311990,
+     "n": 530688,
+     "walkStart": false,
+     "gate": "Cockermouth",
+     "stop": "NaPTAN 090002220404 090002220403",
+     "ids": [
+      "090002220403",
+      "090002220404"
+     ]
+    }
+   ]
+  }
+ }
+}

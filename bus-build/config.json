@@ -41,38 +41,303 @@
  },
  "staleDays": 14,
  "confirmNote": "Buses home need two BODS feeds to agree: a new/changed journey is held as a bus home (j.nh) until a later feed shows it again; times within tolMin minutes count as the same bus. A date where one timetable version says no buses and another says buses holds that service's buses home that day.",
- "confirm": { "tolMin": 10, "horizonDays": 400 },
+ "confirm": {
+  "tolMin": 10,
+  "horizonDays": 400
+ },
  "signalsNote": "Hourly job (signals.mjs). bbox = [south lat, west lon, north lat, east lon] for road incidents. floods = centre + radius km for EA warnings. nh.url = the National Highways feed address from your developer account (key in secret NH_API_KEY); empty = not set up.",
- "signals": { "siriSx": "https://data.bus-data.dft.gov.uk/api/v1/siri-sx/", "floods": { "lat": 54.5, "long": -3.1, "dist": 45 }, "bbox": [54.0, -3.7, 54.95, -2.35], "nh": { "url": "", "keyEnv": "NH_API_KEY" },
-   "carparkM": 400,
-   "roadsNote": "Watched roads: a Street Manager CLOSURE whose street/area matches 'match' switches off these bus services + car parks (and every car park within carparkM of the closure point) for the closure dates. Car parks listed here = ones you can only drive to over that road. CHECK the services + add car park names exactly as in the app.",
-   "roads": {
-    "Kirkstone": { "match": ["Kirkstone", "A592"], "services": ["508"], "carparks": [] },
-    "Honister": { "match": ["Honister", "B5289"], "services": ["77", "77A"], "carparks": [] },
-    "Whinlatter": { "match": ["Whinlatter", "B5292"], "services": ["77", "77A"], "carparks": [] },
-    "Borrowdale road": { "match": ["Borrowdale", "B5289"], "services": ["78"], "carparks": [] },
-    "Langdale": { "match": ["Langdale", "B5343"], "services": ["516"], "carparks": [] },
-    "A591 Keswick to Windermere": { "match": ["A591", "Dunmail", "Rydal"], "services": ["555", "599"], "carparks": [] },
-    "Coniston A593": { "match": ["A593"], "services": ["505"], "carparks": [] },
-    "Newlands": { "match": ["Newlands"], "services": [], "carparks": [] },
-    "Wrynose and Hardknott": { "match": ["Wrynose", "Hardknott"], "services": [], "carparks": [] },
-    "Ullswater A592": { "match": ["Patterdale", "Glenridding", "Ullswater"], "services": ["508"], "carparks": [] },
-    "Wasdale": { "match": ["Wasdale", "Wast Water"], "services": [], "carparks": [] },
-    "Buttermere": { "match": ["Buttermere"], "services": ["77", "77A"], "carparks": [] }
+ "signals": {
+  "siriSx": "https://data.bus-data.dft.gov.uk/api/v1/siri-sx/",
+  "floods": {
+   "lat": 54.5,
+   "long": -3.1,
+   "dist": 45
+  },
+  "bbox": [
+   54,
+   -3.7,
+   54.95,
+   -2.35
+  ],
+  "nh": {
+   "url": "",
+   "keyEnv": "NH_API_KEY"
+  },
+  "carparkM": 400,
+  "roadsNote": "Watched roads: a Street Manager CLOSURE whose street/area matches 'match' switches off these bus services + car parks (and every car park within carparkM of the closure point) for the closure dates. Car parks listed here = ones you can only drive to over that road. CHECK the services + add car park names exactly as in the app.",
+  "roads": {
+   "Kirkstone": {
+    "match": [
+     "Kirkstone",
+     "A592"
+    ],
+    "services": [
+     "508"
+    ],
+    "carparks": []
    },
-   "metNote": "Met Office Weather DataHub, Site Specific Global Spot hourly (free plan 360 calls/day). Secret MET_API_KEY. Points fetched every everyH hours. Remove-only thresholds — agree them with the owner.",
-   "met": { "keyEnv": "MET_API_KEY", "everyH": 2, "scrambleGustMph": 40, "highGustMph": 55, "highFeelsC": -8, "highM": 750,
-    "points": [ {"name":"Helvellyn","lat":54.527,"lon":-3.016}, {"name":"Scafell Pike","lat":54.454,"lon":-3.212}, {"name":"Skiddaw","lat":54.651,"lon":-3.148}, {"name":"Blencathra","lat":54.640,"lon":-3.050}, {"name":"Great Gable","lat":54.482,"lon":-3.219}, {"name":"Bowfell","lat":54.448,"lon":-3.166}, {"name":"Coniston Old Man","lat":54.371,"lon":-3.121}, {"name":"High Street","lat":54.492,"lon":-2.865}, {"name":"Fairfield","lat":54.497,"lon":-2.992}, {"name":"Grasmoor","lat":54.571,"lon":-3.280}, {"name":"Pillar","lat":54.497,"lon":-3.281}, {"name":"Crinkle Crags","lat":54.434,"lon":-3.160} ] },
-   "healthHourUtc": 6,
-   "watchPagesNote": "Checked once a day for retirement / deprecation notices. 'about' (optional) = only count lines mentioning these words.",
-   "watchPages": [
-    { "source": "BODS", "url": "https://www.bus-data.dft.gov.uk/", "about": ["API", "GTFS", "SIRI", "data", "service"] },
-    { "source": "Met Office DataHub", "url": "https://datahub.metoffice.gov.uk/support/faqs", "about": ["site specific", "spot", "API", "plan"] },
-    { "source": "Environment Agency flood API", "url": "https://environment.data.gov.uk/flood-monitoring/doc/reference", "about": ["API", "flood", "endpoint"] },
-    { "source": "Street Manager", "url": "https://department-for-transport-streetmanager.github.io/street-manager-docs/open-data/", "about": ["open data", "SNS", "topic", "notification"] },
-    { "source": "gov.uk bank holidays", "url": "https://www.gov.uk/bank-holidays", "about": ["json", "API"] }
-   ],
-   "streetManager": { "url": "https://icy-glitter-2308fellgorithm-roadworks.richiejohnstonline-7c8.workers.dev", "watch": ["Kirkstone", "A592", "Honister", "B5289", "Whinlatter", "B5292", "Wrynose", "Hardknott", "A591", "A593", "A5084", "A5091", "Newlands", "Dunmail", "Borrowdale", "Langdale", "Wasdale", "Buttermere", "Ullswater", "Patterdale", "Glenridding", "Coniston", "Grasmere", "Ambleside", "Keswick"] } },
+   "Honister": {
+    "match": [
+     "Honister",
+     "B5289"
+    ],
+    "services": [
+     "77",
+     "77A"
+    ],
+    "carparks": []
+   },
+   "Whinlatter": {
+    "match": [
+     "Whinlatter",
+     "B5292"
+    ],
+    "services": [
+     "77",
+     "77A"
+    ],
+    "carparks": []
+   },
+   "Borrowdale road": {
+    "match": [
+     "Borrowdale",
+     "B5289"
+    ],
+    "services": [
+     "78"
+    ],
+    "carparks": []
+   },
+   "Langdale": {
+    "match": [
+     "Langdale",
+     "B5343"
+    ],
+    "services": [
+     "516"
+    ],
+    "carparks": []
+   },
+   "A591 Keswick to Windermere": {
+    "match": [
+     "A591",
+     "Dunmail",
+     "Rydal"
+    ],
+    "services": [
+     "555",
+     "599"
+    ],
+    "carparks": []
+   },
+   "Coniston A593": {
+    "match": [
+     "A593"
+    ],
+    "services": [
+     "505"
+    ],
+    "carparks": []
+   },
+   "Newlands": {
+    "match": [
+     "Newlands"
+    ],
+    "services": [],
+    "carparks": []
+   },
+   "Wrynose and Hardknott": {
+    "match": [
+     "Wrynose",
+     "Hardknott"
+    ],
+    "services": [],
+    "carparks": []
+   },
+   "Ullswater A592": {
+    "match": [
+     "Patterdale",
+     "Glenridding",
+     "Ullswater"
+    ],
+    "services": [
+     "508"
+    ],
+    "carparks": []
+   },
+   "Wasdale": {
+    "match": [
+     "Wasdale",
+     "Wast Water"
+    ],
+    "services": [],
+    "carparks": []
+   },
+   "Buttermere": {
+    "match": [
+     "Buttermere"
+    ],
+    "services": [
+     "77",
+     "77A"
+    ],
+    "carparks": []
+   }
+  },
+  "metNote": "Met Office Weather DataHub, Site Specific Global Spot hourly (free plan 360 calls/day). Secret MET_API_KEY. Points fetched every everyH hours. Remove-only thresholds — agree them with the owner.",
+  "met": {
+   "keyEnv": "MET_API_KEY",
+   "everyH": 2,
+   "scrambleGustMph": 40,
+   "highGustMph": 55,
+   "highFeelsC": -8,
+   "highM": 750,
+   "points": [
+    {
+     "name": "Helvellyn",
+     "lat": 54.527,
+     "lon": -3.016
+    },
+    {
+     "name": "Scafell Pike",
+     "lat": 54.454,
+     "lon": -3.212
+    },
+    {
+     "name": "Skiddaw",
+     "lat": 54.651,
+     "lon": -3.148
+    },
+    {
+     "name": "Blencathra",
+     "lat": 54.64,
+     "lon": -3.05
+    },
+    {
+     "name": "Great Gable",
+     "lat": 54.482,
+     "lon": -3.219
+    },
+    {
+     "name": "Bowfell",
+     "lat": 54.448,
+     "lon": -3.166
+    },
+    {
+     "name": "Coniston Old Man",
+     "lat": 54.371,
+     "lon": -3.121
+    },
+    {
+     "name": "High Street",
+     "lat": 54.492,
+     "lon": -2.865
+    },
+    {
+     "name": "Fairfield",
+     "lat": 54.497,
+     "lon": -2.992
+    },
+    {
+     "name": "Grasmoor",
+     "lat": 54.571,
+     "lon": -3.28
+    },
+    {
+     "name": "Pillar",
+     "lat": 54.497,
+     "lon": -3.281
+    },
+    {
+     "name": "Crinkle Crags",
+     "lat": 54.434,
+     "lon": -3.16
+    }
+   ]
+  },
+  "healthHourUtc": 6,
+  "watchPagesNote": "Checked once a day for retirement / deprecation notices. 'about' (optional) = only count lines mentioning these words.",
+  "watchPages": [
+   {
+    "source": "BODS",
+    "url": "https://www.bus-data.dft.gov.uk/",
+    "about": [
+     "API",
+     "GTFS",
+     "SIRI",
+     "data",
+     "service"
+    ]
+   },
+   {
+    "source": "Met Office DataHub",
+    "url": "https://datahub.metoffice.gov.uk/support/faqs",
+    "about": [
+     "site specific",
+     "spot",
+     "API",
+     "plan"
+    ]
+   },
+   {
+    "source": "Environment Agency flood API",
+    "url": "https://environment.data.gov.uk/flood-monitoring/doc/reference",
+    "about": [
+     "API",
+     "flood",
+     "endpoint"
+    ]
+   },
+   {
+    "source": "Street Manager",
+    "url": "https://department-for-transport-streetmanager.github.io/street-manager-docs/open-data/",
+    "about": [
+     "open data",
+     "SNS",
+     "topic",
+     "notification"
+    ]
+   },
+   {
+    "source": "gov.uk bank holidays",
+    "url": "https://www.gov.uk/bank-holidays",
+    "about": [
+     "json",
+     "API"
+    ]
+   }
+  ],
+  "streetManager": {
+   "url": "https://icy-glitter-2308fellgorithm-roadworks.richiejohnstonline-7c8.workers.dev",
+   "watch": [
+    "Kirkstone",
+    "A592",
+    "Honister",
+    "B5289",
+    "Whinlatter",
+    "B5292",
+    "Wrynose",
+    "Hardknott",
+    "A591",
+    "A593",
+    "A5084",
+    "A5091",
+    "Newlands",
+    "Dunmail",
+    "Borrowdale",
+    "Langdale",
+    "Wasdale",
+    "Buttermere",
+    "Ullswater",
+    "Patterdale",
+    "Glenridding",
+    "Coniston",
+    "Grasmere",
+    "Ambleside",
+    "Keswick"
+   ]
+  }
+ },
  "floorNote": "Fail the run if a service has fewer journeys than this (half the 22 Sep 2026 reference build). Lower a number only after checking the operator timetable.",
  "floor": {
   "6": 43,
