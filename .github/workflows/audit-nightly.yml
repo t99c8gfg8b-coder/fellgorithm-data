@@ -1,0 +1,39 @@
+# Fellgorithm — NIGHTLY AUDIT: seals the UK day at 23:50 UK time and emails it (one comment on the "Daily audit" issue — Subscribe to it).
+name: Nightly audit
+
+on:
+  schedule:
+    - cron: '50 22 * * *'        # 23:50 UK summer time (22:50 in winter — still the same UK date)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: buses
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Seal the day
+        run: node bus-build/audit.mjs
+      - name: Commit
+        run: |
+          git config user.name  "fellgorithm-bot"
+          git config user.email "fellgorithm-bot@users.noreply.github.com"
+          git add audit
+          git commit -m "Audit $(TZ=Europe/London date +%F)" && git push
+      - name: Email (issue comment)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --state open --search "Daily audit in:title" --json number -q '.[0].number')
+          if [ -z "$n" ]; then gh issue create --title "Daily audit" --body "One comment a night: the sealed record of the day. Click Subscribe to get it by email."; n=$(gh issue list --state open --search "Daily audit in:title" --json number -q '.[0].number'); fi
+          gh issue comment "$n" --body-file audit-email.md

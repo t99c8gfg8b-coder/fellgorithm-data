@@ -1,0 +1,52 @@
+# Fellgorithm — HOURLY signals: bus disruptions, flood warnings, bank holidays, National Highways (once set up) and YOUR switches (holds.json).
+# Quick (well under a minute). Never touches the timetable files. Also runs straight away when you commit a change to holds.json.
+name: Hourly signals
+
+on:
+  schedule:
+    - cron: '7 * * * *'          # every hour at :07 (skips the daily build's 04:30 slot via the shared queue below)
+  push:
+    paths: ['holds.json', 'terms.json']        # your switch / banner change publishes within a few minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: buses                   # same queue as the daily build — they never run at the same time
+  cancel-in-progress: false
+
+jobs:
+  signals:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read every source
+        env:
+          BODS_API_KEY: ${{ secrets.BODS_API_KEY }}
+          NH_API_KEY: ${{ secrets.NH_API_KEY }}
+          MET_API_KEY: ${{ secrets.MET_API_KEY }}
+        run: node bus-build/signals.mjs --site site --out out
+      - name: Save (only when something changed)
+        run: |
+          cp out/alerts.json out/problems.json out/signals-status.json site/
+          mkdir -p site/terms-history && cp terms-history/*.json site/terms-history/ 2>/dev/null || true   # past agreement versions, readable by the Mac app
+          mkdir -p audit; for f in out/audit/*.line; do [ -f "$f" ] && cat "$f" >> "audit/$(basename "$f" .line).jsonl"; done
+          git pull --rebase --quiet || true
+          if [ -s out/changed ] || ls out/audit/*.line >/dev/null 2>&1 || [ -n "$(git status --porcelain terms-history)" ]; then
+            git config user.name  "fellgorithm-bot"
+            git config user.email "fellgorithm-bot@users.noreply.github.com"
+            git add site/alerts.json site/problems.json site/signals-status.json audit terms-history
+            git commit -m "Signals $(date -u +%F' '%H:%M)" && git push || echo "nothing to push"
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4

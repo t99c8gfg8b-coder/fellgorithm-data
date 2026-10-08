@@ -1,11 +1,12 @@
-# Fellgorithm — weekly bus timetable refresh.
-# Builds from BODS, runs the pre-publish checks, and publishes to GitHub Pages ONLY if every check passes.
-# On failure: last week's file stays live, the run fails (GitHub emails you) and an issue is opened with the report.
-name: Weekly bus timetables
+# Fellgorithm — DAILY bus timetable refresh (owner, 7 Oct: daily, was weekly; file name kept so only one job ever runs).
+# Builds from BODS, runs the pre-publish checks, and publishes the timetable ONLY if every check passes.
+# Every run (pass or fail) also publishes history.json + status.json for Bus Data Monitor.dc.html — the timetable files are untouched on a fail.
+# On failure: the last good file stays live and the run goes red (GitHub emails you). Every day: one comment on the "Daily bus data summary" issue.
+name: Daily bus timetables
 
 on:
   schedule:
-    - cron: '30 4 * * 1'        # every Monday 04:30 UTC (05:30 UK summer time)
+    - cron: '30 4 * * *'        # every day 04:30 UTC (05:30 UK summer time) — BODS regenerates its feed around 03:00
   workflow_dispatch:             # the "Run workflow" button
     inputs:
       force:
@@ -34,7 +35,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Build and check
         id: build
@@ -42,7 +43,7 @@ jobs:
           BODS_API_KEY: ${{ secrets.BODS_API_KEY }}
         run: |
           set +e
-          node bus-build/build.mjs --prev site/buses.json --out out
+          node bus-build/build.mjs --prev site/buses.json --hist site/history.json --problems site/problems.json --holds holds.json --out out
           echo "code=$?" >> "$GITHUB_OUTPUT"
           exit 0
 
@@ -55,26 +56,33 @@ jobs:
             out/report.md
             out/result.json
             out/buses-meta.json
+            out/status.json
 
-      - name: Copy into the site (passed, or forced)
+      - name: Copy the timetable into the site (passed, or forced)
         if: steps.build.outputs.code == '0' || (inputs.force && steps.build.outputs.code == '2')
+        run: cp out/buses.json out/fellgorithm-buses.js out/buses-meta.json out/report.md site/
+
+      - name: Copy the run log into the site (every run)
+        if: always()
         run: |
-          cp out/buses.json out/fellgorithm-buses.js out/buses-meta.json out/report.md site/
+          [ -f out/history.json ] && cp out/history.json site/ || true
+          [ -f out/status.json ] && cp out/status.json site/ || true
+          [ -f out/problems.json ] && cp out/problems.json site/ || true
           git config user.name  "fellgorithm-bot"
           git config user.email "fellgorithm-bot@users.noreply.github.com"
           git add site
-          git commit -m "Bus timetables $(date -u +%F) — $(node -p "require('./out/buses-meta.json').version")" || echo "no change"
+          git commit -m "Bus run $(date -u +%F) — code ${{ steps.build.outputs.code }}" || echo "no change"
           git push
 
       - name: Upload site
-        if: steps.build.outputs.code == '0' || (inputs.force && steps.build.outputs.code == '2')
+        if: always()
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
       - name: Publish (atomic swap)
         id: deploy
-        if: steps.build.outputs.code == '0' || (inputs.force && steps.build.outputs.code == '2')
+        if: always()
         uses: actions/deploy-pages@v4
 
       - name: Close old failure issues (this run passed)
@@ -86,23 +94,17 @@ jobs:
             gh issue close "$n" --comment "Fixed: the $(date -u +%F) build passed every check and is published."
           done
 
-      - name: Known gap issue (open while a service is thin, close when it is back)
-        if: steps.build.outputs.code == '0'
+      - name: Daily summary (one issue, one comment a day = one email; watch the issue to get it)
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          open=$(gh issue list --state open --search "Known timetable gap in:title" --json number -q '.[0].number')
-          if [ -s out/gaps.md ]; then
-            if [ -z "$open" ]; then gh issue create --title "Known timetable gap $(date -u +%F) — published with official journeys only" --body-file out/gaps.md;
-            else gh issue comment "$open" --body-file out/gaps.md; fi
-          elif [ -n "$open" ]; then
-            gh issue close "$open" --comment "All services back to normal in the $(date -u +%F) build."
-          fi
+          [ -s out/summary.md ] || exit 0
+          n=$(gh issue list --state open --search "Daily bus data summary in:title" --json number -q '.[0].number')
+          if [ -z "$n" ]; then gh issue create --title "Daily bus data summary" --body "One comment a day with every open problem, what is new and what was resolved (and how). Click Subscribe on this issue to get it by email."; n=$(gh issue list --state open --search "Daily bus data summary in:title" --json number -q '.[0].number'); fi
+          gh issue comment "$n" --body-file out/summary.md
+          for g in $(gh issue list --state open --search "Known timetable gap in:title" --json number -q '.[].number'); do gh issue close "$g" --comment "Now tracked in the problem list (Bus Data Monitor) and the Daily bus data summary issue."; done
 
-      - name: Alert — checks failed, last week's file kept
+      - name: Red run when the build failed (GitHub emails you)
         if: steps.build.outputs.code != '0' && !(inputs.force && steps.build.outputs.code == '2')
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh issue create --title "Bus timetable build FAILED $(date -u +%F) — last week's file kept live" --body-file out/report.md
-          exit 1
+        run: exit 1
