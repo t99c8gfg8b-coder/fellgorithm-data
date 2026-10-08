@@ -72,7 +72,7 @@
     { "source": "Street Manager", "url": "https://department-for-transport-streetmanager.github.io/street-manager-docs/open-data/", "about": ["open data", "SNS", "topic", "notification"] },
     { "source": "gov.uk bank holidays", "url": "https://www.gov.uk/bank-holidays", "about": ["json", "API"] }
    ],
-   "streetManager": { "url": "", "watch": ["Kirkstone", "A592", "Honister", "B5289", "Whinlatter", "B5292", "Wrynose", "Hardknott", "A591", "A593", "A5084", "A5091", "Newlands", "Dunmail", "Borrowdale", "Langdale", "Wasdale", "Buttermere", "Ullswater", "Patterdale", "Glenridding", "Coniston", "Grasmere", "Ambleside", "Keswick"] } },
+   "streetManager": { "url": "https://icy-glitter-2308fellgorithm-roadworks.richiejohnstonline-7c8.workers.dev/works.json", "watch": ["Kirkstone", "A592", "Honister", "B5289", "Whinlatter", "B5292", "Wrynose", "Hardknott", "A591", "A593", "A5084", "A5091", "Newlands", "Dunmail", "Borrowdale", "Langdale", "Wasdale", "Buttermere", "Ullswater", "Patterdale", "Glenridding", "Coniston", "Grasmere", "Ambleside", "Keswick"] } },
  "floorNote": "Fail the run if a service has fewer journeys than this (half the 22 Sep 2026 reference build). Lower a number only after checking the operator timetable.",
  "floor": {
   "6": 43,
