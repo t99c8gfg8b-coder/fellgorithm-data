@@ -86,7 +86,7 @@
           j.from = add[0]; j.to = add[add.length - 1]; j.dated = sid; j.onDays = D3.filter(d => add.some(x => dow(x) === d));
           if (!profiles[sid]) profiles[sid] = { note: null, onDays: j.onDays, from: j.from, to: j.to, on: add, off: rem };
         } else { dropAs(name, 'dates'); continue; }
-        const key = JSON.stringify(j); if (seen.has(key)) { rep.dupes++; continue; } seen.set(key, 1); (mg ? (jsM[num] = jsM[num] || []) : js).push(j); rep.drop[name].kept++;
+        const key = JSON.stringify(j); if (seen.has(key)) { rep.dupes++; continue; } seen.set(key, 1); j._r = t.route_id; (mg ? (jsM[num] = jsM[num] || []) : js).push(j); rep.drop[name].kept++;
       }
       js.sort((a, b) => mins(a.start) - mins(b.start));
       const pl = () => ms.places.map(p => { const o = Object.assign({}, p); delete o.ids; delete o.fell; delete o.fellM; return o; });   /* never publish OSM-derived fields (owner, 7 Oct) */
@@ -189,6 +189,51 @@
     return out.length ? out : ['No timetable changes'];
   }
 
-  const api = { parseCSV, parseLine, toOSGB, build, finalize, checks, diff, runsOn, addDays, ourRoutes, ourTripIds, mins, hhmm, dow };
+  /* Is journey j held (NOT usable as a bus home) on date d? nh = 1 → every date; nh = [[from,to],…] → those dates. Same reading as the app. */
+  const inNh = (j, d) => j.nh === 1 || (Array.isArray(j.nh) && j.nh.some(r => d >= r[0] && d <= r[1]));
+  /* BUS-HOME CONFIRMATION + VERSION CONFLICTS (owner, 7 Oct). N = new build (journeys still carry _r = GTFS route_id = timetable version), P = last published.
+     (1) TWO FEEDS AGREE: a journey on date d is usable as a bus home only if the last published build had the same bus on d —
+         same service, same stops in order, every time within ±tol min (small retimes are still 'a bus there'), from an EARLIER BODS feed
+         (same feed rebuilt confirms nothing new: it inherits P's held dates). Else the date goes into j.nh. Removals are never held.
+     (2) VERSIONS DISAGREE: two versions of a service both covering a date, one explicitly says NO buses that day (date in its off list,
+         none of its journeys run) while the other runs buses → every journey of that service is held as a bus home that date.
+         Two versions running at slightly different times is NOT a conflict.
+     (3) FLIPS: dates in the next 60 days where a service went from some buses to none, or none to some (report only; new ones are held by 1). */
+  function confirm(N, P, today, opt) {
+    opt = opt || {}; const tol = opt.tolMin != null ? opt.tolMin : 10, end = addDays(today, opt.horizonDays || 400);
+    const sameFeed = !!(P && P.feed && N.feed && P.feed.version && P.feed.version === N.feed.version);
+    const rep = { held: {}, heldNew: {}, heldList: {}, conflicts: {}, conflictDetail: {}, chosen: [], flips: [], sameFeed, tol };
+    const datesOf = j => { const o = []; let d = j.from > today ? j.from : today; const last = j.to < end ? j.to : end; for (let g = 0; d <= last && g < 800; g++, d = addDays(d, 1)) if (runsOn(j, d, N.profiles)) o.push(d); return o; };
+    N.services.forEach(s => { const byR = {}; s.journeys.forEach(j => (byR[j._r || ''] = byR[j._r || ''] || []).push(j));
+      const rs = Object.keys(byR); if (rs.length < 2) return; const set = new Set();
+      rs.forEach(r => { const offs = new Set(); byR[r].forEach(j => (j.off || []).forEach(d => { if (d >= today && d <= end && j.days.indexOf(dow(d)) >= 0) offs.add(d); }));
+        offs.forEach(d => { if (byR[r].some(j => runsOn(j, d, N.profiles))) return;
+          if (rs.some(r2 => r2 !== r && byR[r2].some(j => runsOn(j, d, N.profiles)))) { if ((opt.choices || {})[s.service + '|' + d]) rep.chosen.push({ service: s.service, date: d, use: opt.choices[s.service + '|' + d] }); else set.add(d); } }); });
+      if (set.size) { rep.conflicts[s.service] = [...set].sort();
+        /* side-by-side detail for the monitor (view only): what each version says on the first few clash dates */
+        const nm = j => s.places[j.calls[0].p].name + ' → ' + s.places[j.calls[j.calls.length - 1].p].name;
+        rep.conflictDetail[s.service] = rep.conflicts[s.service].slice(0, 4).map(d => ({ date: d, versions: rs.map(r => { const run = byR[r].filter(j => runsOn(j, d, N.profiles));
+          const says = run.length ? run.length + ' buses' : (byR[r].some(j => (j.off || []).indexOf(d) >= 0) ? 'NO buses (date switched off)' : 'not running that day');
+          return { version: r, says, buses: run.map(j => j.start + ' ' + nm(j)).slice(0, 40) }; }) })); } });
+    const idx = {}; if (P) P.services.forEach(s => s.journeys.forEach(q => { const k = s.service + '|' + q.calls.map(c => c.p).join(','); (idx[k] = idx[k] || []).push(q); }));
+    const close = (a, b) => { const ta = mins(a.start), tb = mins(b.start); return a.calls.every((c, i) => Math.abs(ta + c.off - tb - b.calls[i].off) <= tol); };
+    N.services.forEach(s => { const cf = new Set(rep.conflicts[s.service] || []); let held = 0, heldNew = 0; const list = [];
+      s.journeys.forEach(j => { delete j.nh; if (!P && !cf.size) return;
+        const cands = P ? (idx[s.service + '|' + j.calls.map(c => c.p).join(',')] || []).filter(q => close(j, q)) : null;
+        const ds = datesOf(j); if (!ds.length) return;
+        const bad = ds.map(d => cf.has(d) || (P ? !cands.some(q => runsOn(q, d, P.profiles) && (!sameFeed || !inNh(q, d))) : false));
+        if (!bad.some(Boolean)) return;
+        held++; if (bad.every(Boolean)) { j.nh = 1; heldNew++; }
+        else { const R = []; let st = null, lb = null; ds.forEach((d, i) => { if (bad[i]) { if (!st) st = d; lb = d; } else if (st) { R.push([st, lb]); st = null; } }); if (st) R.push([st, lb]); j.nh = R; }
+        if (list.length < 40) list.push({ start: j.start, from: s.places[j.calls[0].p].name, to: s.places[j.calls[j.calls.length - 1].p].name, days: j.days.join(' ') || 'set dates', nh: j.nh }); });
+      if (held) { rep.held[s.service] = held; rep.heldNew[s.service] = heldNew; rep.heldList[s.service] = list; } });
+    if (P) { const pm = {}; P.services.forEach(s => pm[s.service] = s);
+      N.services.forEach(s => { const p = pm[s.service]; if (!p) return; for (let i = 0; i < 60; i++) { const d = addDays(today, i);
+        const n = s.journeys.filter(j => runsOn(j, d, N.profiles)).length, o = p.journeys.filter(j => runsOn(j, d, P.profiles)).length;
+        if (!n !== !o) rep.flips.push({ service: s.service, date: d, was: o, now: n }); } }); }
+    return rep;
+  }
+
+  const api = { inNh, confirm, parseCSV, parseLine, toOSGB, build, finalize, checks, diff, runsOn, addDays, ourRoutes, ourTripIds, mins, hhmm, dow };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.FG_BUS_CORE = api;
 })(typeof window !== 'undefined' ? window : globalThis);

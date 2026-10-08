@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-/* Fellgorithm weekly bus timetable build.
+/* Fellgorithm DAILY bus timetable build (owner, 7 Oct: daily, was weekly).
    BODS North West GTFS → our services only → the FG_BUSES file the app reads → pre-publish checks.
    Usage:
      node bus-build/build.mjs                 download from BODS (env BODS_API_KEY optional), build, check
      node bus-build/build.mjs --zip f.zip     use a GTFS zip you already have
      node bus-build/build.mjs --dir folder    use an unzipped GTFS folder (owner's Mac)
-   Options: --prev site/buses.json (last good published file, default)  --out out  --today YYYYMMDD
+   Options: --prev site/buses.json (last good published file, default)  --hist site/history.json (run log the monitor page reads)  --out out  --today YYYYMMDD
    Exit codes: 0 = checks passed, ready to publish · 2 = checks FAILED, keep last week's file · 1 = build error.
    Source: Bus Open Data Service (Open Government Licence v3.0). Only timetable data is written — nothing else ships. */
 import fs from 'node:fs';
@@ -19,14 +19,33 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const C = createRequire(import.meta.url)('./fg-bus-core.js');
+const PR = createRequire(import.meta.url)('./problems.js');
+const LEDGER = arg('problems', 'site/problems.json'), HOLDS = arg('holds', 'holds.json');
+const readJ = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
+/* kinds this job owns in the problem ledger (the hourly signals job owns the others) */
+const SCOPE = ['build-fail', 'gap', 'conflict', 'stale-feed', 'service-gone', 'new-service', 'base-thin'];
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const cfg = JSON.parse(fs.readFileSync(path.join(HERE, 'config.json'), 'utf8'));
 const M = JSON.parse(fs.readFileSync(path.join(HERE, 'places-manifest.json'), 'utf8'));
 const tests = JSON.parse(fs.readFileSync(path.join(HERE, 'base-tests.json'), 'utf8'));
-const OUT = arg('out', 'out'), PREV = arg('prev', 'site/buses.json');
+const OUT = arg('out', 'out'), PREV = arg('prev', 'site/buses.json'), HIST = arg('hist', 'site/history.json');
 const now = new Date(), iso = now.toISOString().slice(0, 10), today = arg('today', iso.replace(/-/g, ''));
 const log = (...a) => console.log('[buses]', ...a);
 fs.mkdirSync(OUT, { recursive: true });
+/* RUN LOG for Bus Data Monitor.dc.html: every run (pass, fail or error) appends one line to history.json (last 365) and writes status.json. */
+function logRun(entry, status) {
+  let h = []; try { h = JSON.parse(fs.readFileSync(HIST, 'utf8')); if (!Array.isArray(h)) h = []; } catch {}
+  h.push(entry); fs.writeFileSync(path.join(OUT, 'history.json'), JSON.stringify(h.slice(-365)));
+  fs.writeFileSync(path.join(OUT, 'status.json'), JSON.stringify(Object.assign({ entry }, status || {})));
+}
+/* bus out (06:00–12:00) / buses home (13:00–22:00) at a base on date d; okHome = home buses NOT held for confirmation */
+function baseDay(F, b, d) { let out = 0, home = 0, okHome = 0;
+  F.services.forEach(s => { const ix = s.places.map((pl, i) => Math.hypot(pl.e - b.e, pl.n - b.n) <= (b.r || 300) ? i : -1).filter(i => i >= 0); if (!ix.length) return;
+    s.journeys.forEach(j => { if (!C.runsOn(j, d, F.profiles)) return; const t0 = C.mins(j.start), c = j.calls.filter(c => ix.includes(c.p)); if (!c.length) return;
+      const fi = j.calls.indexOf(c[0]), la = j.calls.indexOf(c[c.length - 1]);
+      if (fi < j.calls.length - 1) { const t = t0 + c[0].off; if (t >= 360 && t <= 720) out++; }
+      if (la > 0) { const t = t0 + c[c.length - 1].off; if (t >= 780 && t <= 1320) { home++; if (!C.inNh(j, d)) okHome++; } } }); });
+  return { out, home, okHome }; }
 
 /* 1 GET THE FEED — download to a temp file, retry, verify the zip before reading anything. */
 async function download(to) {
@@ -102,6 +121,23 @@ async function main() {
   const gapMin = n => ((cfg.gapMin || {})[n] != null ? cfg.gapMin[n] : Math.max(1, Math.round(((cfg.floor || {})[n] || 0) * 0.3)));
   data.partial = Object.keys(cfg.floor || {}).filter(n => cnt(n) < cfg.floor[n] && cnt(n) >= gapMin(n) && cnt(n) > 0)
     .map(n => ({ service: n, journeys: cnt(n), floor: cfg.floor[n], note: ((cfg.gapNotes || {})[n]) || '' }));
+  /* CONFIRMATION (owner, 7 Oct): new/changed journeys are held as buses home until the next feed confirms them; versions that disagree
+     about whether a day has buses at all hold that service's buses home that day. Writes j.nh; the app's bus-home pickers skip held dates. */
+  const P = fs.existsSync(PREV) ? JSON.parse(fs.readFileSync(PREV, 'utf8')) : null;
+  const H0 = readJ(HOLDS) || {}, choices = {}, res0 = [];
+  (H0.clashChoices || []).forEach(c => { if (c && c.service && /^\d{8}$/.test(c.date || '') && c.use) choices[c.service + '|' + c.date] = String(c.use); });
+  const conf = C.confirm(data, P, today, Object.assign({}, cfg.confirm || {}, { choices }));
+  /* OWNER CLASH CHOICES (holds.json clashChoices): the owner picked which official version to trust on a clash date.
+     use = a version id → every OTHER version's journeys are switched off that date; use = 'none' → the whole service is off that date.
+     Remove-only: a choice can only switch buses off, never add a time. */
+  const chosenLog = [];
+  conf.chosen.forEach(c => { const s = data.services.find(x => x.service === c.service); if (!s) return; let off = 0;
+    s.journeys.forEach(j => { if (c.use !== 'none' && j._r === c.use) return; if (!C.runsOn(j, c.date, data.profiles)) return;
+      if (j.dated) return; j.off = (j.off || []).concat(c.date).sort(); off++; });
+    chosenLog.push(c.service + ' ' + c.date + ': owner chose ' + (c.use === 'none' ? 'no buses' : 'version ' + c.use) + ' (' + off + ' journeys of the other version switched off)'); });
+  if (chosenLog.length) res0.push(...chosenLog.map(l => 'OWNER CHOICE: ' + l));
+  data.services.forEach(s => s.journeys.forEach(j => delete j._r));
+  data.confirm = { tolMin: conf.tol, against: P ? P.version : null, sameFeed: conf.sameFeed };
   /* 2 WRITE — JSON (what the app fetches), JS (bundled fallback, same object), meta (version + checksum the app verifies). */
   const json = JSON.stringify(data);
   const js = '/* Real Cumbria timetables, compiled from the Bus Open Data Service GTFS feed\n   (Open Government Licence v3.0). Built ' + iso + ' by the weekly job. */\nwindow.FG_BUSES = ' + json + ';\n';
@@ -118,9 +154,8 @@ async function main() {
   const extra = [];
   if (crypto.createHash('sha256').update(fs.readFileSync(path.join(OUT, 'buses.json'))).digest('hex') !== sha) extra.push('Checksum of the written file does not match');
   if (JSON.stringify(box.window.FG_BUSES) !== JSON.stringify(fromJson)) extra.push('The .js and .json files disagree');
-  const P = fs.existsSync(PREV) ? JSON.parse(fs.readFileSync(PREV, 'utf8')) : null;
   const res = C.checks(fromJson, P, tests, today);
-  res.fails.push(...extra);
+  res.fails.push(...extra); res.warns.push(...res0);
   if (built.report.newServices.length) res.warns.push('New service(s) in the feed with no places yet, left out: ' + built.report.newServices.map(s => s.service + ' (' + s.trips + ' trips)').join(', '));
   const missing = cfg.services.filter(s => !data.services.some(x => x.service === s) && !built.report.merged[s]);
   Object.entries(cfg.floor || {}).forEach(([n, min]) => { const have = cnt(n); if (have >= min) return;
@@ -129,6 +164,7 @@ async function main() {
   if (P) data.services.forEach(s => { const p = P.services.find(x => x.service === s.service);
     if (p && p.journeys.length >= 20 && s.journeys.length < p.journeys.length * 0.5) res.warns.push('Service ' + s.service + ' dropped from ' + p.journeys.length + ' to ' + s.journeys.length + ' journeys — check against the operator timetable'); });
   if (missing.length) res.warns.push('Not running in this feed (fine out of season): ' + missing.join(', '));
+  Object.entries(conf.conflicts).forEach(([n, ds]) => res.warns.push('VERSIONS DISAGREE: service ' + n + ' — one timetable version says no buses, another says buses on ' + ds.length + ' day(s) (' + ds.slice(0, 6).join(', ') + (ds.length > 6 ? '…' : '') + ') — no ' + n + ' buses home those days; check with the operator'));
   let ok = res.fails.length === 0;
 
   /* 4 REPORT — plain English, for the owner (attached to every run; opened as an issue on failure). */
@@ -139,7 +175,12 @@ async function main() {
     'Timetable runs to ' + res.stats.lastDate + ' · ' + res.stats.stopsChecked + ' route stops checked · checksum ' + sha.slice(0, 12),
     '', '## Failures', ...(res.fails.length ? res.fails.map(f => '- ' + f) : ['- none']),
     '', '## Warnings', ...(res.warns.length ? res.warns.map(f => '- ' + f) : ['- none']),
-    '', '## Changes since last week', ...C.diff(fromJson, P).map(l => '- ' + l),
+    '', '## Changes since the last published build', ...C.diff(fromJson, P).map(l => '- ' + l),
+    '', '## Buses home waiting for confirmation' + (conf.sameFeed ? ' (same BODS feed as the last published build — nothing new is confirmed today)' : ''),
+    '- New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±' + conf.tol + ' min count as the same bus).',
+    ...(Object.keys(conf.held).length ? Object.entries(conf.held).map(([n, c]) => '- ' + n + ': ' + c + ' journeys held on some dates (' + conf.heldNew[n] + ' wholly new or changed)') : ['- none']),
+    '', '## Days a service gained or lost ALL its buses (next 60 days, vs the last published build)',
+    ...(conf.flips.length ? conf.flips.slice(0, 25).map(f => '- ' + f.service + ' ' + f.date + ': ' + f.was + ' → ' + f.now + (f.now ? ' (held as buses home until confirmed)' : ' (removed at once)')) : ['- none']), ...(conf.flips.length > 25 ? ['- … ' + (conf.flips.length - 25) + ' more'] : []),
     '', '## Per service', '- ' + res.stats.services,
     ...(Object.keys(built.report.merged).length ? ['', '## Renumbered buses built onto another service', ...Object.entries(built.report.merged).map(([n, m]) => '- ' + n + ' → built as ' + m.into + ': ' + m.kept + ' of ' + m.trips + ' trips kept (rest call at fewer than two ' + m.into + ' stops). Runs: ' + Object.entries(m.ends).sort((a, b) => b[1] - a[1]).map(([e, c]) => e + ' ×' + c).join('; '))] : []),
     '', '## Trips per service (in feed → kept; dropped: too few app stops / no running dates)', ...Object.entries(built.report.drop).map(([n, d]) => '- ' + n + ': ' + d.trips + ' → ' + d.kept + ' (dropped ' + d.places + ' / ' + d.dates + ')'),
@@ -149,14 +190,84 @@ async function main() {
     '- Stops on our buses that are not app places (ignored, normal): ' + Object.entries(umN).map(([s, n]) => s + ' ' + n).join(', '),
   ].join('\n');
   fs.writeFileSync(path.join(OUT, 'report.md'), md + '\n');
-  fs.writeFileSync(path.join(OUT, 'gaps.md'), data.partial.length ? '# Known timetable gap(s) — published with the official journeys only\n\n' + data.partial.map(p => '- ' + p.service + ': ' + p.journeys + ' journeys (usual floor ' + p.floor + ')' + (p.note ? ' — ' + p.note : '')).join('\n') + '\n\nThis issue closes itself the first week every service is back to normal. Full report: report.md in the run artifacts.\n' : '');
+  fs.writeFileSync(path.join(OUT, 'gaps.md'), data.partial.length ? '# Known timetable gap(s) — published with the official journeys only\n\n' + data.partial.map(p => '- ' + p.service + ': ' + p.journeys + ' journeys (usual floor ' + p.floor + ')' + (p.note ? ' — ' + p.note : '')).join('\n') + '\n\nThis issue closes itself the first day every service is back to normal. Full report: report.md in the run artifacts.\n' : '');
   fs.writeFileSync(path.join(OUT, 'result.json'), JSON.stringify({ ok, version: data.version, fails: res.fails, warns: res.warns }, null, 1));
+  const per = {}; data.services.forEach(s => per[s.service] = s.journeys.length);
+  const bases = tests.bases.map(b => ({ name: b.name, d: [0, 1].map(i => baseDay(data, b, C.addDays(today, i))) }));
+  logRun({ at: now.toISOString(), feed: feed.feed_version || null, ok, published: ok ? data.version : null, live: ok ? data.version : (P ? P.version : null), journeys, services: per,
+    held: conf.held, heldNew: conf.heldNew, conflicts: Object.fromEntries(Object.entries(conf.conflicts).map(([n, d]) => [n, d.length])), flips: conf.flips.length,
+    gaps: data.partial.map(p => p.service), fails: res.fails.slice(0, 5), warns: res.warns.length, sameFeed: conf.sameFeed },
+    { today, bases, heldList: conf.heldList, conflicts: conf.conflicts, conflictDetail: conf.conflictDetail, flips: conf.flips.slice(0, 60), partial: data.partial, warns: res.warns, fails: res.fails, tolMin: conf.tol });
+
+  /* 5 PROBLEMS — what this run sees now; the ledger opens new ones and closes the ones that have gone, saying how. */
+  const at = now.toISOString(), hist = readJ(HIST) || [], cur = [];
+  if (!ok) cur.push({ id: 'build-fail', kind: 'build-fail', sev: 'high', source: 'timetable build', title: 'Timetable build failed — the last good timetable stays live',
+    detail: res.fails.slice(0, 6).join(' · '), effect: 'keeps planning on the last good timetable (' + (P ? P.version : 'bundled') + ')' });
+  data.partial.forEach(p => cur.push({ id: 'gap:' + p.service, kind: 'gap', sev: 'high', source: 'BODS timetable', service: p.service, title: 'Service ' + p.service + ' is thin in the BODS feed (' + p.journeys + ' journeys, usually at least ' + p.floor + ')',
+    detail: p.note || 'Part of the operator timetable is missing from BODS.', effect: 'uses only the ' + p.journeys + ' official ' + p.service + ' journeys; routes needing the missing buses are not offered' }));
+  Object.entries(conf.conflicts).forEach(([n, ds]) => cur.push({ id: 'conflict:' + n, kind: 'conflict', sev: 'med', source: 'BODS timetable', service: n,
+    title: 'Two ' + n + ' timetable versions disagree on ' + ds.length + ' day(s)', detail: 'One version says no buses, another says buses: ' + ds.slice(0, 6).join(', ') + (ds.length > 6 ? '…' : ''),
+    effect: 'no ' + n + ' buses home on those days', data: { dates: ds } }));
+  const sameSince = (() => { let t = at; for (let i = hist.length - 1; i >= 0; i--) { if (hist[i].feed !== feed.feed_version) break; t = hist[i].at; } return t; })();
+  if (feed.feed_version && (Date.parse(at) - Date.parse(sameSince)) > 3 * 864e5) cur.push({ id: 'stale-feed', kind: 'stale-feed', sev: 'med', source: 'BODS timetable',
+    title: 'BODS has not published a new feed since ' + sameSince.slice(0, 10), detail: 'Feed ' + feed.feed_version + ' every day since then.', effect: 'nothing new can be confirmed as a bus home until BODS updates' });
+  if (P) P.services.forEach(ps => { if (!data.services.some(s => s.service === ps.service)) cur.push({ id: 'service-gone:' + ps.service, kind: 'service-gone', sev: 'high', source: 'BODS timetable', service: ps.service,
+    title: 'Service ' + ps.service + ' has gone from the feed (had ' + ps.journeys.length + ' journeys)', detail: 'Fine if it is a seasonal service that has ended; otherwise check BODS.', effect: 'no ' + ps.service + ' buses' }); });
+  built.report.newServices.forEach(s => cur.push({ id: 'new-service:' + s.service, kind: 'new-service', sev: 'low', source: 'BODS timetable', service: s.service,
+    title: 'New service ' + s.service + ' in the feed (' + s.trips + ' trips) — not used', detail: 'Add its places to places-manifest.json to use it.', effect: 'ignored' }));
+  bases.forEach(b => { if (!(tests.mustPass || []).includes(b.name)) return; const a = b.d[0];
+    if (a.okHome < 2) cur.push({ id: 'base-thin:' + b.name, kind: 'base-thin', sev: 'med', source: 'timetable build', title: b.name + ': only ' + a.okHome + ' confirmed bus(es) home today (' + a.home + ' in the timetable)',
+      detail: 'Buses home 13:00–22:00 that the app may use.', effect: 'few or no bus-home routes from ' + b.name + ' today' }); });
+  const cnt2 = n => data.services.filter(x => x.service === n || x.on === n).reduce((a, s) => a + s.journeys.length, 0);
+  const how = p => p.kind === 'gap' ? 'Service ' + p.service + ' back to ' + cnt2(p.service) + ' journeys in BODS feed ' + feed.feed_version + ' — the operator timetable is complete again'
+    : p.kind === 'build-fail' ? 'Build passed every check on ' + iso + ' and was published'
+    : p.kind === 'conflict' ? 'The ' + p.service + ' timetable versions agree again in feed ' + feed.feed_version + ' (the clashing version was withdrawn or corrected)'
+    : p.kind === 'stale-feed' ? 'BODS published a new feed: ' + feed.feed_version
+    : p.kind === 'service-gone' ? 'Service ' + p.service + ' is back in the feed (' + cnt2(p.service) + ' journeys)'
+    : p.kind === 'base-thin' ? 'Confirmed buses home are back' : null;
+  const L = PR.reconcile(readJ(LEDGER), SCOPE, cur, at, how);
+  fs.writeFileSync(path.join(OUT, 'problems.json'), JSON.stringify(L.ledger));
+  fs.writeFileSync(path.join(OUT, 'summary.md'), PR.summary(L.ledger, at, '# Bus data ' + iso + ' — ' + (ok ? 'timetable published ✓' : 'timetable build FAILED ✗ (last good file kept live)') + '\n\nBODS feed ' + (feed.feed_version || '?') + ' · ' + journeys + ' journeys · held as buses home: ' + Object.values(conf.held).reduce((a, b) => a + b, 0) + ' · full report in the run artifacts'));
+  /* 6 DAILY AUDIT (owner, 7 Oct): a frozen record of how the data stood today — what the app was told, which switches were on,
+     every open problem, the rules in force. Hash-chained (each day names the previous day's hash) and committed to git, so a
+     changed or missing day shows. Never contains anything about users. site/audit/YYYY-MM-DD.json + latest.json. */
+  try {
+    const SITE = path.dirname(PREV), h256 = s => crypto.createHash('sha256').update(s).digest('hex'), fileH = f => fs.existsSync(f) ? h256(fs.readFileSync(f)) : null;
+    const A = readJ(path.join(SITE, 'alerts.json')) || {}, prevAud = readJ(path.join(SITE, 'audit', 'latest.json')), rules = readJ(path.join(HERE, '..', 'app-rules.json'));
+    const day = d => (A.weather && A.weather.days && A.weather.days[d]) || null, tm = C.addDays(today, 1);
+    const audit = { schema: 1, date: iso, at, prev: prevAud ? prevAud.hash : null,
+      timetable: { published: ok, live: ok ? data.version : (P ? P.version : null), sha256: ok ? sha : (readJ(path.join(SITE, 'buses-meta.json')) || {}).sha256 || null, feed: feed.feed_version || null, journeys, services: per, held: conf.held, conflicts: conf.conflicts, gaps: data.partial },
+      bases: bases.map(b => ({ name: b.name, today: b.d[0], tomorrow: b.d[1] })),
+      switches: { notice: A.notice || { on: false }, holds: A.holds || [], clashChoices: (H0.clashChoices || []), autoHolds: A.autoHolds || [] },
+      conditions: { alertsAt: A.generated || null, weather: { today: day(today), tomorrow: day(tm), highM: A.weather ? A.weather.highM : null, stale: !!(A.weather && A.weather.stale) },
+        disruptions: (A.disruptions || []).map(d => ({ id: d.id, services: d.services, summary: d.summary, from: d.from, to: d.to })), floods: (A.floods || []).map(f => ({ area: f.area, level: f.level })),
+        closures: (A.works || []).filter(w => w.closure).map(w => ({ ref: w.ref, street: w.street, area: w.area, from: w.from, to: w.to })), bankHolidays: (A.bankHolidays || []).slice(0, 3) },
+      problemsOpen: L.ledger.items.filter(p => p.status === 'open').map(p => ({ id: p.id, sev: p.sev, title: p.title, effect: p.effect, first: p.first })),
+      problemsResolvedToday: L.resolved.map(p => ({ id: p.id, title: p.title, how: p.how })),
+      sources: (readJ(path.join(SITE, 'signals-status.json')) || {}).sources || {},
+      appRules: rules, routes: readJ(path.join(SITE, 'audit', 'routes-' + iso + '.json')) || { note: 'Route counts come from the Mac control panel run (private pools) — not run today' },
+      inputs: { config: fileH(path.join(HERE, 'config.json')), holds: fileH(HOLDS), tests: fileH(path.join(HERE, 'base-tests.json')), appRules: fileH(path.join(HERE, '..', 'app-rules.json')) } };
+    audit.hash = h256(JSON.stringify(Object.assign({}, audit, { hash: undefined })));
+    fs.mkdirSync(path.join(OUT, 'audit'), { recursive: true });
+    fs.writeFileSync(path.join(OUT, 'audit', iso + '.json'), JSON.stringify(audit, null, 1));
+    fs.writeFileSync(path.join(OUT, 'audit', 'latest.json'), JSON.stringify({ date: iso, hash: audit.hash }));
+    const W = audit.conditions.weather.today;
+    fs.appendFileSync(path.join(OUT, 'summary.md'), ['', '## Daily audit ' + iso, '- Timetable: ' + (ok ? 'published ' : 'NOT published, live = ') + audit.timetable.live + ' · ' + journeys + ' journeys · ' + Object.values(conf.held).reduce((a, b) => a + b, 0) + ' held as buses home',
+      '- Your switches: banner ' + (audit.switches.notice.on ? 'ON' : 'off') + ' · ' + audit.switches.holds.length + ' holds · ' + audit.switches.autoHolds.length + ' automatic (closures)',
+      '- Today: ' + (W ? (W.highOff ? 'high fells + scrambles OFF (' + W.highReasons.join(', ') + ')' : W.scrambleOff ? 'scrambles OFF (gusts ' + W.gustMph + ' mph)' : 'no weather removals') : 'no weather data') + ' · ' + audit.conditions.closures.length + ' road closures · ' + audit.conditions.disruptions.length + ' bus disruptions · ' + audit.conditions.floods.length + ' flood warnings',
+      '- Bases (confirmed buses home today): ' + audit.bases.map(b => b.name + ' ' + b.today.okHome).join(', '),
+      '- App rules: ' + (rules ? 'version ' + rules.version + ' (' + rules.appBuild + ')' : 'app-rules.json missing'),
+      '- Audit file: site/audit/' + iso + '.json · hash ' + audit.hash.slice(0, 16) + '… · previous ' + (audit.prev ? audit.prev.slice(0, 16) + '…' : 'none (first day)'), ''].join('\n'));
+  } catch (e) { fs.appendFileSync(path.join(OUT, 'summary.md'), '\n## Daily audit FAILED: ' + e.message + '\n'); }
   console.log('\n' + md + '\n');
   if (src.zip && !arg('zip')) fs.rmSync(src.zip, { force: true });
   process.exit(ok ? 0 : 2);
 }
 main().catch(e => { console.error('[buses] BUILD ERROR:', e.message);
   fs.writeFileSync(path.join(OUT, 'report.md'), '# Bus timetable build ' + iso + ' — ERROR ✗ (last week\'s file kept live)\n\n' + e.message + '\n');
-  fs.writeFileSync(path.join(OUT, 'gaps.md'), data.partial.length ? '# Known timetable gap(s) — published with the official journeys only\n\n' + data.partial.map(p => '- ' + p.service + ': ' + p.journeys + ' journeys (usual floor ' + p.floor + ')' + (p.note ? ' — ' + p.note : '')).join('\n') + '\n\nThis issue closes itself the first week every service is back to normal. Full report: report.md in the run artifacts.\n' : '');
+  fs.writeFileSync(path.join(OUT, 'gaps.md'), '');
   fs.writeFileSync(path.join(OUT, 'result.json'), JSON.stringify({ ok: false, error: e.message }));
+  try { logRun({ at: now.toISOString(), ok: false, error: e.message }); } catch {}
+  try { const L = PR.reconcile(readJ(LEDGER), ['build-fail'], [{ id: 'build-fail', kind: 'build-fail', sev: 'high', source: 'timetable build', title: 'Timetable build errored — the last good timetable stays live', detail: e.message, effect: 'keeps planning on the last good timetable' }], now.toISOString());
+    fs.writeFileSync(path.join(OUT, 'problems.json'), JSON.stringify(L.ledger)); fs.writeFileSync(path.join(OUT, 'summary.md'), PR.summary(L.ledger, now.toISOString(), '# Bus data ' + iso + ' — build ERROR ✗\n\n' + e.message)); } catch {}
   process.exit(1); });

@@ -16,9 +16,14 @@ https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
   - Bus timetables: Bus Open Data Service (BODS), Department for Transport.
   - Bus stop codes and locations: NaPTAN, Department for Transport.
+  - Bus disruption notices (site/alerts.json): Bus Open Data Service, Department for Transport.
+  - Roadworks and road closures (site/alerts.json): Street Manager, Department for Transport.
+  - Flood warnings (site/alerts.json): Environment Agency real-time flood-monitoring data.
+  - Bank holiday dates: GOV.UK.
+  - Weather forecasts (site/alerts.json, once set up): Met Office Weather DataHub — Contains Met Office data © Crown copyright; used under the Weather DataHub terms.
 
 These files are compiled and reorganised from those sources. Their use is not
-endorsed by the Department for Transport or any bus operator. Always check
+endorsed by the Department for Transport, the Environment Agency or any bus operator. Always check
 times with the operator before you travel.
 
 

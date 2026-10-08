@@ -1,0 +1,16 @@
+{
+ "note": "YOUR SWITCHES. Edit on GitHub (pencil icon) and Commit — the hourly job publishes within a few minutes. Everything here can only switch things OFF; it can never add a bus time. Dates are YYYYMMDD; leave 'to' empty for 'until I remove it'. Kinds: service (all its buses), busHome (its buses are never used as a bus home), stop (a stop name as shown in the app), carpark (car park name as in the app), road (a closed road: list the carparks and services it takes out), allBuses (no buses at all). clashChoices: when two official timetable versions clash, name the version to trust (the version id shown on the monitor) or 'none' — the other version's buses are switched off that date. notice: the urgent scrolling banner — on true/false, your text, optional end date; busHomeOff true also switches off every bus-home route.",
+ "notice": { "on": false, "text": "", "until": "", "busHomeOff": false },
+ "holds": [],
+ "clashChoices": [],
+ "examples": {
+  "holds": [
+   { "kind": "service", "service": "77", "from": "20261224", "to": "20261226", "reason": "Honister closed for snow" },
+   { "kind": "busHome", "service": "555", "from": "20261201", "to": "", "reason": "Evening 555s unreliable" },
+   { "kind": "carpark", "carpark": "Seathwaite", "from": "20261010", "to": "20261020", "reason": "Flooded" },
+   { "kind": "road", "road": "A592 Kirkstone Pass", "from": "20261210", "to": "", "carparks": ["Kirkstone Pass Inn"], "services": ["508"], "reason": "Closed by snow" }
+  ],
+  "clashChoices": [ { "service": "555", "date": "20261225", "use": "none", "reason": "Stagecoach confirmed no service" } ],
+  "notice": { "on": true, "text": "Heavy snow forecast this weekend — high routes and buses may be disrupted", "until": "20261214", "busHomeOff": false }
+ }
+}
