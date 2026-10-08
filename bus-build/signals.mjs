@@ -138,18 +138,21 @@ const weather = await (async () => {
     catch (e) { errs.push(p.name + ': ' + e.message); } }
   if (!Object.keys(days).length) throw new Error(errs[0] || 'no forecast returned');
   Object.values(days).forEach(D => { const r = [];
-    if (D.gustMph >= (MO.highGustMph || 55)) r.push('gusts ' + D.gustMph + ' mph (' + D.where.gust + ')');
-    if (D.snow.length) r.push('snow forecast on ' + D.snow.slice(0, 3).join(', '));
-    if (D.feelsC <= (MO.highFeelsC != null ? MO.highFeelsC : -8)) r.push('feels like ' + D.feelsC + '\u00b0C (' + D.where.cold + ')');
-    D.highOff = r.length > 0; D.highReasons = r; D.scrambleOff = D.highOff || D.gustMph >= (MO.scrambleGustMph || 40); });
+    if (D.gustMph >= (MO.highGustMph || 55)) r.push('very strong gusts forecast');
+    if (D.snow.length) r.push('snow forecast on the high fells');
+    if (D.feelsC <= (MO.highFeelsC != null ? MO.highFeelsC : -8)) r.push('severe cold forecast');
+    D.highOff = r.length > 0; D.highReasons = r; D.scrambleOff = D.highOff || D.gustMph >= (MO.scrambleGustMph || 40);
+    if (D.scrambleOff && !D.highOff) D.highReasons = ['strong gusts forecast'];
+    /* MET OFFICE LICENCE 3.2 (checked 8 Oct): the public site may carry only our DECISIONS, never the forecast values themselves */
+    delete D.gustMph; delete D.feelsC; delete D.snow; delete D.where; });
   sources['met'] = { ok: true, at, n: pts.length - errs.length, label: 'Met Office (DataHub)', calls: pts.length, err: errs.length ? errs.join(' \u00b7 ').slice(0, 200) : undefined };
-  return { at, highM: MO.highM || 750, days, credit: 'Contains Met Office data \u00a9 Crown copyright' };
+  return { at, highM: MO.highM || 750, days, credit: 'Weather data supplied by the Met Office' };
 })().catch(e => { sources['met'] = { ok: false, at, label: 'Met Office (DataHub)', err: String(e.message || e).slice(0, 200) };
   cur.push({ id: 'source-down:met', kind: 'source-down', sev: 'med', source: 'Met Office', title: 'Met Office forecast could not be read', detail: String(e.message || e).slice(0, 200), effect: 'keeps the last forecast rules, marked stale' });
   return prevW ? Object.assign({}, prevW, { stale: true }) : null; });
 if (weather) Object.entries(weather.days).forEach(([d, D]) => { if (d < today || !D.scrambleOff) return;
   cur.push({ id: 'weather:' + d, kind: 'weather', sev: D.highOff ? 'high' : 'med', source: 'Met Office', title: d + ': ' + (D.highOff ? 'fells above ' + weather.highM + ' m and scrambles out' : 'graded scrambles out') + (weather.stale ? ' (stale)' : ''),
-    detail: (D.highReasons.length ? D.highReasons : ['gusts ' + D.gustMph + ' mph (' + D.where.gust + ')']).join(' \u00b7 '), effect: 'routes dropped that day; they come back if the forecast eases' }); });
+    detail: (D.highReasons.length ? D.highReasons : ['strong gusts forecast']).join(' \u00b7 '), effect: 'routes dropped that day; they come back if the forecast eases' }); });
 
 /* 3d SOURCE HEALTH (owner, 7 Oct): once a day, look for any source being retired — HTTP Deprecation / Sunset headers, retirement words
    on each source's own announcement page (config.signals.watchPages), and any source down 3 days running (likely moved or switched off). */
