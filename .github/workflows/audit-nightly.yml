@@ -29,11 +29,13 @@ jobs:
           git config user.name  "fellgorithm-bot"
           git config user.email "fellgorithm-bot@users.noreply.github.com"
           git add audit
-          git commit -m "Audit $(TZ=Europe/London date +%F)" && git push
+          git commit -m "Audit $(TZ=Europe/London date +%F)" || echo "nothing new to commit"
+          git pull --rebase --quiet || true
+          git push || echo "push failed — will retry tomorrow"
       - name: Email (issue comment)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          n=$(gh issue list --state open --search "Daily audit in:title" --json number -q '.[0].number')
-          if [ -z "$n" ]; then gh issue create --title "Daily audit" --body "One comment a night: the sealed record of the day. Click Subscribe to get it by email."; n=$(gh issue list --state open --search "Daily audit in:title" --json number -q '.[0].number'); fi
-          gh issue comment "$n" --body-file audit-email.md
+          n=$(gh issue list --state open --limit 100 --json number,title -q '[.[] | select(.title=="Daily audit")][0].number // empty')   # exact title, no search index
+          if [ -z "$n" ]; then url=$(gh issue create --title "Daily audit" --body "One comment a night: the sealed record of the day. Click Subscribe to get it by email."); n=${url##*/}; fi   # number taken from the new issue's link (search can lag)
+          if [ -f audit-email.md ]; then gh issue comment "$n" --body-file audit-email.md; else echo "no audit-email.md written"; fi
