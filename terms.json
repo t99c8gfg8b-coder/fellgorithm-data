@@ -1,6 +1,7 @@
 {
- "note": "THE RISKS WORDING the app shows. Edit here (or from the Mac app) and RAISE 'version' by 1 to send it out: every phone shows the opening screen again and must accept the new wording. Each toggle risk (avoidScr = Avoid scrambles off, avoidLast = bus-home cover off) has its own version: raise it and anyone who had that toggle off gets it switched back ON until they accept the new wording. Never lower a version. 'when': 'bus' = only shown on routes that use a bus. Wording to agree with your solicitor. CARDS (owner, 8 Oct): each general item is one welcome card — title (two lines), t (short line), d (the card text), ic (picture), when (bus / multi = only on those itineraries), intro/info (welcome + Before You Head Out: never printed). Figures in {BRACES} are filled from the app’s live settings — never type a number in their place.",
- "version": 2,
+ "note": "THE RISKS WORDING the app shows. Edit here (or from the Mac app) and RAISE 'version' by 1 to send it out: every phone shows the opening screen again and must accept the new wording. Each toggle risk (avoidScr = Avoid scrambles off, avoidLast = bus-home cover off) has its own version: raise it and anyone who had that toggle off gets it switched back ON until they accept the new wording. Never lower a version. 'when': 'bus' = only shown on routes that use a bus. Wording to agree with your solicitor. CARDS (owner, 8 Oct): each general item is one welcome card — title (two lines), t (short line), d (the card text), ic (picture), when (bus / multi = only on those itineraries), intro/info (welcome + Before You Head Out: never printed). Figures in {BRACES} are filled from the app’s live settings — never type a number in their place. PRE-LAUNCH (owner, 9 Oct): while \"prelaunch\" is true the version stays at 1 and the wording can change freely (no version bump). AT LAUNCH: delete the \"prelaunch\" line — v1 is then the first live wording and every later change must raise the version.",
+ "prelaunch": true,
+ "version": 1,
  "general": [
   {
    "intro": true,
@@ -68,9 +69,9 @@
   },
   {
    "ic": "mountain",
-   "title": "Scrambles and Swirral Edge",
-   "t": "Routes avoid Swirral Edge unless you switch that off.",
-   "d": "By default, every itinerary avoids graded scrambles, with one exception left as an opt-in: Swirral Edge, because of where it sits on Helvellyn and the connections it makes possible. You never need it to complete the 214 Wainwrights. Switching off Avoid Swirral Edge in the settings opens up quicker links in the area, but adds risk: a slip can be fatal, especially in poor conditions. Your itinerary will say when a route uses it, and making sure everyone in your group is competent to take it on is your responsibility."
+   "title": "Swirral Edge and Foxes Rake",
+   "t": "Routes avoid Swirral Edge and Foxes Rake unless you switch that off.",
+   "d": "By default, every itinerary avoids graded scrambles, with two exceptions left as an opt-in: Swirral Edge on Helvellyn and Foxes Rake on Scafell, because of the connections they make possible. You never need either to complete the 214 Wainwrights. Switching off Avoid Swirral Edge and Foxes Rake in the settings opens up quicker links in those areas, but adds risk: a slip can be fatal, especially in poor conditions. Your itinerary will say when a route uses one, and making sure everyone in your group is competent to take it on is your responsibility."
   },
   {
    "ic": "multi",
@@ -90,15 +91,15 @@
  "risks": {
   "avoidScr": {
    "version": 2,
-   "title": "Routes May Use Swirral Edge",
+   "title": "Routes May Use Swirral Edge or Foxes Rake",
    "items": [
     {
-     "t": "Swirral Edge is a graded scramble.",
-     "d": "It is steep, exposed rock where a slip can be fatal, and much harder in wet, wind or ice. There may be no easy way off once you are on it."
+     "t": "Swirral Edge and Foxes Rake are graded scrambles.",
+     "d": "Both are steep, exposed rock where a slip can be fatal, and much harder in wet, wind or ice. There may be no easy way off once you are on them."
     },
     {
-     "t": "Only take it on if you have the experience.",
-     "d": "Fellgorithm names it on any itinerary that uses it, but cannot judge whether you, your group or the conditions are up to it."
+     "t": "Only take them on if you have the experience.",
+     "d": "Fellgorithm names them on any itinerary that uses them, but cannot judge whether you, your group or the conditions are up to it."
     }
    ]
   },
