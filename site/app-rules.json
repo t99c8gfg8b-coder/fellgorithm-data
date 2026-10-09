@@ -14,7 +14,7 @@
  "staleDays": 14,
  "seasonalSoonDays": 30,
  "planDaysAhead": 7,
- "scrambles": "Only Swirral Edge, and only with Avoid Swirral Edge switched off; every other graded scramble never",
+ "scrambles": "Only Swirral Edge and Foxes Rake, and only with Avoid Swirral Edge and Foxes Rake switched off, and only when the way round is at least 45 minutes longer; every other graded scramble never",
  "routesWithBusHomeToggle": true,
  "gpxDownloads": false,
  "pathLinesOnMaps": false,
