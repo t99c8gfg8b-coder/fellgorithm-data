@@ -203,15 +203,20 @@ const TJ = readJ('terms.json'), prevT = prevA.terms || null, tBad = [];
 const tOk = t => t && Number.isInteger(+t.version) && Array.isArray(t.general) && t.general.length && t.general.every(x => x && String(x.t || '').trim() && String(x.d || '').trim())
   && Object.values(t.risks || {}).every(r => r && String(r.title || '').trim() && Array.isArray(r.items) && r.items.length && r.items.every(x => String(x.t || '').trim() && String(x.d || '').trim()));
 if (TJ && !tOk(TJ)) tBad.push('terms.json is incomplete (every item needs a title and text, every version a whole number)');
-if (TJ && prevT && +TJ.version < +prevT.version) tBad.push('terms.json version went DOWN (' + prevT.version + ' → ' + TJ.version + ')');
+/* PRE-LAUNCH (owner, 9 Oct): "prelaunch": true in terms.json = not live yet. The version is held at 1, wording may change freely, a lower number than
+   the last published is allowed (the 7–9 Oct drafts were v2/v3), and terms-history/v1.json is rewritten each time. At launch DELETE the flag: v1 is then
+   frozen as the first wording people agreed to, and the normal rules (versions only go up, any change raises it) apply from then on. */
+const PRE = !!(TJ && TJ.prelaunch === true);
+if (PRE && +TJ.version !== 1) tBad.push('prelaunch is on, so version must be 1 (it becomes the first live version at launch)');
+if (TJ && prevT && !PRE && +TJ.version < +prevT.version) tBad.push('terms.json version went DOWN (' + prevT.version + ' → ' + TJ.version + ')');
 /* ONE DOCUMENT, ONE VERSION (owner, 7 Oct): any wording change anywhere (general or a margin risk) must raise the single version */
-if (TJ && prevT && +TJ.version === +prevT.version && JSON.stringify([TJ.general, TJ.risks]) !== JSON.stringify([prevT.general, prevT.risks])) tBad.push('wording changed but version not raised — phones would NOT be asked to accept again; raise version');
-const terms = TJ && !tBad.length ? (({ note, ...t }) => t)(TJ) : prevT;
-/* TERMS HISTORY (owner, 8 Oct): every published version is archived once in terms-history/v<N>.json — never overwritten */
+if (TJ && prevT && !PRE && +TJ.version === +prevT.version && JSON.stringify([TJ.general, TJ.risks]) !== JSON.stringify([prevT.general, prevT.risks])) tBad.push('wording changed but version not raised — phones would NOT be asked to accept again; raise version');
+const terms = TJ && !tBad.length ? (({ note, prelaunch, ...t }) => t)(TJ) : prevT;
+/* TERMS HISTORY (owner, 8 Oct): every published version is archived once in terms-history/v<N>.json — never overwritten (except v1 while prelaunch is on) */
 if (TJ && !tBad.length) { try { const fs0 = await import('node:fs'), hp = 'terms-history/v' + (+TJ.version) + '.json';
-  if (!fs0.existsSync(hp)) { fs0.mkdirSync('terms-history', { recursive: true }); fs0.writeFileSync(hp, JSON.stringify(Object.assign({ saved: new Date().toISOString().slice(0, 10) }, terms), null, 1)); } } catch (e) {} }
+  if (PRE || !fs0.existsSync(hp)) { fs0.mkdirSync('terms-history', { recursive: true }); fs0.writeFileSync(hp, JSON.stringify(Object.assign({ saved: new Date().toISOString().slice(0, 10) }, PRE ? { prelaunch: true } : {}, terms), null, 1)); } } catch (e) {} }
 if (tBad.length) cur.push({ id: 'terms-invalid', kind: 'holds-invalid', sev: 'high', source: 'terms.json', title: 'Risks wording NOT sent out', detail: tBad.join(' · '), effect: 'phones keep the last good wording (v' + (prevT ? prevT.version : 'bundled') + ')' });
-if (terms && prevT && +terms.version > +prevT.version) cur.push({ id: 'terms-sent:' + terms.version, kind: 'notice', sev: 'low', source: 'terms.json (you)', title: 'Terms v' + terms.version + ' sent out — every phone must accept the whole document again', detail: '', effect: 'opening screen shown again on every phone' });
+if (terms && prevT && !PRE && +terms.version > +prevT.version) cur.push({ id: 'terms-sent:' + terms.version, kind: 'notice', sev: 'low', source: 'terms.json (you)', title: 'Terms v' + terms.version + ' sent out — every phone must accept the whole document again', detail: '', effect: 'opening screen shown again on every phone' });
 
 /* 6 WRITE */
 const alerts = { schema: 1, generated: at, terms, notice, holds, autoHolds, weather, disruptions, floods, roads, works, bankHolidays: bank,

@@ -1,14 +1,10 @@
 {
  "schema": 1,
- "version": "2026-10-09+bods-20261009_025808",
- "generated": "2026-10-09",
- "bytes": 694404,
- "sha256": "875ba528728a2e82f03a95d4da8997b1195244824a2623f3d9aba4f47e2c3936",
- "services": 14,
- "journeys": 1396,
- "feed": {
-  "version": "20261009_025808",
-  "start": "20261009",
-  "end": "20270830"
- }
+ "version": "2026-09-30+rebase-cockermouth-munvlrqt",
+ "generated": "2026-09-22",
+ "bytes": 660387,
+ "sha256": "090ade8f4bed42ee12c126f6da0e588f26ca7526c9ef4ac27d4c26d05599e73c",
+ "services": 13,
+ "journeys": 1393,
+ "feed": null
 }
