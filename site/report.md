@@ -1,14 +1,13 @@
-# Bus timetable build 2026-10-20 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-21 — PASSED ✓ (ready to publish)
 
-BODS feed 20261020_034410 (20261020 → 20270830) · 13 services · 3766 journeys (last good: 2026-10-19, 3796 journeys)
-Timetable runs to 20270802 · 200 route stops checked · checksum 0cf45993636c
+BODS feed 20261021_034859 (20261021 → 20270830) · 14 services · 3796 journeys (last good: 2026-10-20, 3766 journeys)
+Timetable runs to 20270802 · 200 route stops checked · checksum 28db6696f017
 
 ## Failures
 - none
 
 ## Warnings
-- Service 755 has gone this week (was 30 journeys)
-- Not running in this feed (fine out of season): 77C, 755
+- Not running in this feed (fine out of season): 77C
 - VERSIONS DISAGREE: service 555 — one timetable version says no buses, another says buses on 1 day(s) (20261226) — no 555 buses home those days; check with the operator
 
 ## Changes since the last published build
@@ -17,19 +16,23 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 0cf45993636c
 - 554: 286 → 286 journeys (12 new/changed, 12 gone)
 - 555: 828 → 828 journeys (84 new/changed, 84 gone)
 - 599: 520 → 520 journeys (40 new/changed, 40 gone)
-- GONE service 755 (had 30)
+- NEW service 755: 30 journeys
 - X4: 315 → 315 journeys (39 new/changed, 39 gone)
 - X5: 609 → 609 journeys (83 new/changed, 83 gone)
 
 ## Buses home waiting for confirmation
 - New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±10 min count as the same bus).
 - 555: 8 journeys held on some dates (8 wholly new or changed)
+- 755: 30 journeys held on some dates (30 wholly new or changed)
 
 ## Days a service gained or lost ALL its buses (next 60 days, vs the last published build)
 - none
 
 ## Per service
-- 505:182 508:116 509:43 516:210 554:286 555:828 599:520 6:275 77:42 77A:40 78:300 X4:315 X5:609
+- 505:182 508:116 509:43 516:210 554:286 555:828 755:30 599:520 6:275 77:42 77A:40 78:300 X4:315 X5:609
+
+## Renumbered buses built onto another service
+- 755 → built as 555: 30 of 68 trips kept (rest call at fewer than two 555 stops). Runs: New Street → Ocean Edge Leisure Park ×16; Ocean Edge Leisure Park → Railway Station ×14; Bowness Pier → New Street ×14; Railway Station → Bowness Pier ×14; Ocean Edge Leisure Park → Euston Road School ×4; Euston Road School → Ocean Edge Leisure Park ×2; Bus Station → Railway Station ×1; New Street → Bus Station ×1; Blackhall Road → New Street ×1; Railway Station → Bus Station (Ken) ×1
 
 ## Trips per service (in feed → kept; dropped: too few app stops / no running dates)
 - 6: 355 → 275 (dropped 80 / 0)
@@ -40,7 +43,7 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 0cf45993636c
 - 509: 43 → 43 (dropped 0 / 0)
 - 516: 210 → 210 (dropped 0 / 0)
 - 554: 286 → 286 (dropped 0 / 0)
-- 555: 828 → 828 (dropped 0 / 0)
+- 555: 896 → 858 (dropped 38 / 0)
 - 599: 520 → 520 (dropped 0 / 0)
 - 77A: 40 → 40 (dropped 0 / 0)
 - X4: 361 → 315 (dropped 46 / 0)
@@ -73,6 +76,8 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 0cf45993636c
 - 78 · SCCU Stagecoach Cumbria and North Lancashire · 300 trips · TAKEN
 - 78 · AMSY Arriva North West · 98 trips · skipped (other operator)
 - 78 · ARCT Archway Travel · 76 trips · skipped (other operator)
+- 755 · SCCU Stagecoach Cumbria and North Lancashire · 38 trips · TAKEN
+- 755 · SCCU Stagecoach Cumbria and North Lancashire · 30 trips · TAKEN
 - 755 · BNDB Bee Network · 2 trips · skipped (other operator)
 - 755 · WBTR Warrington's Own Buses · 1 trips · skipped (other operator)
 - 755 · SCMY Stagecoach Merseyside and South Lancashire · 1 trips · skipped (other operator)
@@ -88,5 +93,5 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 0cf45993636c
 - none
 
 ## Build notes
-- Trips without two known places (dropped): 126 · duplicates merged: 0
-- Stops on our buses that are not app places (ignored, normal): 6 182, 77 9, 78 4, 505 56, 508 75, 509 38, 516 53, 554 71, 555 188, 599 51, 77A 10, X4 86, X5 61
+- Trips without two known places (dropped): 164 · duplicates merged: 0
+- Stops on our buses that are not app places (ignored, normal): 6 182, 77 9, 78 4, 505 56, 508 75, 509 38, 516 53, 554 71, 555 285, 599 51, 77A 10, X4 86, X5 61
