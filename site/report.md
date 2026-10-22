@@ -1,7 +1,7 @@
-# Bus timetable build 2026-10-21 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-22 — PASSED ✓ (ready to publish)
 
-BODS feed 20261021_034859 (20261021 → 20270830) · 14 services · 3796 journeys (last good: 2026-10-20, 3766 journeys)
-Timetable runs to 20270802 · 200 route stops checked · checksum 28db6696f017
+BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 3796 journeys (last good: 2026-10-21, 3796 journeys)
+Timetable runs to 20270802 · 200 route stops checked · checksum 8786d943e6a9
 
 ## Failures
 - none
@@ -16,14 +16,14 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 28db6696f017
 - 554: 286 → 286 journeys (12 new/changed, 12 gone)
 - 555: 828 → 828 journeys (84 new/changed, 84 gone)
 - 599: 520 → 520 journeys (40 new/changed, 40 gone)
-- NEW service 755: 30 journeys
+- 755: 30 → 30 journeys (0 new/changed, 0 gone), runs to 20270722 (was 20270721)
 - X4: 315 → 315 journeys (39 new/changed, 39 gone)
 - X5: 609 → 609 journeys (83 new/changed, 83 gone)
 
 ## Buses home waiting for confirmation
 - New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±10 min count as the same bus).
 - 555: 8 journeys held on some dates (8 wholly new or changed)
-- 755: 30 journeys held on some dates (30 wholly new or changed)
+- 755: 10 journeys held on some dates (0 wholly new or changed)
 
 ## Days a service gained or lost ALL its buses (next 60 days, vs the last published build)
 - none
