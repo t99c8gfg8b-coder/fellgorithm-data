@@ -1,7 +1,7 @@
-# Bus timetable build 2026-10-22 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-23 — PASSED ✓ (ready to publish)
 
-BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 3796 journeys (last good: 2026-10-21, 3796 journeys)
-Timetable runs to 20270802 · 200 route stops checked · checksum 8786d943e6a9
+BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 3792 journeys (last good: 2026-10-22, 3796 journeys)
+Timetable runs to 20270802 · 200 route stops checked · checksum 6f6c5d18d183
 
 ## Failures
 - none
@@ -11,16 +11,10 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 8786d943e6a9
 - VERSIONS DISAGREE: service 555 — one timetable version says no buses, another says buses on 1 day(s) (20261226) — no 555 buses home those days; check with the operator
 
 ## Changes since the last published build
-- 78: 300 → 300 journeys (18 new/changed, 18 gone)
-- 505: 182 → 182 journeys (4 new/changed, 4 gone)
-- 554: 286 → 286 journeys (12 new/changed, 12 gone)
-- 555: 828 → 828 journeys (84 new/changed, 84 gone)
-- 599: 520 → 520 journeys (40 new/changed, 40 gone)
-- 755: 30 → 30 journeys (0 new/changed, 0 gone), runs to 20270722 (was 20270721)
-- X4: 315 → 315 journeys (39 new/changed, 39 gone)
-- X5: 609 → 609 journeys (83 new/changed, 83 gone)
+- 554: 286 → 283 journeys (0 new/changed, 3 gone)
+- X5: 609 → 608 journeys (0 new/changed, 1 gone)
 
-## Buses home waiting for confirmation
+## Buses home waiting for confirmation (same BODS feed as the last published build — nothing new is confirmed today)
 - New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±10 min count as the same bus).
 - 555: 8 journeys held on some dates (8 wholly new or changed)
 - 755: 10 journeys held on some dates (0 wholly new or changed)
@@ -29,7 +23,7 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 8786d943e6a9
 - none
 
 ## Per service
-- 505:182 508:116 509:43 516:210 554:286 555:828 755:30 599:520 6:275 77:42 77A:40 78:300 X4:315 X5:609
+- 505:182 508:116 509:43 516:210 554:283 555:828 755:30 599:520 6:275 77:42 77A:40 78:300 X4:315 X5:608
 
 ## Renumbered buses built onto another service
 - 755 → built as 555: 30 of 68 trips kept (rest call at fewer than two 555 stops). Runs: New Street → Ocean Edge Leisure Park ×16; Ocean Edge Leisure Park → Railway Station ×14; Bowness Pier → New Street ×14; Railway Station → Bowness Pier ×14; Ocean Edge Leisure Park → Euston Road School ×4; Euston Road School → Ocean Edge Leisure Park ×2; Bus Station → Railway Station ×1; New Street → Bus Station ×1; Blackhall Road → New Street ×1; Railway Station → Bus Station (Ken) ×1
