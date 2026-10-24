@@ -1,7 +1,7 @@
-# Bus timetable build 2026-10-23 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-24 — PASSED ✓ (ready to publish)
 
-BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 3792 journeys (last good: 2026-10-22, 3796 journeys)
-Timetable runs to 20270802 · 200 route stops checked · checksum 6f6c5d18d183
+BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 3780 journeys (last good: 2026-10-23, 3792 journeys)
+Timetable runs to 20270802 · 200 route stops checked · checksum a1b00d2c5f05
 
 ## Failures
 - none
@@ -11,8 +11,10 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 6f6c5d18d183
 - VERSIONS DISAGREE: service 555 — one timetable version says no buses, another says buses on 1 day(s) (20261226) — no 555 buses home those days; check with the operator
 
 ## Changes since the last published build
-- 554: 286 → 283 journeys (0 new/changed, 3 gone)
-- X5: 609 → 608 journeys (0 new/changed, 1 gone)
+- 505: 182 → 180 journeys (0 new/changed, 2 gone)
+- 554: 283 → 280 journeys (0 new/changed, 3 gone)
+- 555: 828 → 822 journeys (0 new/changed, 6 gone)
+- X5: 608 → 607 journeys (0 new/changed, 1 gone)
 
 ## Buses home waiting for confirmation (same BODS feed as the last published build — nothing new is confirmed today)
 - New or changed journeys are used as buses OUT straight away, but as buses HOME only once the next BODS feed shows them again (times within ±10 min count as the same bus).
@@ -23,7 +25,7 @@ Timetable runs to 20270802 · 200 route stops checked · checksum 6f6c5d18d183
 - none
 
 ## Per service
-- 505:182 508:116 509:43 516:210 554:283 555:828 755:30 599:520 6:275 77:42 77A:40 78:300 X4:315 X5:608
+- 505:180 508:116 509:43 516:210 554:280 555:822 755:30 599:520 6:275 77:42 77A:40 78:300 X4:315 X5:607
 
 ## Renumbered buses built onto another service
 - 755 → built as 555: 30 of 68 trips kept (rest call at fewer than two 555 stops). Runs: New Street → Ocean Edge Leisure Park ×16; Ocean Edge Leisure Park → Railway Station ×14; Bowness Pier → New Street ×14; Railway Station → Bowness Pier ×14; Ocean Edge Leisure Park → Euston Road School ×4; Euston Road School → Ocean Edge Leisure Park ×2; Bus Station → Railway Station ×1; New Street → Bus Station ×1; Blackhall Road → New Street ×1; Railway Station → Bus Station (Ken) ×1
