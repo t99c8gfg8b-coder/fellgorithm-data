@@ -1,7 +1,7 @@
-# Bus timetable build 2026-10-25 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-26 — PASSED ✓ (ready to publish)
 
-BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 3212 journeys (last good: 2026-10-24, 3780 journeys)
-Timetable runs to 20270802 · 200 route stops checked · checksum eb3787b5f84c
+BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 2817 journeys (last good: 2026-10-25, 3212 journeys)
+Timetable runs to 20270802 · 200 route stops checked · checksum 4b6538ac9773
 
 ## Failures
 - none
@@ -22,7 +22,7 @@ Timetable runs to 20270802 · 200 route stops checked · checksum eb3787b5f84c
 - none
 
 ## Per service
-- 505:112 508:116 509:43 516:120 554:188 555:822 755:30 599:316 6:275 77:42 77A:40 78:186 X4:315 X5:607
+- 505:112 508:116 509:43 516:120 554:188 555:560 755:30 599:316 6:183 77:21 77A:20 78:186 X4:315 X5:607
 
 ## Renumbered buses built onto another service
 - 755 → built as 555: 30 of 68 trips kept (rest call at fewer than two 555 stops). Runs: New Street → Ocean Edge Leisure Park ×16; Ocean Edge Leisure Park → Railway Station ×14; Bowness Pier → New Street ×14; Railway Station → Bowness Pier ×14; Ocean Edge Leisure Park → Euston Road School ×4; Euston Road School → Ocean Edge Leisure Park ×2; Bus Station → Railway Station ×1; New Street → Bus Station ×1; Blackhall Road → New Street ×1; Railway Station → Bus Station (Ken) ×1
