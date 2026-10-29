@@ -1,7 +1,7 @@
-# Bus timetable build 2026-10-28 — PASSED ✓ (ready to publish)
+# Bus timetable build 2026-10-29 — PASSED ✓ (ready to publish)
 
-BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 2817 journeys (last good: 2026-10-27, 2817 journeys)
-Timetable runs to 20270802 · 200 route stops checked · checksum a1365eb7c4c8
+BODS feed 20261022_034821 (20261022 → 20270830) · 14 services · 2817 journeys (last good: 2026-10-28, 2817 journeys)
+Timetable runs to 20270802 · 200 route stops checked · checksum a7952ea13f60
 
 ## Failures
 - none
@@ -9,6 +9,7 @@ Timetable runs to 20270802 · 200 route stops checked · checksum a1365eb7c4c8
 ## Warnings
 - Buttermere Mon 20261102: no bus out + back (same as last week)
 - Buttermere Tue 20261103: no bus out + back (same as last week)
+- Buttermere Wed 20261104: no bus out + back (same as last week)
 - Not running in this feed (fine out of season): 77C
 - VERSIONS DISAGREE: service 555 — one timetable version says no buses, another says buses on 1 day(s) (20261226) — no 555 buses home those days; check with the operator
 
